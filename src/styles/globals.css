@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-html {
-    background-color: #16161a;
-    font-family: 'Inter', sans-serif;
+html, body, label {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #004643;
 }
 
 * {
