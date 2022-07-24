@@ -12,20 +12,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   // HERE you can access all node.js methods: db, fs, etc...
-//   return {
-//     // [name]:
-//     paths: [
-//       { params: { name: 'route1' } },
-//       { params: { name: 'route2' } },
-//       { params: { name: 'route3' } },
-//     ],
-//     fallback: false, // WON'T CONTINUE in case of WRONG ROUTE!
-//     // TRUE: Rendering would continue and the return
-//     // of GetStaticPathsIndex() would be rendered for any route!
-//   }
-// }
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [], //indicates that no page needs be created at build time
+    fallback: 'blocking', //indicates the type of fallback
+  }
+}
 
 // SERVER + CLIENT EXECUTION:
 // Next function will be executed on the server to get the props
