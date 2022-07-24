@@ -12,6 +12,11 @@ module.exports = {
       highlight: '#f9bc60',
       secondary: '#abd1c6',
       tertiary: '#e16162',
+      card: {
+        background: '#e8e4e6',
+        headline: '#001e1d',
+        paragraph: '#0f3433',
+      }
     }
   },
   plugins: [],

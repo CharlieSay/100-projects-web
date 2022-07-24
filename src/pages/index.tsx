@@ -1,8 +1,21 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import { CollectionSlug, getPostSlugs } from '../api/get-posts'
 import { Collection } from '../components/collection'
 
-const Home: NextPage = () => {
+export interface CollectionProps {
+  collectedSlugData?: CollectionSlug[]
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      collectedSlugData: getPostSlugs(),
+    },
+  }
+}
+
+const Home: NextPage = (props: CollectionProps) => {
   return (
     <>
       <Head>
@@ -12,7 +25,9 @@ const Home: NextPage = () => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <main>
-        <Collection />
+        {props.collectedSlugData && (
+          <Collection collectedSlugData={props.collectedSlugData} />
+        )}
       </main>
     </>
   )

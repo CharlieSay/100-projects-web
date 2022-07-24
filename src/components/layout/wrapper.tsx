@@ -21,9 +21,14 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
             >
               <Link
                 href="/collections"
-                className="p-2 lg:px-4 md:mx-2 font-semibold "
+                className="p-2 lg:px-4 md:mx-2 font-semibold"
               >
-                <p className="text-highlight">Collections</p>
+                <button
+                  type="button"
+                  className="focus:outline-none text-stroke bg-button hover:bg-yellow-500 focus:ring-4 focus:bg-tertiary font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:bg-tertiary"
+                >
+                  Collections
+                </button>
               </Link>
             </div>
           </div>
