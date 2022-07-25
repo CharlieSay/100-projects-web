@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from 'fs-extra'
 import { join } from 'path'
-import matter, { GrayMatterFile } from 'gray-matter'
+import matter from 'gray-matter'
 
 const postsDirectory = join(process.cwd(), '_mdx')
 
@@ -23,7 +23,7 @@ export type ProjectLocation = {
 }
 
 export function getPostFrontMatter(slug: string): ProjectSlug {
-  const grayMatterForSlug = getPostBySlug(slug)
+  const grayMatterForSlug = getPostBySlug([slug])
   return {
     title: grayMatterForSlug.data.title,
     tags: grayMatterForSlug.data.tags.split(','),
@@ -52,32 +52,21 @@ export function getPostSlugs(): CollectionSlug[] {
   return listOfProjects
 }
 
-export function getPostBySlug(slug: string): GrayMatterFile<any> {
-  const fullPath = join(postsDirectory, `${slug}`)
+export function getPostBySlug(slug: string[]): PostMatter {
+  const fullPath = join(postsDirectory, ...slug)
   const fileContents = readFileSync(fullPath, 'utf-8')
   const grayMatter = matter(fileContents)
-  return grayMatter
+  return {
+    content: grayMatter.content,
+    data: grayMatter.data,
+    matter: grayMatter.matter,
+    language: grayMatter.language,
+  }
 }
 
-// type Items = {
-//   [key: string]: string
-// }
-
-// const items: Items = {}
-
-// // Ensure only the minimal needed data is exposed
-// fields.forEach((field) => {
-//   if (field === 'slug') {
-//     items[field] = realSlug
-//   }
-//   if (field === 'content') {
-//     items[field] = content
-//   }
-
-//   if (typeof data[field] !== 'undefined') {
-//     items[field] = data[field]
-//   }
-// })
-
-// return items
-// }
+export interface PostMatter {
+  data: { [key: string]: any }
+  content: string
+  matter: string
+  language: string
+}
