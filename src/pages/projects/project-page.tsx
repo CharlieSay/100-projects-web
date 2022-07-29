@@ -11,8 +11,10 @@ export const ProjectPage = (props: PostMatter) => {
         <p>{data.expertise}</p>
       </section>
       <section>
-        <p>{content}</p>
+        <div dangerouslySetInnerHTML={{ __html: content }}></div>
       </section>
     </section>
   )
 }
+
+export default ProjectPage

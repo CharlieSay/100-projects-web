@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'fs-extra'
 import { join } from 'path'
 import matter from 'gray-matter'
-
+import { capitalizeWords } from '../util/string-manipulation'
 const postsDirectory = join(process.cwd(), '_mdx')
 
 export type CollectionSlug = {
@@ -22,11 +22,18 @@ export type ProjectLocation = {
   projectLocation: string
 }
 
+export type PostMatter = {
+  data: { [key: string]: any }
+  content: string
+  matter: string
+  language: string
+}
+
 export function getPostFrontMatter(slug: string): ProjectSlug {
   const grayMatterForSlug = getPostBySlug([slug])
   return {
     title: grayMatterForSlug.data.title,
-    tags: grayMatterForSlug.data.tags.split(','),
+    tags: capitalizeWords(grayMatterForSlug.data.tags.split(',')),
     expertise: grayMatterForSlug.data.expertise,
     description: grayMatterForSlug.data.description || '',
     location: { collection: '', projectLocation: '' },
@@ -62,11 +69,4 @@ export function getPostBySlug(slug: string[]): PostMatter {
     matter: grayMatter.matter,
     language: grayMatter.language,
   }
-}
-
-export interface PostMatter {
-  data: { [key: string]: any }
-  content: string
-  matter: string
-  language: string
 }

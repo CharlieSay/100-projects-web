@@ -42,6 +42,9 @@ export default function GetStaticPathsIndex(props: PostMatter) {
   // fallback: true, you can use:
   if (router.isFallback) {
     backToHome()
+  }
+
+  if (!props.data || !props.content) {
     return (
       <div>
         <h1>Loading...</h1>

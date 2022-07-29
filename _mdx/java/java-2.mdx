@@ -5,33 +5,25 @@ description: Simple RESTful API that will allow either all Pokemon OR By Generat
 expertise: beginner
 ---
 
-Create a simple CRUD Repository based off pokemon.
+Converts a comma-separated values (CSV) string to a 2D array.
 
-CREATE, UPDATE, DELETE, GET
+- Use `Array.prototype.indexOf()` to find the first newline character (`\n`).
+- Use `Array.prototype.slice()` to remove the first row (title row) if `omitFirstRow` is `true`.
+- Use `String.prototype.split()` to create a string for each row.
+- Use `String.prototype.split()` to separate the values in each row, using the provided `delimiter`.
+- Omit the second argument, `delimiter`, to use a default delimiter of `','`.
+- Omit the third argument, `omitFirstRow`, to include the first row (title row) of the CSV string.
 
-BONUS : Allow filtering by pokemon type.
+```js
+const CSVToArray = (data, delimiter = ',', omitFirstRow = false) =>
+  data
+    .slice(omitFirstRow ? data.indexOf('\n') + 1 : 0)
+    .split('\n')
+    .map(v => v.split(delimiter));
+```
 
-bunch of pokemon:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Bulbasaur",
-    "type": ["Grass", "Poison"],
-    "gen": 1
-  },
-  {
-    "id": 2,
-    "name": "Squirtle",
-    "type": ["Water"],
-    "gen": 1
-  },
-  {
-    "id": 3,
-    "name": "Charmander",
-    "type": ["Fire"],
-    "gen": 1
-  }
-]
+```js
+CSVToArray('a,b\nc,d'); // [['a', 'b'], ['c', 'd']];
+CSVToArray('a;b\nc;d', ';'); // [['a', 'b'], ['c', 'd']];
+CSVToArray('col1,col2\na,b\nc,d', ',', true); // [['a', 'b'], ['c', 'd']];
 ```

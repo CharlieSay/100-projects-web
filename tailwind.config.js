@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -16,8 +17,15 @@ module.exports = {
         background: '#e8e4e6',
         headline: '#001e1d',
         paragraph: '#0f3433',
-      }
-    }
+      },
+    },
+    fontSize: {
+      ssm: ['8px', '14px'],
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
+    },
   },
   plugins: [],
 }
