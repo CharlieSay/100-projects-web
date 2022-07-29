@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 import { CollectionSlug, getPostSlugs } from '../api/get-posts'
 import { Collection } from '../components/collection'
 
 export interface CollectionProps {
   collectedSlugData?: CollectionSlug[]
+  perRow?: number
 }
 
 export const getStaticProps: GetStaticProps = async () => {
