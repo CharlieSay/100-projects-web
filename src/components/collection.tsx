@@ -10,7 +10,7 @@ export const Collection = (props: CollectionProps) => {
       <ul>
         {props.collectedSlugData &&
           props.collectedSlugData.map((slug: CollectionSlug) => (
-            <li key={slug.title}>
+            <li key={slug.title} className="mb-4">
               <h1 className="text-text text-4xl mb-4">
                 {capitalize(slug.title)}
               </h1>
