@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { Tag } from '../components/atoms/tag'
 
 const Home: NextPage = () => {
   return (

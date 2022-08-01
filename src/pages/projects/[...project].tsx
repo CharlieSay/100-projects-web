@@ -16,7 +16,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const grayMatter = getPostBySlug(project)
 
   return {
-    revalidate: 10,
     props: {
       content: grayMatter.content,
       data: grayMatter.data,

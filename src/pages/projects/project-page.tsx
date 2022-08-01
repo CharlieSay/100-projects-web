@@ -5,7 +5,7 @@ export const ProjectPage = (props: PostMatter) => {
   return (
     <section>
       <section>
-        <h1>{data.title}</h1>
+        <h1>{data.title ? data.title : ''}</h1>
         <h5>{data.tags}</h5>
         <p>{data.description}</p>
         <p>{data.expertise}</p>
