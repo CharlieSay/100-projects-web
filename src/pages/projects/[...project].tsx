@@ -1,9 +1,10 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
 import { getPostBySlug, PostMatter } from '../../api/get-posts'
-import { ProjectPage } from './project-page'
-
+import SyntaxHighlighter from 'react-syntax-highlighter'
 interface IParams extends ParsedUrlQuery {
   project: string[]
 }
@@ -14,6 +15,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (project === undefined) return { props: {} }
 
   const grayMatter = getPostBySlug(project)
+  const sourceContent = await serialize(grayMatter.content)
 
   return {
     props: {
@@ -21,6 +23,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       data: grayMatter.data,
       matter: grayMatter.matter || '',
       language: grayMatter.language || '',
+      source: sourceContent,
     },
   }
 }
@@ -52,11 +55,15 @@ export default function GetStaticPathsIndex(props: PostMatter) {
   }
 
   return (
-    <ProjectPage
-      data={props.data}
-      content={props.content}
-      language={props.language}
-      matter={props.matter}
-    />
+    <>
+      <section>
+        <h1>{props.data.title ? props.data.title : ''}</h1>
+        <h5>{props.data.tags}</h5>
+        <p>{props.data.description}</p>
+        <p>{props.data.expertise}</p>
+      </section>
+      <hr style={{ borderTop: `1.5px solid white` }} />
+      <MDXRemote {...props.source} components={{ SyntaxHighlighter }} />
+    </>
   )
 }

@@ -27,6 +27,7 @@ export type PostMatter = {
   content: string
   matter: string
   language: string
+  source: any
 }
 
 export function getPostFrontMatter(slug: string): ProjectSlug {

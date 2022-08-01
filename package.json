@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@types/capitalize": "^2.0.0",
+    "@types/react-syntax-highlighter": "^15.5.4",
     "capitalize": "^2.0.4",
     "gray-matter": "^4.0.3",
     "next": "12.2.0",
+    "next-mdx-remote": "^4.1.0",
     "path": "^0.12.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",

@@ -2,13 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-html, body, label {
-  font-family: 'Montserrat', sans-serif;
+html,
+body,
+label {
+  font-family: "Montserrat", sans-serif;
   background-color: #004643;
 }
 
 * {
-    color: #fffffe;
+  color: #fffffe;
+  box-sizing: border-box;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4 {
+  word-break: break-word;
+  hyphens: auto;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
 }
