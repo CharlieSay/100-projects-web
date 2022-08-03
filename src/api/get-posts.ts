@@ -41,6 +41,15 @@ export function getPostFrontMatter(slug: string): ProjectSlug {
   }
 }
 
+export function getPopularSlugs(): ProjectSlug[] {
+  const javaOnly = readdirSync(join(postsDirectory, `/java`))
+  let listOfProjects: ProjectSlug[] = []
+  javaOnly.map((project) => {
+    listOfProjects.push(getPostFrontMatter(project))
+  })
+  return listOfProjects
+}
+
 export function getPostSlugs(): CollectionSlug[] {
   const listOfCollections = readdirSync(postsDirectory)
   let listOfProjects: CollectionSlug[] = []
@@ -69,6 +78,6 @@ export function getPostBySlug(slug: string[]): PostMatter {
     data: grayMatter.data,
     matter: grayMatter.matter,
     language: grayMatter.language,
-    source: {}
+    source: {},
   }
 }

@@ -11,9 +11,8 @@ const Home: NextPage = () => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <main>
-        <h1>Popular Projects</h1>
         <h1>Popular Collections</h1>
-        <h1>Popular Examples</h1>
+        <h2>Java</h2>
       </main>
     </>
   )

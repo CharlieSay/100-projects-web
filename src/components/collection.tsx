@@ -22,7 +22,7 @@ export const Collection = (props: CollectionProps) => {
                     className="flex"
                   >
                     <div className="row-span-2 cursor-pointer bg-card-background rounded shadow-md md:flex-row md:max-w-md max-h-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                      <div className="flex flex-col justify-between p-4 leading-normal w-full">
+                      <div className="flex flex-col justify-between px-4 py-2 leading-normal w-full">
                         <section className="flex justify-between">
                           <h5 className="mb-2 text-2xl font-bold tracking-tight text-card-headline dark:text-white">
                             {subSlug.title}
@@ -32,7 +32,7 @@ export const Collection = (props: CollectionProps) => {
                           </p>
                         </section>
                         {subSlug.description && (
-                          <p className="font-normal text-card-paragraph mb-8 truncate">
+                          <p className="font-normal text-xs text-card-paragraph mb-4 mt-2">
                             {subSlug.description}
                           </p>
                         )}
@@ -40,7 +40,7 @@ export const Collection = (props: CollectionProps) => {
                           {subSlug.tags.map((tag) => (
                             <div
                               key={tag}
-                              className="text-center text-ssm mb-2 mr-2 bg-background px-4 py-2 rounded"
+                              className="text-center font-light text-card-headline text-xs mr-2 px-2.5 py-1 border border-background rounded-lg"
                             >
                               {tag}
                             </div>

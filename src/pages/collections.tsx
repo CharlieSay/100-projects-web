@@ -4,7 +4,6 @@ import { Collection } from '../components/collection'
 
 export interface CollectionProps {
   collectedSlugData?: CollectionSlug[]
-  perRow?: number
 }
 
 export const getStaticProps: GetStaticProps = async () => {
