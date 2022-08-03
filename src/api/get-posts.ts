@@ -69,5 +69,6 @@ export function getPostBySlug(slug: string[]): PostMatter {
     data: grayMatter.data,
     matter: grayMatter.matter,
     language: grayMatter.language,
+    source: {}
   }
 }
