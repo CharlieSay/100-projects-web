@@ -2,6 +2,7 @@ import { Carousel } from '@mantine/carousel'
 import { Center, Paper } from '@mantine/core'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import { Vertical } from '../components/molecule/collection-vertical'
 interface HomePageProps {
   popularCollections?: PopularCollection[]
 }
@@ -66,20 +67,17 @@ const Home: NextPage = (props: HomePageProps) => {
               <h2>{popularCollection.title}</h2>
               <ul style={{ display: 'flex' }}>
                 {popularCollection.collection.map((collection) => (
-                  <li
+                  <Vertical
                     key={collection.title}
-                    style={{
-                      flexGrow: '1',
-                      listStyle: 'none',
+                    heroText={collection.title}
+                    imgSrc={collection.img}
+                    cta={{
+                      text: 'click me!',
+                      url: collection.url,
+                      ordinal: 'primary',
+                      filled: true,
                     }}
-                  >
-                    <a href={collection.url}>
-                      <section style={{ textAlign: 'center' }}>
-                        <h3>{collection.title}</h3>
-                        <p>{collection.desc}</p>
-                      </section>
-                    </a>
-                  </li>
+                  />
                 ))}
               </ul>
             </>
