@@ -3,7 +3,7 @@ import { Center, Paper } from '@mantine/core'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 interface HomePageProps {
-  popularCollections: PopularCollection[]
+  popularCollections?: PopularCollection[]
 }
 
 type PopularCollection = {
@@ -60,29 +60,30 @@ const Home: NextPage = (props: HomePageProps) => {
       </Head>
       <main>
         <h1>Popular Collections</h1>
-        {popularCollections.map((popularCollection) => (
-          <>
-            <h2>{popularCollection.title}</h2>
-            <ul style={{ display: 'flex' }}>
-              {popularCollection.collection.map((collection) => (
-                <li
-                  key={collection.title}
-                  style={{
-                    flexGrow: '1',
-                    listStyle: 'none',
-                  }}
-                >
-                  <a href={collection.url}>
-                    <section style={{ textAlign: 'center' }}>
-                      <h3>{collection.title}</h3>
-                      <p>{collection.desc}</p>
-                    </section>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </>
-        ))}
+        {popularCollections &&
+          popularCollections.map((popularCollection) => (
+            <>
+              <h2>{popularCollection.title}</h2>
+              <ul style={{ display: 'flex' }}>
+                {popularCollection.collection.map((collection) => (
+                  <li
+                    key={collection.title}
+                    style={{
+                      flexGrow: '1',
+                      listStyle: 'none',
+                    }}
+                  >
+                    <a href={collection.url}>
+                      <section style={{ textAlign: 'center' }}>
+                        <h3>{collection.title}</h3>
+                        <p>{collection.desc}</p>
+                      </section>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ))}
       </main>
     </>
   )

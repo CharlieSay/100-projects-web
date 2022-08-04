@@ -6,9 +6,9 @@ import { ParsedUrlQuery } from 'querystring'
 import { getPostBySlug, PostMatter } from '../../api/get-posts'
 
 import hljs from 'highlight.js'
-import javascript from 'highlight.js/lib/languages/javascript'
 import 'highlight.js/styles/vs2015.css'
 import { useEffect } from 'react'
+import { ProjectPageHero } from '../../components/molecule/project-page-header'
 
 const components = {}
 
@@ -67,13 +67,12 @@ export default function GetStaticPathsIndex(props: PostMatter) {
 
   return (
     <>
-      <section>
-        <h1>{props.data.title ? props.data.title : ''}</h1>
-        <h5>{props.data.tags}</h5>
-        <p>{props.data.description}</p>
-        <p>{props.data.expertise}</p>
-      </section>
-      <hr style={{ borderTop: `1.5px solid white` }} />
+      <ProjectPageHero
+        title={props.data.title}
+        tags={props.data.tags}
+        description={props.data.descrtiption}
+        expertise={props.data.expertise}
+      />
       <MDXRemote {...props.source} components={components} />
     </>
   )
