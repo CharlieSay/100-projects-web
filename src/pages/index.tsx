@@ -1,7 +1,55 @@
-import type { NextPage } from 'next'
+import { Carousel } from '@mantine/carousel'
+import { Center, Paper } from '@mantine/core'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+interface HomePageProps {
+  popularCollections: PopularCollection[]
+}
 
-const Home: NextPage = () => {
+type PopularCollection = {
+  title: string
+  collection: { title: string; desc: string; url: string; img: string }[]
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const popularCollections: PopularCollection[] = [
+    {
+      title: 'By type',
+      collection: [
+        {
+          title: 'Back-end',
+          desc: 'APIs, transformation etc.',
+          url: 'collection/back-end',
+          img:
+            'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+        },
+        {
+          title: 'Web',
+          desc: 'by this i mean websites',
+          url: 'collection/web',
+          img:
+            'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+        },
+        {
+          title: 'Data',
+          desc: 'Data scraping and all its fun',
+          url: 'collection/web',
+          img:
+            'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+        },
+      ],
+    },
+  ]
+
+  return {
+    props: {
+      popularCollections: popularCollections,
+    },
+  }
+}
+
+const Home: NextPage = (props: HomePageProps) => {
+  const { popularCollections } = props
   return (
     <>
       <Head>
@@ -12,7 +60,29 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <h1>Popular Collections</h1>
-        <h2>Java</h2>
+        {popularCollections.map((popularCollection) => (
+          <>
+            <h2>{popularCollection.title}</h2>
+            <ul style={{ display: 'flex' }}>
+              {popularCollection.collection.map((collection) => (
+                <li
+                  key={collection.title}
+                  style={{
+                    flexGrow: '1',
+                    listStyle: 'none',
+                  }}
+                >
+                  <a href={collection.url}>
+                    <section style={{ textAlign: 'center' }}>
+                      <h3>{collection.title}</h3>
+                      <p>{collection.desc}</p>
+                    </section>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        ))}
       </main>
     </>
   )

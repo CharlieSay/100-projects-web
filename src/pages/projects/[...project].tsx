@@ -1,10 +1,17 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import { useRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
 import { getPostBySlug, PostMatter } from '../../api/get-posts'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+
+import hljs from 'highlight.js'
+import javascript from 'highlight.js/lib/languages/javascript'
+import 'highlight.js/styles/vs2015.css'
+import { useEffect } from 'react'
+
+const components = {}
+
 interface IParams extends ParsedUrlQuery {
   project: string[]
 }
@@ -36,6 +43,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export default function GetStaticPathsIndex(props: PostMatter) {
+  useEffect(() => {
+    hljs.highlightAll()
+  }, [])
+
   const router = useRouter()
   function backToHome() {
     router.push('/')
@@ -63,7 +74,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
         <p>{props.data.expertise}</p>
       </section>
       <hr style={{ borderTop: `1.5px solid white` }} />
-      <MDXRemote {...props.source} components={{ SyntaxHighlighter }} />
+      <MDXRemote {...props.source} components={components} />
     </>
   )
 }
