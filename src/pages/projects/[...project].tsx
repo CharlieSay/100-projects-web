@@ -70,8 +70,8 @@ export default function GetStaticPathsIndex(props: PostMatter) {
       <ProjectPageHero
         title={props.data.title}
         tags={props.data.tags}
-        description={props.data.descrtiption}
         expertise={props.data.expertise}
+        description={props.data.description}
       />
       <MDXRemote {...props.source} components={components} />
     </>

@@ -1,3 +1,5 @@
+import capitalize from 'capitalize'
+
 type ProjectHero = {
   title: string
   tags: string[]
@@ -9,15 +11,20 @@ export const ProjectPageHero = (props: ProjectHero) => {
   const { title, tags, description, expertise } = props
   return (
     <section>
-      <section className="bg-slate-100 rounded-xl p-8 md:p-0">
-        <section className="flex justify-between">
-          <h1 className="">{title}</h1>
-          <h5>{tags}</h5>
-        </section>
-        <p>{description}</p>
-        <p>{expertise}</p>
+      <section className="flex justify-between pb-4">
+        <p className="text-primary-text font-bold text-sm">
+          {capitalize(expertise)}
+        </p>
+        <p className="text-primary-text font-bold text-sm">{tags}</p>
       </section>
-      <hr style={{ borderBottom: `1.5px solid white` }} />
+      <section className="bg-secondary-background rounded-xl p-8 md:p-0">
+        <section className="p-4">
+          <section className="">
+            <h1 className="text-secondary-text">{title}</h1>
+            <p className="text-secondary-text">{description}</p>
+          </section>
+        </section>
+      </section>
     </section>
   )
 }

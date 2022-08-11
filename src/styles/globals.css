@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-html,
-body,
-label {
-  font-family: "Montserrat", sans-serif;
-  background-color: #004643;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   color: #fffffe;
   box-sizing: border-box;
+  font-family: "Helvetica Neue", HelveticaNeue, "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Nimbus Sans L",
+    "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
+  text-decoration-thickness: auto;
+  text-decoration-style: solid;
+  line-height: 1.5;
+  font-size: 1.1375rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 p,

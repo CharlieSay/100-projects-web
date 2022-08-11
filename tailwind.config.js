@@ -5,21 +5,27 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
-      background: '#004643',
-      primary: '#004643',
-      text: '#fffffe',
-      paragraph: '#abd1c6',
-      button: '#f9bc60',
-      stroke: '#001e1d',
-      highlight: '#f9bc60',
-      secondary: '#abd1c6',
-      tertiary: '#e16162',
-      card: {
-        background: '#e8e4e6',
-        headline: '#001e1d',
-        paragraph: '#0f3433',
+      primary: {
+        background: '#e2e8dc',
+        text: '#202d4a',
+        ctaText: '#000000',
+        ctaBackground: '#008044',
+        highlight: '#0073e6',
       },
-    }
+      secondary: {
+        background: '#ffffff',
+        text: '#000000',
+        ctaText: '#ffffff',
+        ctaBackground: '#008044',
+        highlight: '#008044',
+      },
+      tertiary: {
+        background: '#0d291c',
+        text: '#ffffff',
+        ctaText: '',
+        ctaBackground: '',
+      },
+    },
   },
   plugins: [],
 }

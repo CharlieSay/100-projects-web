@@ -2,30 +2,26 @@ import Link from 'next/link'
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <>
+    <main className="bg-primary-background h-screen">
       <header
-        className="mx-auto max-w-screen-lg px-1"
+        className="mx-auto max-w-screen"
         role="navigation"
         aria-label="Main"
       >
-        <nav className="py-4 md:py-4">
-          <div className="container px-4 m-4 mx-auto md:flex md:items-center">
-            <div className="flex justify-between items-center">
-              <p className="font-bold text-xl text-text">
-                <Link href="/">100Projects</Link>
-              </p>
+        <nav className="max-w-screen-lg mx-auto">
+          <div className="container py-4 mx-auto md:flex md:items-center">
+            <div className="flex justify-between items-center hover:cursor-pointer">
+              <Link href="/">
+                <p className="font-semibold text-xl text-secondary-text">
+                  100.DEV
+                </p>
+              </Link>
             </div>
-            <div
-              className="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0"
-              id="navbar-collapse"
-            >
-              <Link
-                href="/collections"
-                className="p-2 lg:px-4 md:mx-2 font-semibold"
-              >
+            <div className="md:flex flex-col md:flex-row md:ml-auto md:mt-0">
+              <Link href="/collections">
                 <button
                   type="button"
-                  className="focus:outline-none text-stroke bg-button hover:bg-yellow-500 focus:ring-4 focus:bg-tertiary font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:bg-tertiary"
+                  className="text-sm text-primary-ctaText bg-primary-ctaBackground font-medium rounded-3xl px-3 py-2 mr-2 mb-2"
                 >
                   Collections
                 </button>
@@ -34,9 +30,9 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
           </div>
         </nav>
       </header>
-      <div className="container mx-auto max-w-screen-lg px-4">
+      <div className="container mx-auto p-4 max-w-screen-lg">
         {props.children}
       </div>
-    </>
+    </main>
   )
 }

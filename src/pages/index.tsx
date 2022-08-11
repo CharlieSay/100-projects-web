@@ -1,8 +1,6 @@
-import { Carousel } from '@mantine/carousel'
-import { Center, Paper } from '@mantine/core'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Vertical } from '../components/molecule/collection-vertical'
+import { CollectionHeroGroup } from '../components/organism/collection-hero-group'
 interface HomePageProps {
   popularCollections?: PopularCollection[]
 }
@@ -60,28 +58,17 @@ const Home: NextPage = (props: HomePageProps) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <main>
-        <h1>Popular Collections</h1>
-        {popularCollections &&
-          popularCollections.map((popularCollection) => (
-            <>
-              <h2>{popularCollection.title}</h2>
-              <ul style={{ display: 'flex' }}>
-                {popularCollection.collection.map((collection) => (
-                  <Vertical
-                    key={collection.title}
-                    heroText={collection.title}
-                    imgSrc={collection.img}
-                    cta={{
-                      text: 'click me!',
-                      url: collection.url,
-                      ordinal: 'primary',
-                      filled: true,
-                    }}
-                  />
-                ))}
-              </ul>
-            </>
-          ))}
+        <h1 className="text-primary-ctaText hover:text-primary-highlight hover:cursor-pointer">
+          Popular Projects
+        </h1>
+        <CollectionHeroGroup
+          heroHeader="By Type"
+          collectionList={popularCollections}
+        />
+        <CollectionHeroGroup
+          heroHeader="By Langauge"
+          collectionList={popularCollections}
+        />
       </main>
     </>
   )
