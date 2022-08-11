@@ -66,6 +66,10 @@ const Home: NextPage = (props: HomePageProps) => {
           collectionList={popularCollections}
         />
         <CollectionHeroGroup
+          heroHeader="By Difficulty"
+          collectionList={popularCollections}
+        />
+        <CollectionHeroGroup
           heroHeader="By Langauge"
           collectionList={popularCollections}
         />

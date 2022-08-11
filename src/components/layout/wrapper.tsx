@@ -2,22 +2,22 @@ import Link from 'next/link'
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className="bg-primary-background h-screen">
+    <main className=" h-screen bg-primary-background">
       <header
         className="mx-auto max-w-screen"
         role="navigation"
         aria-label="Main"
       >
         <nav className="max-w-screen-lg mx-auto">
-          <div className="container py-4 mx-auto md:flex md:items-center">
-            <div className="flex justify-between items-center hover:cursor-pointer">
+          <div className="container py-4 mx-auto flex justify-between w-full">
+            <div className="ml-2 flex items-center hover:cursor-pointer">
               <Link href="/">
                 <p className="font-semibold text-xl text-secondary-text">
                   100.DEV
                 </p>
               </Link>
             </div>
-            <div className="md:flex flex-col md:flex-row md:ml-auto md:mt-0">
+            <div>
               <Link href="/collections">
                 <button
                   type="button"
