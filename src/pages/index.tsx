@@ -1,40 +1,73 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { CollectionHeroGroup } from '../components/organism/collection-hero-group'
-interface HomePageProps {
-  popularCollections?: PopularCollection[]
-}
+import {
+  CollectionHeroGroup,
+  PopularCollection,
+} from '../components/organism/collection-hero-group'
 
-type PopularCollection = {
-  title: string
-  collection: { title: string; desc: string; url: string; img: string }[]
+type HomePageProps = {
+  popularCollections: PopularCollection[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const popularCollections: PopularCollection[] = [
     {
       title: 'By type',
-      collection: [
+      projects: [
         {
           title: 'Back-end',
           desc: 'APIs, transformation etc.',
           url: 'collection/back-end',
-          img:
-            'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
         },
         {
           title: 'Web',
-          desc: 'by this i mean websites',
+          desc: 'by this I mean websites',
           url: 'collection/web',
-          img:
-            'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
         },
         {
           title: 'Data',
           desc: 'Data scraping and all its fun',
           url: 'collection/web',
-          img:
-            'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+        },
+      ],
+    },
+    {
+      title: 'By difficulty',
+      projects: [
+        {
+          title: 'Beginner',
+          desc: '0-2 years experience',
+          url: 'collection/back-end',
+        },
+        {
+          title: 'Intermediate',
+          desc: '2-5 years experience (roughly)',
+          url: 'collection/web',
+        },
+        {
+          title: 'Expert',
+          desc: '6+ years (roughly)',
+          url: 'collection/web',
+        },
+      ],
+    },
+    {
+      title: 'By language',
+      projects: [
+        {
+          title: 'Java',
+          desc: 'The OG Object Oriented language',
+          url: 'collection/back-end',
+        },
+        {
+          title: 'Javascript (& Typescript)',
+          desc: 'The modern langauge for the web.',
+          url: 'collection/web',
+        },
+        {
+          title: 'Python',
+          desc: 'AI, Robots, Data - easily done in Python',
+          url: 'collection/web',
         },
       ],
     },
@@ -47,7 +80,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const Home: NextPage = (props: HomePageProps) => {
+const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
   const { popularCollections } = props
   return (
     <>
@@ -61,18 +94,14 @@ const Home: NextPage = (props: HomePageProps) => {
         <h1 className="text-primary-ctaText hover:text-primary-highlight hover:cursor-pointer">
           Popular Projects
         </h1>
-        <CollectionHeroGroup
-          heroHeader="By Type"
-          collectionList={popularCollections}
-        />
-        <CollectionHeroGroup
-          heroHeader="By Difficulty"
-          collectionList={popularCollections}
-        />
-        <CollectionHeroGroup
-          heroHeader="By Langauge"
-          collectionList={popularCollections}
-        />
+        {popularCollections &&
+          popularCollections.map((popularCollection) => (
+            <CollectionHeroGroup
+              key={popularCollection.title}
+              collection={popularCollection || []}
+            />
+          ))}
+        {!popularCollections && <h1>Loading</h1>}
       </main>
     </>
   )

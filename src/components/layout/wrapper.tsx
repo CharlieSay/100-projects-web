@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className=" h-screen bg-primary-background">
+    <main className="h-screen bg-primary-background">
       <header
         className="mx-auto max-w-screen"
         role="navigation"

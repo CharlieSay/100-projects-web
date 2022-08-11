@@ -1,32 +1,26 @@
-type CollectionHeroGroupProps = {
-  heroHeader: string
-  primary?: boolean
-  collectionList?: PopularCollection[]
+export type PopularCollection = {
+  title: string
+  projects: { title: string; desc: string; url: string }[]
 }
 
-type PopularCollection = {
-  collection: { title: string; desc: string; url: string; img: string }[]
-}
+export const CollectionHeroGroup = (props: {
+  collection: PopularCollection
+}) => {
+  const { collection } = props
 
-export const CollectionHeroGroup = (props: CollectionHeroGroupProps) => {
   return (
     <section className="bg-secondary-background w-full p-4 my-6">
-      {props.collectionList &&
-        props.collectionList.map((popularCollection) => (
-          <>
-            <h2 className="text-primary-ctaText">{props.heroHeader}.</h2>
-            <ul className="grid">
-              {popularCollection.collection.map((collection) => (
-                <section key={collection.title}>
-                  <h3 className="font-bold text-primary-text">
-                    {collection.title}
-                  </h3>
-                  <p className="text-primary-text">{collection.desc}</p>
-                </section>
-              ))}
-            </ul>
-          </>
-        ))}
+      <section key={collection.title}>
+        <h2 className="text-primary-ctaText">{collection.title}.</h2>
+        <ul className="grid">
+          {collection.projects.map((project) => (
+            <li key={project.title}>
+              <h3 className="font-bold text-primary-text">{project.title}</h3>
+              <p className="text-primary-text">{project.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
     </section>
   )
 }
