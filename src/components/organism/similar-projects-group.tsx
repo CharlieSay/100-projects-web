@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export type PopularCollection = {
   title: string
   projects: { title: string; desc: string; url: string }[]
@@ -16,14 +14,10 @@ export const CollectionHeroGroup = (props: {
         <h2 className="text-primary-ctaText">{collection.title}.</h2>
         <ul className="grid">
           {collection.projects.map((project) => (
-            <Link key={project.title} href={project.url}>
-              <li className="hover:cursor-pointer">
-                <h3 className="font-bold text-primary-text hover:text-primary-highlight">
-                  {project.title}
-                </h3>
-                <p className="text-primary-text">{project.desc}</p>
-              </li>
-            </Link>
+            <li key={project.title}>
+              <h3 className="font-bold text-primary-text">{project.title}</h3>
+              <p className="text-primary-text">{project.desc}</p>
+            </li>
           ))}
         </ul>
       </section>

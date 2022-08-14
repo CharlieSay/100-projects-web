@@ -21,7 +21,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
               <Link href="/collections">
                 <button
                   type="button"
-                  className="text-sm text-primary-ctaText bg-primary-ctaBackground font-medium rounded-3xl px-3 py-2 mr-2 mb-2"
+                  className="text-sm text-primary-ctaText decocration-primary-ctaBackground underline underline-offset-1 font-medium px-3 py-2 mr-2 mb-2"
                 >
                   Collections
                 </button>

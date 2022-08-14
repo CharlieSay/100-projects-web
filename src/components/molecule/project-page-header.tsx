@@ -10,7 +10,7 @@ type ProjectHero = {
 export const ProjectPageHero = (props: ProjectHero) => {
   const { title, tags, description, expertise } = props
   return (
-    <section>
+    <section className="mb-4">
       <section className="flex justify-between pb-4">
         <p className="text-primary-text font-bold text-sm">
           {capitalize(expertise)}
