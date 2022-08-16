@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { CollectionSlug, getPostSlugs } from '../api/get-posts'
-import { Collection } from '../components/collection'
+import { Collection } from '../components/collection-group'
 
 export interface CollectionProps {
   collectedSlugData?: CollectionSlug[]
@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const Collections: NextPage = (props: CollectionProps) => {
+const PopularCollections: NextPage = (props: CollectionProps) => {
   return (
     <>
       <div>
@@ -26,4 +26,4 @@ const Collections: NextPage = (props: CollectionProps) => {
   )
 }
 
-export default Collections
+export default PopularCollections

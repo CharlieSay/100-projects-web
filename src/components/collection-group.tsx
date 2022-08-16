@@ -1,7 +1,7 @@
 import capitalize from 'capitalize'
 import Link from 'next/link'
 import { CollectionSlug, ProjectSlug } from '../api/get-posts'
-import { CollectionProps } from '../pages/collections'
+import { CollectionProps } from '../pages/popular-collections'
 import { ProjectCard } from './organism/project-card'
 
 export const Collection = (props: CollectionProps) => {

@@ -2,15 +2,11 @@ import Link from 'next/link'
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className="h-screen bg-primary-background">
-      <header
-        className="mx-auto max-w-screen"
-        role="navigation"
-        aria-label="Main"
-      >
-        <nav className="max-w-screen-lg mx-auto">
-          <div className="container py-4 mx-auto flex justify-between w-full">
-            <div className="ml-2 flex items-center hover:cursor-pointer">
+    <main className="container mx-auto px-4 py-4 max-w-screen-lg">
+      <header role="navigation" aria-label="Main">
+        <nav className="max-w-screen-lg mx-auto pt-2 pb-4">
+          <div className="container mx-auto flex justify-between w-full">
+            <div className="flex items-center hover:cursor-pointer">
               <Link href="/">
                 <p className="font-semibold text-xl text-secondary-text">
                   100.DEV
@@ -18,23 +14,24 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
               </Link>
             </div>
             <div>
-              <Link href="/collections">
+              <Link href="/popular-collections">
                 <button
                   type="button"
-                  className="text-sm text-primary-ctaText decocration-primary-ctaBackground underline underline-offset-1 font-medium px-3 py-2 mr-2 mb-2 hover:cursor-pointer hover:text-primary-highlight"
+                  className="text-sm text-primary-ctaText decocration-primary-ctaBackground underline underline-offset-1 font-medium hover:cursor-pointer hover:text-primary-highlight"
                 >
-                  Collections
+                  Popular
                 </button>
               </Link>
             </div>
           </div>
         </nav>
       </header>
-      <div className="container mx-auto p-4 max-w-screen-lg">
-        {props.children}
-      </div>
-      <footer className="container mx-auto p-4 max-w-screen-lg">
-        <p className="text-primary-text text-xs">100 Projects by 100DEV</p>
+      <div>{props.children}</div>
+      <footer className="pt-8 py-4">
+        <p className="text-primary-text text-xs">
+          100 Projects by{' '}
+          <span className="text-primary-text font-bold text-xs">100DEV</span>
+        </p>
         <p className="text-primary-text text-xs">
           Made in{' '}
           <a

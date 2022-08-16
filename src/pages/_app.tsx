@@ -4,10 +4,12 @@ import { Wrapper } from '../components/layout/wrapper'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="h-screen bg-primary-background">
-      <Wrapper>
-        <Component {...pageProps} />
-      </Wrapper>
+    <div className="absolute inset-0">
+      <div className="h-full bg-primary-background">
+        <Wrapper>
+          <Component {...pageProps} />
+        </Wrapper>
+      </div>
     </div>
   )
 }

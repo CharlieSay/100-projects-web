@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import { getPopularProjects, getSlugsByFacets } from '../api/get-posts'
 import {
   CollectionHeroGroup,
   PopularCollection,
@@ -10,68 +11,7 @@ type HomePageProps = {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const popularCollections: PopularCollection[] = [
-    {
-      title: 'By type',
-      projects: [
-        {
-          title: 'Back-end',
-          desc: 'APIs, transformation etc.',
-          url: 'collection/back-end',
-        },
-        {
-          title: 'Web',
-          desc: 'by this I mean websites',
-          url: 'collection/web',
-        },
-        {
-          title: 'Data',
-          desc: 'Data scraping and all its fun',
-          url: 'collection/web',
-        },
-      ],
-    },
-    {
-      title: 'By difficulty',
-      projects: [
-        {
-          title: 'Beginner',
-          desc: '0-2 years experience',
-          url: 'collection/back-end',
-        },
-        {
-          title: 'Intermediate',
-          desc: '2-5 years experience (roughly)',
-          url: 'collection/web',
-        },
-        {
-          title: 'Expert',
-          desc: '6+ years (roughly)',
-          url: 'collection/web',
-        },
-      ],
-    },
-    {
-      title: 'By language',
-      projects: [
-        {
-          title: 'Java',
-          desc: 'The OG Object Oriented language',
-          url: 'collection/back-end',
-        },
-        {
-          title: 'Javascript (& Typescript)',
-          desc: 'The modern langauge for the web.',
-          url: 'collection/web',
-        },
-        {
-          title: 'Python',
-          desc: 'AI, Robots, Data - easily done in Python',
-          url: 'collection/web',
-        },
-      ],
-    },
-  ]
+  const popularCollections = getPopularProjects()
 
   return {
     props: {
@@ -101,7 +41,6 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
               collection={popularCollection || []}
             />
           ))}
-        {!popularCollections && <h1>Loading</h1>}
       </main>
     </>
   )

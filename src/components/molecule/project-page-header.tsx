@@ -17,11 +17,11 @@ export const ProjectPageHero = (props: ProjectHero) => {
         </p>
         <p className="text-primary-text font-bold text-sm">{tags}</p>
       </section>
-      <section className="bg-secondary-background rounded-xl p-8 md:p-0">
+      <section className="bg-secondary-background rounded-xl p-8 md:p-0 flex justify-between ">
         <section className="p-4">
-          <section className="">
+          <section className="truncate">
             <h1 className="text-secondary-text">{title}</h1>
-            <p className="text-secondary-text">{description}</p>
+            <p className="text-secondary-text truncate">{description}</p>
           </section>
         </section>
       </section>
