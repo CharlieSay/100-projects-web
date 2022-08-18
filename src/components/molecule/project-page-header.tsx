@@ -24,12 +24,10 @@ export const ProjectPageHero = (props: ProjectHero) => {
           </p>
         </section>
       </section>
-      <section className="bg-secondary-background rounded-xl p-8 md:p-0 flex justify-between ">
-        <section className="p-4">
-          <section className="truncate">
-            <h1 className="text-secondary-text">{title}</h1>
-            <p className="text-secondary-text truncate">{description}</p>
-          </section>
+      <section className="bg-secondary-background rounded-xl py-4 px-4 md:p-6 flex justify-between ">
+        <section className="truncate">
+          <h1 className="text-secondary-text">{title}</h1>
+          <p className="text-secondary-text whitespace-normal">{description}</p>
         </section>
       </section>
     </section>
