@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { getPopularProjects, getSlugsByFacets } from '../api/get-posts'
+import { getPopularProjects } from '../api/get-posts'
 import {
   CollectionHeroGroup,
   PopularCollection,

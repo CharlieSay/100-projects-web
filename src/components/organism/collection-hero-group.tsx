@@ -2,7 +2,13 @@ import Link from 'next/link'
 
 export type PopularCollection = {
   title: string
-  projects: { title: string; desc: string; url: string }[]
+  projects: ProjectCard[]
+}
+
+export type ProjectCard = {
+  title: string
+  desc: string
+  url: string
 }
 
 export const CollectionHeroGroup = (props: {
