@@ -65,14 +65,12 @@ const Collection = (props: CollectionGroupProps) => {
   }
 
   return (
-    <div>
-      <CollectionHeroGroup
-        collection={{
-          title: collectionTitle,
-          projects: mappedProjects,
-        }}
-      />
-    </div>
+    <CollectionHeroGroup
+      collection={{
+        title: collectionTitle,
+        projects: mappedProjects,
+      }}
+    />
   )
 }
 

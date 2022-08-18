@@ -1,8 +1,8 @@
 import { readdirSync, readFileSync } from 'fs-extra'
-import { join } from 'path'
 import matter from 'gray-matter'
-import { capitalizeWords } from '../util/string-manipulation'
+import { join } from 'path'
 import { PopularCollection } from '../components/organism/collection-hero-group'
+import { capitalizeWords } from '../util/string-manipulation'
 const postsDirectory = join(process.cwd(), '_mdx')
 
 export type CollectionSlug = {

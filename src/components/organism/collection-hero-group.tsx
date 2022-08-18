@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ProjectCard } from './project-card'
 
 export type PopularCollection = {
   title: string
