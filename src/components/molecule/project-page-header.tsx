@@ -1,4 +1,5 @@
 import capitalize from 'capitalize'
+import Link from 'next/link'
 
 type ProjectHero = {
   title: string
@@ -12,10 +13,16 @@ export const ProjectPageHero = (props: ProjectHero) => {
   return (
     <section className="mb-4">
       <section className="flex justify-between pb-4">
-        <p className="text-primary-text font-bold text-sm">
-          {capitalize(expertise)}
-        </p>
-        <p className="text-primary-text font-bold text-sm">{tags}</p>
+        <Link href={`/collection/expertise/${expertise}`}>
+          <a className="text-primary-text font-bold text-sm hover:cursor-pointer hover:text-primary-highlight">
+            {capitalize(expertise)}
+          </a>
+        </Link>
+        <section>
+          <p className="text-primary-text font-bold text-sm hover:cursor-pointer hover:text-primary-highlight">
+            {tags}
+          </p>
+        </section>
       </section>
       <section className="bg-secondary-background rounded-xl p-8 md:p-0 flex justify-between ">
         <section className="p-4">
