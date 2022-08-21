@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import { join } from 'path'
 import { PopularCollection } from '../components/organism/collection-hero-group'
 import { capitalizeWords } from '../util/string-manipulation'
-const postsDirectory = join(process.cwd(), '_mdx')
+const postsDirectory = join(process.cwd(), 'project_content', '_mdx')
 
 export type CollectionSlug = {
   title: string
@@ -138,7 +138,9 @@ export function getPostSlugs(): CollectionSlug[] {
   const listOfCollections = readdirSync(postsDirectory)
   let listOfProjects: CollectionSlug[] = []
   listOfCollections.map((collection: string) => {
-    const foundSlugs = readdirSync(join(process.cwd(), `_mdx/${collection}`))
+    const foundSlugs = readdirSync(
+      join(process.cwd(), `project_content/_mdx/${collection}`),
+    )
     listOfProjects.push({
       title: collection,
       slugs: foundSlugs.map((slug) => {

@@ -1,0 +1,3 @@
+[submodule "project_content"]
+	path = project_content
+	url = https://github.com/CharlieSay/100-projects-content
