@@ -1,8 +1,12 @@
+import Head from 'next/head'
 import Link from 'next/link'
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
     <main className="container mx-auto px-4 py-4 max-w-screen-lg">
+      <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+      </Head>
       <header role="navigation" aria-label="Main">
         <nav className="max-w-screen-lg mx-auto pt-2 pb-4">
           <div className="container mx-auto flex justify-between w-full">

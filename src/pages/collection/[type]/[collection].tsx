@@ -6,7 +6,7 @@ import {
 } from '../../../api/get-posts'
 import {
   CollectionHeroGroup,
-  ProjectCard,
+  CollectionCard,
 } from '../../../components/organism/collection-hero-group'
 
 type TemporaryConversion = {
@@ -22,6 +22,7 @@ type CollectionGroupProps = {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
+      // generate these paths as theyre most common.
       { params: { type: 'type', collection: 'back-end' } },
       { params: { type: 'type', collection: 'web' } },
       { params: { type: 'type', collection: 'data' } },
@@ -54,7 +55,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const Collection = (props: CollectionGroupProps) => {
   const { collectionTitle, projects } = props
-  let mappedProjects: ProjectCard[] = []
+  let mappedProjects: CollectionCard[] = []
 
   if (projects && projects.length > 0) {
     mappedProjects = projects.map((project) => ({
@@ -64,11 +65,20 @@ const Collection = (props: CollectionGroupProps) => {
     }))
   }
 
+  if (mappedProjects.length == 0) {
+    return (
+      <section className="bg-secondary-background w-full p-4 my-6">
+        <h1>Seems to be no projects matching</h1>
+        <h3>{collectionTitle}</h3>
+      </section>
+    )
+  }
+
   return (
     <CollectionHeroGroup
-      collection={{
+      heroCollectionGroup={{
         title: collectionTitle,
-        projects: mappedProjects,
+        collections: mappedProjects,
       }}
     />
   )

@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'fs-extra'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { PopularCollection } from '../components/organism/collection-hero-group'
+import { HeroCollectionType } from '../components/organism/collection-hero-group'
 import { capitalizeWords } from '../util/string-manipulation'
 const postsDirectory = join(process.cwd(), 'project_content', '_mdx')
 
@@ -49,11 +49,11 @@ export function getPostFrontMatter(slug: string): ProjectSlug {
   }
 }
 
-export function getPopularProjects(): PopularCollection[] {
+export function getPopularProjects(): HeroCollectionType[] {
   return [
     {
       title: 'By type',
-      projects: [
+      collections: [
         {
           title: 'Back-end',
           desc: 'APIs, transformation etc.',
@@ -73,7 +73,7 @@ export function getPopularProjects(): PopularCollection[] {
     },
     {
       title: 'By difficulty',
-      projects: [
+      collections: [
         {
           title: 'Beginner',
           desc: '0-2 years experience',
@@ -93,7 +93,7 @@ export function getPopularProjects(): PopularCollection[] {
     },
     {
       title: 'By language',
-      projects: [
+      collections: [
         {
           title: 'Java',
           desc: 'The OG Object Oriented language',

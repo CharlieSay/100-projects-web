@@ -1,34 +1,33 @@
 import Link from 'next/link'
-import { ProjectCard } from './project-card'
 
-export type PopularCollection = {
+export type HeroCollectionType = {
   title: string
-  projects: ProjectCard[]
+  collections: CollectionCard[]
 }
 
-export type ProjectCard = {
+export type CollectionCard = {
   title: string
   desc: string
   url: string
 }
 
 export const CollectionHeroGroup = (props: {
-  collection: PopularCollection
+  heroCollectionGroup: HeroCollectionType
 }) => {
-  const { collection } = props
+  const { heroCollectionGroup } = props
 
   return (
     <section className="bg-secondary-background w-full p-4 my-6">
-      <section key={collection.title}>
-        <h2 className="text-primary-ctaText">{collection.title}.</h2>
+      <section key={heroCollectionGroup.title}>
+        <h2 className="text-primary-ctaText">{heroCollectionGroup.title}.</h2>
         <ul className="grid">
-          {collection.projects.map((project) => (
-            <Link key={project.title} href={project.url}>
+          {heroCollectionGroup.collections.map((collection) => (
+            <Link key={collection.title} href={collection.url}>
               <li className="hover:cursor-pointer">
                 <h3 className="font-bold text-primary-text hover:text-primary-highlight">
-                  {project.title}
+                  {collection.title}
                 </h3>
-                <p className="text-primary-text">{project.desc}</p>
+                <p className="text-primary-text">{collection.desc}</p>
               </li>
             </Link>
           ))}
