@@ -17,13 +17,11 @@ export const getStaticProps: GetStaticProps = async () => {
 const PopularCollections: NextPage = (props: CollectionProps) => {
   const { collectedSlugData } = props
   return (
-    <>
-      <div>
-        {collectedSlugData && (
-          <CollectionGroup collectedSlugData={collectedSlugData} />
-        )}
-      </div>
-    </>
+    <div>
+      {collectedSlugData && (
+        <CollectionGroup collectedSlugData={collectedSlugData} />
+      )}
+    </div>
   )
 }
 

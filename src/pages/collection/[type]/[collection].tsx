@@ -38,10 +38,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context
   const convertedParams = params as TemporaryConversion
+  const collectionTitle = convertedParams.collection
   const slugs = getSlugsByFacets([
     {
       key: convertedParams.type as ProjectType,
-      value: convertedParams.collection,
+      value: collectionTitle,
     },
   ])
 
@@ -49,12 +50,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       collectedSlugData: [
         {
-          collectionTitle: convertedParams.collection,
+          collectionTitle: collectionTitle,
           slugs: slugs,
         },
       ],
       noResults: slugs.length === 0,
-      query: convertedParams.collection,
+      query: collectionTitle,
     },
   }
 }
@@ -74,11 +75,9 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
   const { collectedSlugData } = props
 
   return (
-    <section>
-      {collectedSlugData && (
-        <CollectionGroup collectedSlugData={collectedSlugData} />
-      )}
-    </section>
+    collectedSlugData && (
+      <CollectionGroup collectedSlugData={collectedSlugData} />
+    )
   )
 }
 

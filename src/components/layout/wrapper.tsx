@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className="container mx-auto px-4 py-4 max-w-screen-lg">
+    <main className="container mx-auto py-4 max-w-screen-lg">
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
@@ -30,7 +30,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
           </div>
         </nav>
       </header>
-      <div>{props.children}</div>
+      <section>{props.children}</section>
       <footer className="pt-8 py-4">
         <p className="text-primary-text text-xs">
           100 Projects by{' '}
