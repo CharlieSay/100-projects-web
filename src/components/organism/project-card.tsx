@@ -12,7 +12,7 @@ export const ProjectCard = (props: ProjectSlug) => {
   } = props
   return (
     <Link
-      href={`projects/[collection]/[projectSlug]`}
+      href={`/projects/[collection]/[projectSlug]`}
       as={`/projects/${collection}/${projectLocation}`}
       key={title}
       className="flex"

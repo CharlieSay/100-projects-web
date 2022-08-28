@@ -1,13 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import {
+  CollectionSlug,
   getSlugsByFacets,
-  ProjectSlug,
   ProjectType,
 } from '../../../api/get-posts'
-import {
-  CollectionHeroGroup,
-  CollectionCard,
-} from '../../../components/organism/collection-hero-group'
+import { CollectionGroup } from '../../../components/collection-group'
 
 type TemporaryConversion = {
   type: string
@@ -15,8 +12,9 @@ type TemporaryConversion = {
 }
 
 type CollectionGroupProps = {
-  projects: ProjectSlug[]
-  collectionTitle: string
+  collectedSlugData: CollectionSlug[]
+  noResults: boolean
+  query: string
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -40,48 +38,48 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context
   const convertedParams = params as TemporaryConversion
+  const slugs = getSlugsByFacets([
+    {
+      key: convertedParams.type as ProjectType,
+      value: convertedParams.collection,
+    },
+  ])
+
   return {
     props: {
-      projects: getSlugsByFacets([
+      collectedSlugData: [
         {
-          key: convertedParams.type as ProjectType,
-          value: convertedParams.collection,
+          collectionTitle: convertedParams.collection,
+          slugs: slugs,
         },
-      ]),
-      collectionTitle: convertedParams.collection,
+      ],
+      noResults: slugs.length === 0,
+      query: convertedParams.collection,
     },
   }
 }
 
-const Collection = (props: CollectionGroupProps) => {
-  const { collectionTitle, projects } = props
-  let mappedProjects: CollectionCard[] = []
+const CollectionsBySearch = (props: CollectionGroupProps) => {
+  const { query, noResults } = props
 
-  if (projects && projects.length > 0) {
-    mappedProjects = projects.map((project) => ({
-      title: project.title,
-      desc: project.description,
-      url: `/projects/${project.location.collection}/${project.location.projectLocation}`,
-    }))
-  }
-
-  if (mappedProjects.length == 0) {
+  if (noResults) {
     return (
       <section className="bg-secondary-background w-full p-4 my-6">
         <h1>Seems to be no projects matching</h1>
-        <h3>{collectionTitle}</h3>
+        <h3>{query}</h3>
       </section>
     )
   }
 
+  const { collectedSlugData } = props
+
   return (
-    <CollectionHeroGroup
-      heroCollectionGroup={{
-        title: collectionTitle,
-        collections: mappedProjects,
-      }}
-    />
+    <section>
+      {collectedSlugData && (
+        <CollectionGroup collectedSlugData={collectedSlugData} />
+      )}
+    </section>
   )
 }
 
-export default Collection
+export default CollectionsBySearch

@@ -3,6 +3,7 @@ const nextConfig = {
   images:{
     domains: ['images.unsplash.com']
   },
+  basePath: '',
   reactStrictMode: true,
    webpack(config) {
     config.module.rules.push({

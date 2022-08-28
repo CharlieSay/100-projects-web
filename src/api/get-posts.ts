@@ -127,7 +127,9 @@ export function getSlugsByFacets(searchFacets: SearchFacet[]): ProjectSlug[] {
               .includes(facet.value.toLowerCase())) ||
           (facet.key == 'expertise' && slug.expertise == facet.value)
         )
-          filteredProjects.push(slug)
+          filteredProjects.push({
+            ...slug,
+          })
       }),
     ),
   )
