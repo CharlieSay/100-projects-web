@@ -17,6 +17,14 @@
   text-rendering: optimizeLegibility;
 }
 
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: calc(100% + 8%);
+}
+
 p,
 li,
 h1,

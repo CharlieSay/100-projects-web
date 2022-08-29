@@ -4,12 +4,10 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="absolute inset-0">
-      <div className="h-full bg-primary-background">
-        <Wrapper>
-          <Component {...pageProps} />
-        </Wrapper>
-      </div>
+    <div className="h-full bg-primary-background">
+      <Wrapper>
+        <Component {...pageProps} />
+      </Wrapper>
     </div>
   )
 }
