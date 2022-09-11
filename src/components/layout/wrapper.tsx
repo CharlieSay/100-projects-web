@@ -11,11 +11,10 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
         <header role="navigation" aria-label="Main">
           <nav className="max-w-screen-lg mx-auto pt-2 pb-4">
             <div className="container mx-auto flex justify-between w-full">
-              <Link
-                href="/"
-                className="font-semibold text-xl text-secondary-text hover:cursor-pointer"
-              >
-                100.DEV
+              <Link href="/">
+                <a className="font-semibold text-xl text-secondary-text hover:cursor-pointer hover:text-primary-highlight">
+                  100.DEV
+                </a>
               </Link>
               <Link href="/popular-collections">
                 <a className="text-sm text-primary-ctaText decocration-primary-ctaBackground underline underline-offset-1 font-medium hover:cursor-pointer hover:text-primary-highlight">
