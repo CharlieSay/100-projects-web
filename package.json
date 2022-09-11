@@ -10,12 +10,6 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@mantine/carousel": "^5.0.2",
-    "@mantine/core": "^5.0.2",
-    "@mantine/hooks": "^5.0.2",
-    "@mantine/nprogress": "^5.0.2",
-    "@mantine/prism": "^5.0.2",
     "@types/capitalize": "^2.0.0",
     "@types/react-syntax-highlighter": "^15.5.4",
     "capitalize": "^2.0.4",
@@ -25,8 +19,7 @@
     "next-mdx-remote": "^4.1.0",
     "path": "^0.12.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-toggle-dark-mode": "^1.1.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",
