@@ -10,6 +10,7 @@ import 'highlight.js/styles/vs2015.css'
 import { useEffect } from 'react'
 import { ProjectPageHero } from '../../components/molecule/project-page-header'
 import { SimilarProjects } from '../../components/molecule/similar-projects'
+import Head from 'next/head'
 
 const components = {}
 
@@ -38,8 +39,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: 'blocking', //indicates the type of fallback
+    paths: [],
+    fallback: 'blocking',
   }
 }
 
@@ -71,6 +72,9 @@ export default function GetStaticPathsIndex(props: PostMatter) {
 
   return (
     <>
+      <Head>
+        <title>{props.data.title} | 100 Projects</title>
+      </Head>
       <ProjectPageHero
         title={props.data.title}
         tags={tagsSplit}
