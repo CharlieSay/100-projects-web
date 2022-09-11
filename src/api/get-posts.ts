@@ -1,3 +1,4 @@
+import { SimilarProjects } from './../components/molecule/similar-projects'
 import { readdirSync, readFileSync } from 'fs-extra'
 import matter from 'gray-matter'
 import { join } from 'path'
@@ -29,6 +30,7 @@ export type PostMatter = {
   matter: string
   language: string
   source: any
+  similarProjects?: CollectionSlug[]
 }
 
 export type SearchFacet = {
@@ -114,7 +116,10 @@ export function getPopularProjects(): HeroCollectionType[] {
   ]
 }
 
-export function getSlugsByFacets(searchFacets: SearchFacet[]): ProjectSlug[] {
+export function getSlugsByFacets(
+  searchFacets: SearchFacet[],
+  limit?: number,
+): ProjectSlug[] {
   const allFacets = getPostSlugs()
   const filteredProjects: ProjectSlug[] = []
   allFacets.forEach((value) =>
@@ -133,6 +138,9 @@ export function getSlugsByFacets(searchFacets: SearchFacet[]): ProjectSlug[] {
       }),
     ),
   )
+  if (limit) {
+    return filteredProjects.slice(0, limit)
+  }
   return filteredProjects
 }
 

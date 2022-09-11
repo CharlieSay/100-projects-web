@@ -9,6 +9,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/vs2015.css'
 import { useEffect } from 'react'
 import { ProjectPageHero } from '../../components/molecule/project-page-header'
+import { SimilarProjects } from '../../components/molecule/similar-projects'
 
 const components = {}
 
@@ -46,6 +47,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
   useEffect(() => {
     hljs.highlightAll()
   }, [])
+  let similarProjects = []
 
   const router = useRouter()
   function backToHome() {
@@ -65,15 +67,18 @@ export default function GetStaticPathsIndex(props: PostMatter) {
     )
   }
 
+  const tagsSplit = props.data.tags.split(',')
+
   return (
     <>
       <ProjectPageHero
         title={props.data.title}
-        tags={props.data.tags}
+        tags={tagsSplit}
         expertise={props.data.expertise}
         description={props.data.description}
       />
       <MDXRemote {...props.source} components={components} />
+      {similarProjects.length > 0 && <SimilarProjects collectedSlugData={[]} />}
     </>
   )
 }
