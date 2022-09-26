@@ -5,7 +5,6 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
     <main className="container mx-auto p-4 max-w-screen-lg">
       <Head>
-        <html lang="en" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <title>100 Projects</title>
         <meta name="title" content="100 Projects for developers to do" />
