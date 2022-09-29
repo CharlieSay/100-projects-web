@@ -34,7 +34,7 @@ export const ProjectCard = (props: ProjectSlug) => {
               {tags.map((tag) => (
                 <div
                   key={tag}
-                  className="p-1 text-center text-[9px] font-light text-primary-text"
+                  className="pr-1 text-center text-[10px] font-normal text-primary-text"
                 >
                   {tag}
                 </div>

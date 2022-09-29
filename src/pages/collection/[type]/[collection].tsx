@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       collectedSlugData: [
         {
-          collectionTitle: collectionTitle,
+          title: collectionTitle,
           slugs: slugs,
         },
       ],
