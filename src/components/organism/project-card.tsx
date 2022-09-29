@@ -17,8 +17,8 @@ export const ProjectCard = (props: ProjectSlug) => {
       key={title}
       className="flex"
     >
-      <div className="row-span-2 cursor-pointer bg-secondary-background rounded shadow-md md:flex-row md:max-w-md max-h-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <div className="flex flex-col justify-between h-full px-4 py-2 leading-normal w-full">
+      <div className="min-h-[150px] cursor-pointer bg-secondary-background rounded shadow-md max-h-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <div className="flex flex-col justify-between h-[150px] px-4 py-2 leading-normal w-full">
           <section className="flex justify-between">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-primary-text dark:text-white">
               {title}

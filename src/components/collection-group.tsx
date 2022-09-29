@@ -12,16 +12,17 @@ export const CollectionGroup = (props: CollectionProps) => {
             <h1 className="text-primary-ctaText text-4xl mb-4">
               {slug.title && capitalize(slug.title)}
             </h1>
-            <ul className="flex flex-col gap-4 md:grid md:grid-rows-2 md:grid-cols-3 md:grid-flow-col md:gap-2">
+            <ul className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2">
               {slug.slugs.map((subSlug) => (
-                <ProjectCard
-                  key={subSlug.title}
-                  title={subSlug.title}
-                  tags={subSlug.tags}
-                  expertise={subSlug.expertise}
-                  description={subSlug.description}
-                  location={subSlug.location}
-                />
+                <li key={subSlug.title}>
+                  <ProjectCard
+                    title={subSlug.title}
+                    tags={subSlug.tags}
+                    expertise={subSlug.expertise}
+                    description={subSlug.description}
+                    location={subSlug.location}
+                  />
+                </li>
               ))}
             </ul>
           </li>
