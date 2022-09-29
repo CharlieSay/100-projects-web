@@ -1,5 +1,5 @@
-import { CollectionProps } from '../../pages/popular-collections'
-import { CollectionGroup } from '../collection-group'
+import { CollectionProps } from "../../pages/popular-collections";
+import { CollectionGroup } from "../collection-group";
 
 export const SimilarProjects = (props: CollectionProps) => {
   return (
@@ -7,5 +7,5 @@ export const SimilarProjects = (props: CollectionProps) => {
       <h1 className="text-secondary-text">Similar Projects</h1>
       <CollectionGroup collectedSlugData={props.collectedSlugData} />
     </section>
-  )
-}
+  );
+};

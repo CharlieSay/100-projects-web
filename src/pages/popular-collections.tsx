@@ -1,9 +1,9 @@
-import type { GetStaticProps, NextPage } from 'next'
-import { CollectionSlug, getPostSlugs } from '../api/get-posts'
-import { CollectionGroup } from '../components/collection-group'
+import type { GetStaticProps, NextPage } from "next";
+import { CollectionSlug, getPostSlugs } from "../api/get-posts";
+import { CollectionGroup } from "../components/collection-group";
 
 export interface CollectionProps {
-  collectedSlugData?: CollectionSlug[]
+  collectedSlugData?: CollectionSlug[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -11,18 +11,18 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       collectedSlugData: getPostSlugs(),
     },
-  }
-}
+  };
+};
 
 const PopularCollections: NextPage = (props: CollectionProps) => {
-  const { collectedSlugData } = props
+  const { collectedSlugData } = props;
   return (
     <div>
       {collectedSlugData && (
         <CollectionGroup collectedSlugData={collectedSlugData} />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default PopularCollections
+export default PopularCollections;

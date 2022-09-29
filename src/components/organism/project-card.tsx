@@ -1,6 +1,6 @@
-import capitalize from 'capitalize'
-import Link from 'next/link'
-import { ProjectSlug } from '../../api/get-posts'
+import capitalize from "capitalize";
+import Link from "next/link";
+import { ProjectSlug } from "../../api/get-posts";
 
 export const ProjectCard = (props: ProjectSlug) => {
   const {
@@ -9,7 +9,7 @@ export const ProjectCard = (props: ProjectSlug) => {
     expertise,
     description,
     location: { collection, projectLocation },
-  } = props
+  } = props;
   return (
     <Link
       href={`/projects/[collection]/[projectSlug]`}
@@ -17,35 +17,35 @@ export const ProjectCard = (props: ProjectSlug) => {
       key={title}
       className="flex"
     >
-      <div className="min-h-[150px] cursor-pointer bg-secondary-background rounded shadow-md max-h-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <div className="flex flex-col justify-between h-[150px] px-4 py-2 leading-normal w-full">
+      <div className="max-h-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 min-h-[150px] cursor-pointer rounded bg-secondary-background shadow-md">
+        <div className="flex h-[150px] w-full flex-col justify-between px-4 py-2 leading-normal">
           <section className="flex justify-between">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-primary-text dark:text-white">
+            <h5 className="dark:text-white mb-2 text-2xl font-bold tracking-tight text-primary-text">
               {title}
             </h5>
           </section>
           {description && (
-            <p className="font-normal text-xs text-primary-text mb-4 mt-2">
+            <p className="mb-4 mt-2 text-xs font-normal text-primary-text">
               {description}
             </p>
           )}
-          <section className="flex justify-between w-full">
-            <section className="flex justify-center items-center">
+          <section className="flex w-full justify-between">
+            <section className="flex items-center justify-center">
               {tags.map((tag) => (
                 <div
                   key={tag}
-                  className="text-center font-light text-primary-text text-[9px] p-1"
+                  className="p-1 text-center text-[9px] font-light text-primary-text"
                 >
                   {tag}
                 </div>
               ))}
             </section>
-            <p className="text-xs font-normal text-primary-text text-end">
+            <p className="text-end text-xs font-normal text-primary-text">
               {capitalize(expertise)}
             </p>
           </section>
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};

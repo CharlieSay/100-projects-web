@@ -1,63 +1,63 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import { useRouter } from 'next/router'
-import { ParsedUrlQuery } from 'querystring'
-import { getPostBySlug, PostMatter } from '../../api/get-posts'
+import { GetStaticPaths, GetStaticProps } from "next";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { useRouter } from "next/router";
+import { ParsedUrlQuery } from "querystring";
+import { getPostBySlug, PostMatter } from "../../api/get-posts";
 
-import hljs from 'highlight.js'
-import 'highlight.js/styles/vs2015.css'
-import { useEffect } from 'react'
-import { ProjectPageHero } from '../../components/molecule/project-page-header'
-import { SimilarProjects } from '../../components/molecule/similar-projects'
-import Head from 'next/head'
+import hljs from "highlight.js";
+import "highlight.js/styles/vs2015.css";
+import { useEffect } from "react";
+import { ProjectPageHero } from "../../components/molecule/project-page-header";
+import { SimilarProjects } from "../../components/molecule/similar-projects";
+import Head from "next/head";
 
-const components = {}
+const components = {};
 
 interface IParams extends ParsedUrlQuery {
-  project: string[]
+  project: string[];
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { project } = params as IParams
+  const { project } = params as IParams;
 
-  if (project === undefined) return { props: {} }
+  if (project === undefined) return { props: {} };
 
-  const grayMatter = getPostBySlug(project)
-  const sourceContent = await serialize(grayMatter.content)
+  const grayMatter = getPostBySlug(project);
+  const sourceContent = await serialize(grayMatter.content);
 
   return {
     props: {
       content: grayMatter.content,
       data: grayMatter.data,
-      matter: grayMatter.matter || '',
-      language: grayMatter.language || '',
+      matter: grayMatter.matter || "",
+      language: grayMatter.language || "",
       source: sourceContent,
     },
-  }
-}
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking',
-  }
-}
+    fallback: "blocking",
+  };
+};
 
 export default function GetStaticPathsIndex(props: PostMatter) {
   useEffect(() => {
-    hljs.highlightAll()
-  }, [])
-  let similarProjects = []
+    hljs.highlightAll();
+  }, []);
+  let similarProjects = [];
 
-  const router = useRouter()
+  const router = useRouter();
   function backToHome() {
-    router.push('/')
+    router.push("/");
   }
 
   // fallback: true, you can use:
   if (router.isFallback) {
-    backToHome()
+    backToHome();
   }
 
   if (!props.data || !props.content) {
@@ -65,10 +65,10 @@ export default function GetStaticPathsIndex(props: PostMatter) {
       <div>
         <h1>Loading...</h1>
       </div>
-    )
+    );
   }
 
-  const tagsSplit = props.data.tags.split(',')
+  const tagsSplit = props.data.tags.split(",");
 
   return (
     <>
@@ -84,5 +84,5 @@ export default function GetStaticPathsIndex(props: PostMatter) {
       <MDXRemote {...props.source} components={components} />
       {similarProjects.length > 0 && <SimilarProjects collectedSlugData={[]} />}
     </>
-  )
+  );
 }

@@ -1,26 +1,26 @@
-import type { GetStaticProps, NextPage } from 'next'
-import { getPopularProjects } from '../api/get-posts'
+import type { GetStaticProps, NextPage } from "next";
+import { getPopularProjects } from "../api/get-posts";
 import {
   CollectionHeroGroup,
   HeroCollectionType,
-} from '../components/organism/collection-hero-group'
+} from "../components/organism/collection-hero-group";
 
 type HomePageProps = {
-  heroCollections: HeroCollectionType[]
-}
+  heroCollections: HeroCollectionType[];
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-  const heroCollections = getPopularProjects()
+  const heroCollections = getPopularProjects();
 
   return {
     props: {
       heroCollections: heroCollections,
     },
-  }
-}
+  };
+};
 
 const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
-  const { heroCollections } = props
+  const { heroCollections } = props;
   return (
     <section>
       <h1 className="text-primary-ctaText">Popular collections of projects.</h1>
@@ -32,7 +32,7 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
           />
         ))}
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

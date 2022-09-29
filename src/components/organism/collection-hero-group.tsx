@@ -1,23 +1,23 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export type HeroCollectionType = {
-  title: string
-  collections: CollectionCard[]
-}
+  title: string;
+  collections: CollectionCard[];
+};
 
 export type CollectionCard = {
-  title: string
-  desc: string
-  url: string
-}
+  title: string;
+  desc: string;
+  url: string;
+};
 
 export const CollectionHeroGroup = (props: {
-  heroCollectionGroup: HeroCollectionType
+  heroCollectionGroup: HeroCollectionType;
 }) => {
-  const { heroCollectionGroup } = props
+  const { heroCollectionGroup } = props;
 
   return (
-    <section className="bg-secondary-background w-full p-4 my-6">
+    <section className="my-6 w-full bg-secondary-background p-4">
       <section key={heroCollectionGroup.title}>
         <h2 className="text-primary-ctaText">{heroCollectionGroup.title}.</h2>
         <ul className="grid">
@@ -34,5 +34,5 @@ export const CollectionHeroGroup = (props: {
         </ul>
       </section>
     </section>
-  )
-}
+  );
+};
