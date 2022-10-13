@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://100projects.dev
+
+# Sitemaps
+Sitemap: https://100projects.dev/sitemap.xml

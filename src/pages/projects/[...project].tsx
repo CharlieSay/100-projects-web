@@ -7,10 +7,10 @@ import { getPostBySlug, PostMatter } from "../../api/get-posts";
 
 import hljs from "highlight.js";
 import "highlight.js/styles/vs2015.css";
+import Head from "next/head";
 import { useEffect } from "react";
 import { ProjectPageHero } from "../../components/molecule/project-page-header";
 import { SimilarProjects } from "../../components/molecule/similar-projects";
-import Head from "next/head";
 
 const components = {};
 
@@ -48,7 +48,6 @@ export default function GetStaticPathsIndex(props: PostMatter) {
   useEffect(() => {
     hljs.highlightAll();
   }, []);
-  let similarProjects = [];
 
   const router = useRouter();
   function backToHome() {
@@ -73,7 +72,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
   return (
     <>
       <Head>
-        <title>{props.data.title} | 100 Projects</title>
+        <title>{`${props.data.title} | 100 Projects`}</title>
       </Head>
       <ProjectPageHero
         title={props.data.title}
@@ -82,7 +81,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
         description={props.data.description}
       />
       <MDXRemote {...props.source} components={components} />
-      {similarProjects.length > 0 && <SimilarProjects collectedSlugData={[]} />}
+      {props.similarProjects && <SimilarProjects collectedSlugData={[]} />}
     </>
   );
 }

@@ -15,13 +15,19 @@ export const ProjectPageHero = (props: ProjectHero) => {
       <section className="flex justify-between pb-4">
         <Link href={`/collection/expertise/${expertise}`}>
           <a className="text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
-            {capitalize(expertise)}
+            {capitalize(expertise.trim())}
           </a>
         </Link>
-        <section>
-          <p className="text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
-            {tags}
-          </p>
+        <section className="flex">
+          {tags &&
+            tags.map((tag) => (
+              <p
+                key={tag}
+                className="pl-2 text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight"
+              >
+                {capitalize(tag.trim())}
+              </p>
+            ))}
         </section>
       </section>
       <section className="flex justify-between rounded-xl bg-secondary-background py-4 px-4 md:p-6 ">

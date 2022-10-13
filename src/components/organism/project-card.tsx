@@ -36,7 +36,7 @@ export const ProjectCard = (props: ProjectSlug) => {
                   key={tag}
                   className="pr-1 text-center text-[10px] font-normal text-primary-text"
                 >
-                  {tag}
+                  {`${tag}`}
                 </div>
               ))}
             </section>
