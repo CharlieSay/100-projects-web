@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className="container mx-auto max-w-screen-lg p-4">
+    <main className="container bg-primary-background mx-auto max-w-screen-lg p-4">
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <title>100 Projects</title>
@@ -40,27 +40,27 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#00aba9" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#e2e8dc" />
       </Head>
-      <section>
+      <section className="bg-primary-background">
         <header role="navigation" aria-label="Main">
           <nav className="mx-auto max-w-screen-lg pt-2 pb-4">
             <div className="container mx-auto flex w-full justify-between">
               <Link href="/">
-                <a className="text-xl font-semibold text-secondary-text hover:cursor-pointer hover:text-primary-highlight">
+                <p className="text-xl font-semibold text-secondary-text hover:cursor-pointer hover:text-primary-highlight">
                   100.DEV
-                </a>
+                </p>
               </Link>
               <Link href="/popular-collections">
-                <a className="decocration-primary-ctaBackground text-sm font-medium text-primary-ctaText underline underline-offset-1 hover:cursor-pointer hover:text-primary-highlight">
+                <p className="decocration-primary-ctaBackground text-sm font-medium text-primary-ctaText underline underline-offset-1 hover:cursor-pointer hover:text-primary-highlight">
                   Popular
-                </a>
+                </p>
               </Link>
             </div>
           </nav>
         </header>
         <main>{props.children}</main>
-        <footer className="py-4 pt-8">
+        <footer>
           <p className="text-xs text-primary-text">
             100 Projects by{" "}
             <span className="text-xs font-bold text-primary-text">100DEV</span>
