@@ -6,9 +6,8 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Helvetica Neue", HelveticaNeue, "TeX Gyre Heros", TeXGyreHeros,
-    FreeSans, "Nimbus Sans L", "Liberation Sans", Arimo, Helvetica, Arial,
-    sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Nimbus Sans L",
+    "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
   text-decoration-thickness: auto;
   text-decoration-style: solid;
   line-height: 1.5;
@@ -20,10 +19,8 @@
 
 html,
 body,
-body > div:first-child,
-div#__next,
-div#__next > div {
-  height: calc(100% + 8%);
+#__next {
+  height: 100%;
 }
 
 p,
