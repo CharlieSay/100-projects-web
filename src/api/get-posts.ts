@@ -1,4 +1,3 @@
-import { SimilarProjects } from "./../components/molecule/similar-projects";
 import { readdirSync, readFileSync } from "fs-extra";
 import matter from "gray-matter";
 import { join } from "path";
@@ -30,6 +29,7 @@ export type PostMatter = {
   matter: string;
   language: string;
   source: any;
+  imgUrl?: string;
   similarProjects?: CollectionSlug[];
 };
 

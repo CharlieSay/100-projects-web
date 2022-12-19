@@ -1,16 +1,15 @@
+import hljs from "highlight.js";
+import "highlight.js/styles/vs2015.css";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import { getPostBySlug, PostMatter } from "../../api/get-posts";
-
-import hljs from "highlight.js";
-import "highlight.js/styles/vs2015.css";
-import Head from "next/head";
 import { useEffect } from "react";
+import { getImageUrl } from "../../api/get-image";
+import { getPostBySlug, PostMatter } from "../../api/get-posts";
 import { ProjectPageHero } from "../../components/molecule/project-page-header";
-import { SimilarProjects } from "../../components/molecule/similar-projects";
 
 const components = {};
 
@@ -25,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const grayMatter = getPostBySlug(project);
   const sourceContent = await serialize(grayMatter.content);
+  const imgUrl = await getImageUrl(grayMatter.data.thumbId);
 
   return {
     props: {
@@ -33,6 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       matter: grayMatter.matter || "",
       language: grayMatter.language || "",
       source: sourceContent,
+      imgUrl: imgUrl.error ? "" : imgUrl.urls.thumb,
     },
   };
 };
@@ -54,7 +55,6 @@ export default function GetStaticPathsIndex(props: PostMatter) {
     router.push("/");
   }
 
-  // fallback: true, you can use:
   if (router.isFallback) {
     backToHome();
   }
@@ -79,9 +79,14 @@ export default function GetStaticPathsIndex(props: PostMatter) {
         tags={tagsSplit}
         expertise={props.data.expertise}
         description={props.data.description}
+        thumbnail={{
+          thumbUrl: props.imgUrl || "",
+          description: "",
+        }}
       />
-      <MDXRemote {...props.source} components={components} />
-      {props.similarProjects && <SimilarProjects collectedSlugData={[]} />}
+      <section className="mb-32">
+        <MDXRemote {...props.source} components={components} />
+      </section>
     </>
   );
 }
