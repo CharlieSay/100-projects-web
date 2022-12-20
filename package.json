@@ -15,8 +15,8 @@
     "capitalize": "^2.0.4",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",
-    "next": "13.0.0",
-    "next-mdx-remote": "^4.1.0",
+    "next": "12.3.4",
+    "next-mdx-remote": "4.2.0",
     "path": "^0.12.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
