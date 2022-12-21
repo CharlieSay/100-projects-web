@@ -34,6 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       language: grayMatter.language || "",
       source: sourceContent,
       imgUrl: imgUrl.error ? "" : imgUrl.urls.small,
+      imgDescription: imgUrl.error ? "" : imgUrl.description,
     },
   };
 };
@@ -81,7 +82,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
         description={props.data.description}
         thumbnail={{
           thumbUrl: props.imgUrl || "",
-          description: "",
+          description: props.imgDescription || "",
         }}
       />
       <section className="markdown-styles">

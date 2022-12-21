@@ -31,6 +31,7 @@ export type PostMatter = {
   language: string;
   source: any;
   imgUrl?: string;
+  imgDescription?: string;
   similarProjects?: CollectionSlug[];
 };
 
