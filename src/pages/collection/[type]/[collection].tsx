@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { type: "expertise", collection: "intermediate" } },
       { params: { type: "expertise", collection: "expert" } },
       { params: { type: "language", collection: "java" } },
-      { params: { type: "language", collection: "js" } },
+      { params: { type: "language", collection: "javascript" } },
       { params: { type: "language", collection: "python" } },
     ],
     fallback: true,
