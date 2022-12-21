@@ -15,7 +15,7 @@ export const CollectionGroup = (props: CollectionProps) => {
                 {capitalize(slug.title)}
               </h1>
             )}
-            <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid grid-cols-3 gap-2">
               {slug.slugs.map((subSlug) => (
                 <li key={subSlug.title}>
                   <ProjectCard

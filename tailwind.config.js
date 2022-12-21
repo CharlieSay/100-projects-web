@@ -1,16 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       primary: {
-        background: "#e2e8dc",
-        text: "#202d4a",
+        background: "#FAF9F6",
+        text: "#141A46",
         ctaText: "#000000",
-        ctaBackground: "#008044",
-        highlight: "#0073e6",
+        ctaBackground: "#FFC300",
+        highlight: "#FFC300",
       },
       secondary: {
         background: "#ffffff",

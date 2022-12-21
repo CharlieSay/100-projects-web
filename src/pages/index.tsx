@@ -23,7 +23,9 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
   const { heroCollections } = props;
   return (
     <section>
-      <h1 className="text-primary-ctaText">Popular collections of projects.</h1>
+      <h1 className="text-primary-ctaText text-2xl">
+        Popular collections of projects.
+      </h1>
       {heroCollections &&
         heroCollections.map((popularCollection) => (
           <CollectionHeroGroup

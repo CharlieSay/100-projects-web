@@ -84,7 +84,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
           description: "",
         }}
       />
-      <section className="mb-32">
+      <section>
         <MDXRemote {...props.source} components={components} />
       </section>
     </>

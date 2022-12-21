@@ -60,7 +60,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
           </nav>
         </header>
         <main>{props.children}</main>
-        <footer>
+        <footer className="mt-16">
           <p className="text-xs text-primary-text">
             100 Projects by{" "}
             <span className="text-xs font-bold text-primary-text">100DEV</span>

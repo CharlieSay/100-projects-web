@@ -15,6 +15,7 @@ export type ProjectSlug = {
   tags: string[];
   expertise: string;
   description: string;
+  imgUrl?: string;
   location: ProjectLocation;
 };
 
