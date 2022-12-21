@@ -20,11 +20,9 @@ export const ProjectCard = (props: ProjectSlug) => {
         <span className="text-sm text-primary-ctaBackground font-semibold">
           {capitalize(expertise)}
         </span>
-
-        <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+        <h4 className="mt-1 text-xl font-semibold uppercase leading-tight">
           {title}
         </h4>
-
         <div className="mt-1 text-sm">{description}</div>
         <div className="mt-4 grow flex flex-col-reverse">
           <div className="flex items-baseline truncate">

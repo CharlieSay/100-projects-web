@@ -59,18 +59,18 @@ export function getPopularProjects(): HeroCollectionType[] {
       title: "By type",
       collections: [
         {
-          title: "Back-end",
-          desc: "APIs, transformation etc.",
-          url: "collection/type/back-end",
+          title: "APIs",
+          desc: "Application programming interfaces",
+          url: "collection/type/api",
         },
         {
           title: "Web",
-          desc: "by this I mean websites",
+          desc: "Anything web based",
           url: "collection/type/web",
         },
         {
           title: "Data",
-          desc: "Data scraping and all its fun",
+          desc: "Data manipulation, visualisation and more",
           url: "collection/type/data",
         },
       ],
@@ -80,17 +80,17 @@ export function getPopularProjects(): HeroCollectionType[] {
       collections: [
         {
           title: "Beginner",
-          desc: "0-2 years experience",
+          desc: "0-1 years experience",
           url: "collection/expertise/beginner",
         },
         {
           title: "Intermediate",
-          desc: "2-5 years experience (roughly)",
+          desc: "1-5 years experience (est)",
           url: "collection/expertise/intermediate",
         },
         {
           title: "Expert",
-          desc: "6+ years (roughly)",
+          desc: "6+ years (est)",
           url: "collection/expertise/expert",
         },
       ],
@@ -100,7 +100,8 @@ export function getPopularProjects(): HeroCollectionType[] {
       collections: [
         {
           title: "Java",
-          desc: "The OG Object Oriented language",
+          desc:
+            "Java is a high-level, class-based, object-oriented programming language",
           url: "collection/language/java",
         },
         {
@@ -110,8 +111,14 @@ export function getPopularProjects(): HeroCollectionType[] {
         },
         {
           title: "Python",
-          desc: "AI, Robots, Data - easily done in Python",
+          desc: "Python is a high-level, general-purpose programming language",
           url: "collection/language/python",
+        },
+        {
+          title: "Rust",
+          desc:
+            "Relative new-comer - Rust is a multi-paradigm, general-purpose programming language.",
+          url: "collection/language/rust",
         },
       ],
     },
