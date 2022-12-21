@@ -84,7 +84,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
           description: "",
         }}
       />
-      <section>
+      <section className="markdown-styles">
         <MDXRemote {...props.source} components={components} />
       </section>
     </>

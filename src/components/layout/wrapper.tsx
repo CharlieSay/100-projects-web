@@ -52,7 +52,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
                 </p>
               </Link>
               <Link href="/popular-collections">
-                <p className="decocration-primary-ctaBackground text-sm font-medium text-primary-ctaText underline underline-offset-1 hover:cursor-pointer hover:text-primary-highlight">
+                <p className="decocration-primary-ctaBackground text-base font-medium text-primary-ctaText underline underline-offset-1 hover:cursor-pointer hover:text-primary-highlight">
                   Popular
                 </p>
               </Link>

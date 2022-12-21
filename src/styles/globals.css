@@ -22,3 +22,31 @@ body,
 #__next {
   height: fit-content;
 }
+
+.markdown-styles > h1 {
+    color: theme(colors.primary.text);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2rem
+}
+
+.markdown-styles > h2 {
+    color: theme(colors.primary.text);
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.markdown-styles > ul {
+    list-style-type: disc;
+
+}
+.markdown-styles > ul > li {
+  margin-left: 32px;
+}
+.markdown-styles > p:first-of-type {
+margin-bottom: 18px;
+}
+

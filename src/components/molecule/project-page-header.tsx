@@ -14,7 +14,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
   const { title, tags, description, expertise, thumbnail } = props;
   return (
     <section className="mb-4">
-      <section className="flex justify-between pb-4">
+      <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
         <Link href={`/collection/expertise/${expertise}`}>
           <p className="text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
             {capitalize(expertise.trim())}
@@ -25,7 +25,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
             tags.map((tag) => (
               <p
                 key={tag}
-                className="pl-2 text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight"
+                className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight"
               >
                 {capitalize(tag.trim())}
               </p>
@@ -33,9 +33,9 @@ export const ProjectPageHero = (props: ProjectHero) => {
         </section>
       </section>
       <section className="flex justify-between rounded-xl bg-secondary-background py-4 px-4 md:p-6">
-        <section className="truncate">
-          <h1 className="text-secondary-text">{title}</h1>
-          <p className="whitespace-normal text-secondary-text">{description}</p>
+        <section className="">
+          <h1 className="text-primary-ctaText font-bold text-2xl">{title}</h1>
+          <h2 className="text-primary-ctaText text-base">{description}</h2>
         </section>
         {thumbnail?.thumbUrl && (
           <Image

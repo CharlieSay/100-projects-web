@@ -15,17 +15,16 @@ export const CollectionGroup = (props: CollectionProps) => {
                 {capitalize(slug.title)}
               </h1>
             )}
-            <ul className="grid grid-cols-3 gap-2">
+            <ul className="grid auto-rows-max grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
               {slug.slugs.map((subSlug) => (
-                <li key={subSlug.title}>
-                  <ProjectCard
-                    title={subSlug.title}
-                    tags={subSlug.tags}
-                    expertise={subSlug.expertise}
-                    description={subSlug.description}
-                    location={subSlug.location}
-                  />
-                </li>
+                <ProjectCard
+                  title={subSlug.title}
+                  tags={subSlug.tags}
+                  expertise={subSlug.expertise}
+                  description={subSlug.description}
+                  location={subSlug.location}
+                  key={subSlug.title}
+                />
               ))}
             </ul>
           </li>

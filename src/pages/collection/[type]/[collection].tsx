@@ -66,8 +66,10 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
   if (noResults) {
     return (
       <section className="my-6 w-full bg-secondary-background p-4">
-        <h1>Seems to be no projects matching</h1>
-        <h3>{query}</h3>
+        <h1 className="text-primary-ctaText font-bold text-2xl">
+          There seems to be no projects matching
+        </h1>
+        <h3 className="text-primary-ctaText text-lg">{query}</h3>
       </section>
     );
   }

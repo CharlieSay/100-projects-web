@@ -16,7 +16,7 @@ export const ProjectCard = (props: ProjectSlug) => {
       as={`/projects/${collection}/${projectLocation}`}
       key={title}
     >
-      <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-lg hover:cursor-pointer">
+      <div className="bg-white border-solid border-primary-ctaBackground border-[1px] p-6 rounded-lg shadow-lg hover:shadow-lg hover:cursor-pointer flex flex-col basis-auto">
         <span className="text-sm text-primary-ctaBackground font-semibold">
           {capitalize(expertise)}
         </span>
@@ -26,7 +26,7 @@ export const ProjectCard = (props: ProjectSlug) => {
         </h4>
 
         <div className="mt-1 text-sm">{description}</div>
-        <div className="mt-4">
+        <div className="mt-4 grow flex flex-col-reverse">
           <div className="flex items-baseline truncate">
             {tags.map((tag) => (
               <span
