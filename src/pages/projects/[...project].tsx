@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       matter: grayMatter.matter || "",
       language: grayMatter.language || "",
       source: sourceContent,
-      imgUrl: imgUrl.error ? "" : imgUrl.urls.thumb,
+      imgUrl: imgUrl.error ? "" : imgUrl.urls.small,
     },
   };
 };

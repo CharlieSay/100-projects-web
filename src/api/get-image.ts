@@ -1,5 +1,5 @@
 export type UnsplashPhotoData = {
-  urls: { thumb: string };
+  urls: { small: string };
   description: string;
   error?: boolean;
 };

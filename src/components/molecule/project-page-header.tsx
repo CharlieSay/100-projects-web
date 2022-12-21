@@ -32,19 +32,21 @@ export const ProjectPageHero = (props: ProjectHero) => {
             ))}
         </section>
       </section>
-      <section className="flex justify-between rounded-xl bg-secondary-background py-4 px-4 md:p-6">
-        <section className="">
+      <section className="flex justify-between rounded-xl bg-secondary-background">
+        <section className="hidden lg:inline">
+          {thumbnail && (
+            <Image
+              width="200"
+              height="200"
+              src={thumbnail.thumbUrl}
+              alt={thumbnail.description}
+            />
+          )}
+        </section>
+        <section className="py-4 px-4 md:p-6">
           <h1 className="text-primary-ctaText font-bold text-2xl">{title}</h1>
           <h2 className="text-primary-ctaText text-base">{description}</h2>
         </section>
-        {thumbnail?.thumbUrl && (
-          <Image
-            width="200"
-            height="200"
-            alt={thumbnail.description}
-            src={thumbnail.thumbUrl}
-          />
-        )}
       </section>
     </section>
   );
