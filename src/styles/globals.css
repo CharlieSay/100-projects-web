@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
 
 * {
   box-sizing: border-box;
-  font-family: "Helvetica Neue", HelveticaNeue, "TeX Gyre Heros", TeXGyreHeros, FreeSans, "Nimbus Sans L",
-    "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
+  font-family: 'Urbanist', sans-serif;
   text-decoration-thickness: auto;
   text-decoration-style: solid;
   line-height: 1.5;

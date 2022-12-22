@@ -32,7 +32,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
             ))}
         </section>
       </section>
-      <section className="flex justify-between rounded-xl bg-secondary-background">
+      <section className="flex rounded-xl bg-secondary-background">
         <section className="hidden lg:block w-[200px] h-[200px] relative">
           {thumbnail && (
             <Image
