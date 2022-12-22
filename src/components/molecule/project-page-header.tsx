@@ -25,7 +25,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
             tags.map((tag) => (
               <p
                 key={tag}
-                className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight"
+                className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold text-primary-text"
               >
                 {capitalize(tag.trim())}
               </p>
@@ -33,11 +33,12 @@ export const ProjectPageHero = (props: ProjectHero) => {
         </section>
       </section>
       <section className="flex justify-between rounded-xl bg-secondary-background">
-        <section className="hidden lg:inline">
+        <section className="hidden lg:block w-[200px] h-[200px] relative">
           {thumbnail && (
             <Image
               width="200"
               height="200"
+              layout="fill"
               src={thumbnail.thumbUrl}
               alt={thumbnail.description}
             />
