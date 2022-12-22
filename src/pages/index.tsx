@@ -24,7 +24,7 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
   return (
     <section>
       <h1 className="text-primary-ctaText text-2xl">
-        Popular collections of projects.
+        Popular type of projects ideas
       </h1>
       {heroCollections &&
         heroCollections.map((popularCollection) => (

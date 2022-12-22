@@ -3,6 +3,8 @@ import matter from "gray-matter";
 import { join } from "path";
 import { HeroCollectionType } from "../components/organism/collection-hero-group";
 import { capitalizeWords } from "../util/string-manipulation";
+
+//TODO - Rename this, but also nest it more to allow for tips.
 const postsDirectory = join(process.cwd(), "project_content", "_mdx");
 
 export type CollectionSlug = {
@@ -56,7 +58,7 @@ export function getPostFrontMatter(slug: string): ProjectSlug {
 export function getPopularProjects(): HeroCollectionType[] {
   return [
     {
-      title: "By type",
+      title: "By tag",
       collections: [
         {
           title: "APIs",
