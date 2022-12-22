@@ -38,9 +38,9 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#00aba9" />
-        <meta name="theme-color" content="#e2e8dc" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#141a46" />
+        <meta name="msapplication-TileColor" content="#141A46" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <section className="bg-primary-background">
         <header role="navigation" aria-label="Main">
@@ -88,7 +88,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
               (GitHub Repo)
             </a>
           </p>
-          <a href="https://discord.gg/ZFXxEZBfRe">
+          <a href="https://discord.gg/ePXzKzQ7GZ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25px"
