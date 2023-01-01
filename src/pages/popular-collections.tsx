@@ -9,7 +9,7 @@ export interface CollectionProps {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      collectedSlugData: getPostSlugs(),
+      collectedSlugData: [],
     },
   };
 };

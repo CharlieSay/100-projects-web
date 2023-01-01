@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "update-submodules": "git submodule update --recursive --remote"
   },
   "dependencies": {
     "@types/capitalize": "^2.0.0",
@@ -17,7 +18,7 @@
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",
     "next": "12.3.4",
-    "next-mdx-remote": "4.2.0",
+    "next-mdx-remote": "^3.0.8",
     "path": "^0.12.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"

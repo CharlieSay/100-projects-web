@@ -11,8 +11,6 @@ import { getImageUrl } from "../../api/get-image";
 import { getPostBySlug, PostMatter } from "../../api/get-posts";
 import { ProjectPageHero } from "../../components/molecule/project-page-header";
 
-const components = {};
-
 interface IParams extends ParsedUrlQuery {
   project: string[];
 }
@@ -88,7 +86,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
         }}
       />
       <section className="markdown-styles">
-        <MDXRemote {...props.source} components={components} />
+        <MDXRemote {...props.source} />
       </section>
     </>
   );
