@@ -1,10 +1,8 @@
 import { readdirSync, readFileSync } from "fs-extra";
 import matter from "gray-matter";
 import { join } from "path";
-import { HeroCollectionType } from "../components/organism/collection-hero-group";
 import { capitalizeWords } from "../util/string-manipulation";
 
-//TODO - Rename this, but also nest it more to allow for tips.
 const postsDirectory = join(
   process.cwd(),
   "project_content",
@@ -64,49 +62,42 @@ export function getSlugsByFacets(
   filter: SearchFilters,
   limit?: number
 ): ProjectSlug[] {
-  const allCollections = getAllCollectionSlugs();
-  let filteredProjectSlugs: ProjectSlug[] = [];
-  if (filter.key === "type") {
-    return (
-      allCollections.filter(
-        (collection) => collection.title === filter.value
-      )[0]?.slugs || []
-    );
-  }
+  const allProjectSlugs = getAllProjectSlugs();
 
-  // const filteredProjectSlugs = allCollections
-  //   .flatMap((project) => project.slugs)
-  //   .filter((slug) =>
-  //     filters.some(({ key, value }) => {
-  //       if (key === "type") {
-  //         return slug.tags
-  //           .map((tag) => tag.toLowerCase())
-  //           .includes(value.toLowerCase());
-  //       }
-  //       return key === "expertise" && slug.expertise === value;
-  //     })
-  //   );
-  return filteredProjectSlugs;
+  switch (filter.key) {
+    case "type":
+      return allProjectSlugs
+        .filter((slug) => slug.location.collection === filter.value)
+        .slice(0, limit);
+    case "expertise":
+      return allProjectSlugs
+        .filter((slug) => slug.expertise === filter.value)
+        .slice(0, limit);
+    case "language":
+      return allProjectSlugs
+        .filter((slug) => slug.tags.includes(filter.value))
+        .slice(0, limit);
+    default:
+      return allProjectSlugs.slice(0, limit);
+  }
 }
 
-export function getAllCollectionSlugs(): CollectionSlug[] {
+export function getAllProjectSlugs(): ProjectSlug[] {
   const listOfCollections = readdirSync(postsDirectory);
-  return listOfCollections.map((collection: string) => {
+  return listOfCollections.flatMap((collection: string) => {
     const foundSlugs = readdirSync(
       join(process.cwd(), `project_content/_mdx/projects/${collection}`)
     );
-    return {
-      title: collection,
-      slugs: foundSlugs.map((slug) => {
-        const slugFrontMatter = getPostFrontMatter(`${collection}/${slug}`);
-        return {
-          ...slugFrontMatter,
-          location: { collection, projectLocation: slug },
-        };
-      }),
-    };
+    return foundSlugs.map((slug) => {
+      const slugFrontMatter = getPostFrontMatter(`${collection}/${slug}`);
+      return {
+        ...slugFrontMatter,
+        location: { collection, projectLocation: slug },
+      };
+    });
   });
 }
+
 export function getPostBySlug(slug: string[]): PostMatter {
   const fullPath = join(postsDirectory, ...slug);
   const fileContents = readFileSync(fullPath, "utf-8");

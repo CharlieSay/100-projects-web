@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { CollectionSlug, getAllCollectionSlugs } from "../api/get-posts";
+import { CollectionSlug, getAllProjectSlugs } from "../api/get-posts";
 import { CollectionGroup } from "../components/collection-group";
 
 export interface CollectionProps {
@@ -9,7 +9,12 @@ export interface CollectionProps {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      collectedSlugData: getAllCollectionSlugs(),
+      collectedSlugData: [
+        {
+          title: "Popular Projects",
+          slugs: getAllProjectSlugs(),
+        },
+      ],
     },
   };
 };

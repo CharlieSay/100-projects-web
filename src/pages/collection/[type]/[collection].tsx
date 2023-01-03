@@ -33,16 +33,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const convertedParams = params as TemporaryConversion;
   const collection = convertedParams.collection;
   const slugs: ProjectSlug[] = getSlugsByFacets(
-    { key: "type", value: collection },
-    0
+    { key: convertedParams.type as SearchType, value: collection },
+    9
   );
-
-  // getSlugsByFacets([
-  //   {
-  //     key: convertedParams.type as SearchType,
-  //     value: collection,
-  //   },
-  // ]);
 
   return {
     props: {
