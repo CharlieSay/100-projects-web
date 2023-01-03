@@ -4,7 +4,7 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="h-full bg-primary-background">
+    <div className="h-screen bg-primary-background">
       <Wrapper>
         <Component {...pageProps} />
       </Wrapper>

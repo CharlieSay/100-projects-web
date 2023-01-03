@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className="container bg-primary-background mx-auto max-w-screen-lg p-4">
+    <main className="h-full w-screen bg-primary-background mx-auto max-w-screen-lg px-6">
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <title>100 Projects</title>
@@ -43,7 +43,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <section className="bg-primary-background">
-        <header role="navigation" aria-label="Main">
+        <header role="navigation" className="pt-4" aria-label="Main">
           <nav className="mx-auto max-w-screen-lg pt-2 pb-4">
             <div className="container mx-auto flex w-full justify-between">
               <Link href="/">
@@ -65,7 +65,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
           </nav>
         </header>
         <main>{props.children}</main>
-        <footer className="mt-16">
+        <footer className="mt-16 pb-8">
           <p className="text-xs text-primary-text">
             100 Projects by{" "}
             <span className="text-xs font-bold text-primary-text">100DEV</span>
