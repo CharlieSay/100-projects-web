@@ -43,11 +43,11 @@ export type PostMatter = {
 };
 
 export type SearchFilters = {
-  key: ProjectType;
+  key: SearchType;
   value: string;
 };
 
-export type ProjectType = "type" | "expertise" | "language";
+export type SearchType = "type" | "expertise" | "language";
 
 export function getPostFrontMatter(slug: string): ProjectSlug {
   const grayMatterForSlug = getPostBySlug([slug]);
@@ -61,26 +61,35 @@ export function getPostFrontMatter(slug: string): ProjectSlug {
 }
 
 export function getSlugsByFacets(
-  filters: SearchFilters[],
+  filter: SearchFilters,
   limit?: number
 ): ProjectSlug[] {
-  const allProjects = getPostSlugs();
-  const filteredProjectSlugs = allProjects
-    .flatMap((project) => project.slugs)
-    .filter((slug) =>
-      filters.some(({ key, value }) => {
-        if (key === "type") {
-          return slug.tags
-            .map((tag) => tag.toLowerCase())
-            .includes(value.toLowerCase());
-        }
-        return key === "expertise" && slug.expertise === value;
-      })
+  const allCollections = getAllCollectionSlugs();
+  let filteredProjectSlugs: ProjectSlug[] = [];
+  if (filter.key === "type") {
+    return (
+      allCollections.filter(
+        (collection) => collection.title === filter.value
+      )[0]?.slugs || []
     );
-  return limit ? filteredProjectSlugs.slice(0, limit) : filteredProjectSlugs;
+  }
+
+  // const filteredProjectSlugs = allCollections
+  //   .flatMap((project) => project.slugs)
+  //   .filter((slug) =>
+  //     filters.some(({ key, value }) => {
+  //       if (key === "type") {
+  //         return slug.tags
+  //           .map((tag) => tag.toLowerCase())
+  //           .includes(value.toLowerCase());
+  //       }
+  //       return key === "expertise" && slug.expertise === value;
+  //     })
+  //   );
+  return filteredProjectSlugs;
 }
 
-export function getPostSlugs(): CollectionSlug[] {
+export function getAllCollectionSlugs(): CollectionSlug[] {
   const listOfCollections = readdirSync(postsDirectory);
   return listOfCollections.map((collection: string) => {
     const foundSlugs = readdirSync(

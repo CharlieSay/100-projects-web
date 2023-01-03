@@ -16,12 +16,12 @@ function getPopularProjects(): HeroCollectionType[] {
         {
           title: "Front-end (web)",
           desc: "Application programming interfaces",
-          url: "collection/type/api",
+          url: "collection/type/frontend",
         },
         {
           title: "Back-end",
           desc: "Anything web based",
-          url: "collection/type/web",
+          url: "collection/type/backend",
         },
         {
           title: "Data",
@@ -50,53 +50,6 @@ function getPopularProjects(): HeroCollectionType[] {
         },
       ],
     },
-    // {
-    //   title: "By difficulty",
-    //   collections: [
-    //     {
-    //       title: "Beginner",
-    //       desc: "0-1 years experience",
-    //       url: "collection/expertise/beginner",
-    //     },
-    //     {
-    //       title: "Intermediate",
-    //       desc: "1-5 years experience (est)",
-    //       url: "collection/expertise/intermediate",
-    //     },
-    //     {
-    //       title: "Expert",
-    //       desc: "6+ years (est)",
-    //       url: "collection/expertise/expert",
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: "By language",
-    //   collections: [
-    //     {
-    //       title: "Java",
-    //       desc:
-    //         "Java is a high-level, class-based, object-oriented programming language",
-    //       url: "collection/language/java",
-    //     },
-    //     {
-    //       title: "Javascript (& Typescript)",
-    //       desc: "The modern langauge for the web.",
-    //       url: "collection/language/javascript",
-    //     },
-    //     {
-    //       title: "Python",
-    //       desc: "Python is a high-level, general-purpose programming language",
-    //       url: "collection/language/python",
-    //     },
-    //     {
-    //       title: "Rust",
-    //       desc:
-    //         "Relative new-comer - Rust is a multi-paradigm, general-purpose programming language.",
-    //       url: "collection/language/rust",
-    //     },
-    //   ],
-    // },
   ];
 }
 

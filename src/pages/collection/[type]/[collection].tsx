@@ -2,7 +2,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import {
   CollectionSlug,
   getSlugsByFacets,
-  ProjectType,
+  ProjectSlug,
+  SearchType,
 } from "../../../api/get-posts";
 import { CollectionGroup } from "../../../components/collection-group";
 
@@ -31,12 +32,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const convertedParams = params as TemporaryConversion;
   const collection = convertedParams.collection;
-  const slugs = getSlugsByFacets([
-    {
-      key: convertedParams.type as ProjectType,
-      value: collection,
-    },
-  ]);
+  const slugs: ProjectSlug[] = getSlugsByFacets(
+    { key: "type", value: collection },
+    0
+  );
+
+  // getSlugsByFacets([
+  //   {
+  //     key: convertedParams.type as SearchType,
+  //     value: collection,
+  //   },
+  // ]);
 
   return {
     props: {
@@ -69,9 +75,11 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
   const { collectedSlugData } = props;
 
   return (
-    collectedSlugData && (
-      <CollectionGroup collectedSlugData={collectedSlugData} />
-    )
+    <>
+      {collectedSlugData && (
+        <CollectionGroup collectedSlugData={collectedSlugData} />
+      )}
+    </>
   );
 };
 
