@@ -16,7 +16,7 @@ export const ProjectCard = (props: ProjectSlug) => {
       as={`/projects/${collection}/${projectLocation}`}
       key={title}
     >
-      <div className="bg-white border-solid border-primary-ctaBackground border-[1px] p-6 rounded-lg shadow-lg hover:shadow-lg hover:cursor-pointer flex flex-col basis-auto ">
+      <div className="bg-secondary-background border-solid border-primary-ctaBackground border-[1px] p-6 rounded-lg shadow-lg hover:shadow-lg hover:cursor-pointer flex flex-col basis-auto">
         <span className="text-sm text-primary-ctaBackground font-semibold">
           {capitalize(expertise)}
         </span>

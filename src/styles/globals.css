@@ -1,25 +1,15 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
 
 * {
   box-sizing: border-box;
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Sora', sans-serif;
   text-decoration-thickness: auto;
   text-decoration-style: solid;
-  line-height: 1.5;
-  font-size: 1.1375rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-
-html,
-body,
-#__next {
-  height: fit-content;
 }
 
 .markdown-styles > h1 {
@@ -49,3 +39,4 @@ body,
   margin-bottom: 18px;
 }
 
+@tailwind utilities;
