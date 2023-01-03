@@ -11,6 +11,8 @@ import { getImageUrl } from "../../api/get-image";
 import { getPostBySlug, PostMatter } from "../../api/get-posts";
 import { ProjectPageHero } from "../../components/molecule/project-page-header";
 
+const defaultProjectImageUrl =
+  "https://images.unsplash.com/photo-1598791318878-10e76d178023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTU1MjB8MHwxfGFsbHx8fHx8fHx8fDE2NzE2NjY3NjM&ixlib=rb-4.0.3&q=80&w=400";
 interface IParams extends ParsedUrlQuery {
   project: string[];
 }
@@ -22,7 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const grayMatter = getPostBySlug(project);
   const sourceContent = await serialize(grayMatter.content);
-  const imgUrl = await getImageUrl(grayMatter.data.thumbId);
+  const unsplashPhotoData = await getImageUrl(grayMatter.data.thumbId);
 
   return {
     props: {
@@ -31,8 +33,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       matter: grayMatter.matter || "",
       language: grayMatter.language || "",
       source: sourceContent,
-      imgUrl: imgUrl.error ? "" : imgUrl.urls.small,
-      imgDescription: imgUrl.error ? "" : imgUrl.description,
+      imgData: {
+        url: unsplashPhotoData.error
+          ? defaultProjectImageUrl
+          : unsplashPhotoData.urls.small,
+        description: unsplashPhotoData.error
+          ? ""
+          : unsplashPhotoData.description,
+        author: unsplashPhotoData.error ? "" : unsplashPhotoData.user.name,
+        username: unsplashPhotoData.error
+          ? ""
+          : unsplashPhotoData.user.username,
+      },
     },
   };
 };
@@ -78,12 +90,7 @@ export default function GetStaticPathsIndex(props: PostMatter) {
         tags={tagsSplit}
         expertise={props.data.expertise}
         description={props.data.description}
-        thumbnail={{
-          thumbUrl:
-            "https://images.unsplash.com/photo-1598791318878-10e76d178023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTU1MjB8MHwxfGFsbHx8fHx8fHx8fDE2NzE2NjY3NjM&ixlib=rb-4.0.3&q=80&w=400",
-          // thumbUrl: props.imgUrl || "",
-          description: props.imgDescription || "",
-        }}
+        imgData={props.imgData}
       />
       <section className="markdown-styles">
         <MDXRemote {...props.source} />

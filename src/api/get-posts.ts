@@ -35,8 +35,12 @@ export type PostMatter = {
   matter: string;
   language: string;
   source: any;
-  imgUrl?: string;
-  imgDescription?: string;
+  imgData: {
+    url: string;
+    description: string;
+    author: string;
+    username: string;
+  };
   similarProjects?: CollectionSlug[];
 };
 
@@ -112,5 +116,6 @@ export function getPostBySlug(slug: string[]): PostMatter {
     matter: grayMatter.matter,
     language: grayMatter.language,
     source: {},
+    imgData: { url: "", description: "", author: "", username: "" },
   };
 }

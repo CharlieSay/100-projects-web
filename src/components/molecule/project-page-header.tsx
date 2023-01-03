@@ -7,11 +7,17 @@ type ProjectHero = {
   tags: string[];
   description: string;
   expertise: string;
-  thumbnail?: { thumbUrl: string; description: string };
+  imgData: {
+    url: string;
+    description: string;
+    author: string;
+    username: string;
+  };
 };
 
 export const ProjectPageHero = (props: ProjectHero) => {
-  const { title, tags, description, expertise, thumbnail } = props;
+  const { title, tags, description, expertise, imgData } = props;
+  console.log(props);
   return (
     <section className="mb-4">
       <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
@@ -33,19 +39,42 @@ export const ProjectPageHero = (props: ProjectHero) => {
       </section>
       <section className="flex rounded-xl bg-secondary-background">
         <section className="hidden lg:block w-[200px] h-[200px] relative">
-          {thumbnail && (
+          {imgData && (
             <Image
               width="200"
               height="200"
               layout="fill"
-              src={thumbnail.thumbUrl}
-              alt={thumbnail.description}
+              src={imgData.url}
+              alt={imgData.description}
             />
           )}
         </section>
-        <section className="py-4 px-4 md:p-6">
-          <h1 className="text-primary-ctaText font-bold text-2xl">{title}</h1>
-          <h2 className="text-primary-ctaText text-base">{description}</h2>
+        <section className="py-4 px-4 md:p-6 flex flex-col">
+          <section className="grow">
+            <h1 className="text-primary-ctaText font-bold text-2xl">{title}</h1>
+            <h2 className="text-primary-ctaText text-base">{description}</h2>
+          </section>
+          {imgData && (
+            <span className="text-xs text-primary-text hidden lg:inline">
+              Photo by{" "}
+              <Link passHref href={`https://unsplash.com/${imgData.username}`}>
+                <a className="hover:cursor-pointer hover:text-primary-highlight">
+                  {imgData.author}
+                </a>
+              </Link>{" "}
+              on{" "}
+              <Link
+                passHref
+                href={
+                  "https://unsplash.com/?utm_source=100 Projects&utm_medium=referral"
+                }
+              >
+                <a className="hover:cursor-pointer hover:text-primary-highlight">
+                  Unsplash
+                </a>
+              </Link>
+            </span>
+          )}
         </section>
       </section>
     </section>
