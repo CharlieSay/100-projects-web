@@ -45,7 +45,7 @@ export type SearchFilters = {
   value: string;
 };
 
-export type SearchType = "type" | "expertise" | "language";
+export type SearchType = "type" | "expertise" | "tag";
 
 export function getPostFrontMatter(slug: string): ProjectSlug {
   const grayMatterForSlug = getPostBySlug([slug]);
@@ -73,9 +73,13 @@ export function getSlugsByFacets(
       return allProjectSlugs
         .filter((slug) => slug.expertise === filter.value)
         .slice(0, limit);
-    case "language":
+    case "tag":
       return allProjectSlugs
-        .filter((slug) => slug.tags.includes(filter.value))
+        .filter((slug) =>
+          slug.tags.some(
+            (tag) => tag.toLowerCase() === filter.value.toLowerCase()
+          )
+        )
         .slice(0, limit);
     default:
       return allProjectSlugs.slice(0, limit);

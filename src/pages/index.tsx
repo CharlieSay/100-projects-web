@@ -50,6 +50,57 @@ function getPopularProjects(): HeroCollectionType[] {
         },
       ],
     },
+    {
+      title: "By expertise",
+      collections: [
+        {
+          title: "Easy (0-2 years of experience)",
+          desc:
+            "Learning the basics and building a strong foundation for a successful career in tech ",
+          url: "collection/expertise/easy",
+        },
+        {
+          title: "Intermediate (2-5 years of experience)",
+          desc: "Expanding skills and tackling more complex projects",
+          url: "collection/expertise/intermediate",
+        },
+        {
+          title: "Advanced (5+ years of experience)",
+          desc:
+            "Mastering the art of software development and constantly pushing the boundaries of what's possible",
+          url: "collection/expertise/advanced",
+        },
+      ],
+    },
+    {
+      title: "By language",
+      collections: [
+        {
+          title: "Python",
+          desc:
+            "the versatile and user-friendly language for all your coding needs",
+          url: "collection/tag/python",
+        },
+        {
+          title: "Java",
+          desc:
+            "One of the go-to language for building powerful and scalable applications",
+          url: "collection/tag/java",
+        },
+        {
+          title: "Javascript",
+          desc:
+            "the language of the web, powering interactive and dynamic websites everywhere",
+          url: "collection/tag/javascript",
+        },
+        {
+          title: "Rust",
+          desc:
+            "The safe and fast systems programming language for building reliable and efficient software",
+          url: "collection/tag/rust",
+        },
+      ],
+    },
   ];
 }
 
