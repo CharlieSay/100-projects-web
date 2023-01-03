@@ -15,7 +15,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
   return (
     <section className="mb-4">
       <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
-        <Link href={`/collection/expertise/${expertise}`}>
+        <Link passHref href={`/collection/expertise/${expertise}`}>
           <p className="text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
             {capitalize(expertise.trim())}
           </p>
@@ -23,12 +23,11 @@ export const ProjectPageHero = (props: ProjectHero) => {
         <section className="flex">
           {tags &&
             tags.map((tag) => (
-              <p
-                key={tag}
-                className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold text-primary-text"
-              >
-                {capitalize(tag.trim())}
-              </p>
+              <Link key={tag} href={`/collection/tag/${tag.trim()}`}>
+                <p className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
+                  {capitalize(tag.trim())}
+                </p>
+              </Link>
             ))}
         </section>
       </section>
