@@ -17,7 +17,6 @@ type ProjectHero = {
 
 export const ProjectPageHero = (props: ProjectHero) => {
   const { title, tags, description, expertise, imgData } = props;
-  console.log(props);
   return (
     <section className="mb-4">
       <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
