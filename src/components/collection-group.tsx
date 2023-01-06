@@ -1,6 +1,7 @@
 import capitalize from "capitalize";
 import { CollectionSlug } from "../api/get-posts";
-import { CollectionProps } from "../pages/popular-collections";
+import { CollectionProps } from "../pages/all-projects";
+import { getSynonym } from "../util/string-manipulation";
 import { ProjectCard } from "./organism/project-card";
 
 export const CollectionGroup = (props: CollectionProps) => {
@@ -12,7 +13,7 @@ export const CollectionGroup = (props: CollectionProps) => {
           <li key={slug.title} className="mt-4">
             {slug.title && (
               <h1 className="mb-8 text-4xl text-primary-ctaText">
-                {capitalize(slug.title)}
+                {capitalize(getSynonym(slug.title))}
               </h1>
             )}
             <ul className="grid auto-rows-max grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">

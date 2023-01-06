@@ -21,8 +21,14 @@ type CollectionGroupProps = {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      // generate these paths as theyre most common.
-      // { params: { type: "type", collection: "data" } },
+      // SSR these paths as theyre most common.
+      { params: { type: "type", collection: "frontend" } },
+      { params: { type: "type", collection: "data" } },
+      { params: { type: "type", collection: "backend" } },
+      { params: { type: "type", collection: "ai" } },
+      { params: { type: "expertise", collection: "easy" } },
+      { params: { type: "tag", collection: "java" } },
+      { params: { type: "tag", collection: "javascript" } },
     ],
     fallback: true,
   };

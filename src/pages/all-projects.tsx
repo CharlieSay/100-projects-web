@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       collectedSlugData: [
         {
-          title: "Popular Projects",
+          title: "All Projects",
           slugs: getAllProjectSlugs(),
         },
       ],
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const PopularCollections: NextPage = (props: CollectionProps) => {
+const AllProjects: NextPage = (props: CollectionProps) => {
   const { collectedSlugData } = props;
   return (
     <div>
@@ -28,4 +28,4 @@ const PopularCollections: NextPage = (props: CollectionProps) => {
   );
 };
 
-export default PopularCollections;
+export default AllProjects;

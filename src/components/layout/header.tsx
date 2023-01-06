@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DropDownMenu } from "../molecule/dropdown-menu";
+import { SearchBox } from "../molecule/search-box";
 
 export const Header = () => {
   return (
@@ -17,6 +18,8 @@ export const Header = () => {
             </svg>
           </Link>
           <nav className="flex">
+            <SearchBox />
+
             <DropDownMenu />
           </nav>
         </section>

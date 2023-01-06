@@ -9,11 +9,11 @@ const popularMenu = [
 export const DropDownMenu = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
-    <div className="relative inline-block text-left">
+    <div className="hidden md:inline-block text-left">
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center rounded-md border border-primary-highlight bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm bg-secondary-background"
+          className="inline-flex w-full justify-center rounded-md border border-primary-highlight bg-white px-4 pb-2 pt-2 text-sm font-medium text-gray-700 shadow-sm bg-secondary-background"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
           Popular

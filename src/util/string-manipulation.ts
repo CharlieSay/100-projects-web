@@ -7,3 +7,17 @@ export function capitalizeWords(arr: string[]): string[] {
     );
   });
 }
+
+export function getSynonym(word: string): string {
+  switch (word) {
+    case "js":
+      return "javascript";
+    case "cascading style sheets":
+      return "css";
+    case "ts":
+      return "typescript";
+    // add more cases as needed
+    default:
+      return word;
+  }
+}

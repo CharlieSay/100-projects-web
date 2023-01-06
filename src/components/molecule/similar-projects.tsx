@@ -1,4 +1,4 @@
-import { CollectionProps } from "../../pages/popular-collections";
+import { CollectionProps } from "../../pages/all-projects";
 import { CollectionGroup } from "../collection-group";
 
 export const SimilarProjects = (props: CollectionProps) => {

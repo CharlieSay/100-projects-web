@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from "fs-extra";
 import matter from "gray-matter";
 import { join } from "path";
-import { capitalizeWords } from "../util/string-manipulation";
+import { capitalizeWords, getSynonym } from "../util/string-manipulation";
 
 const postsDirectory = join(
   process.cwd(),
@@ -49,7 +49,9 @@ export type SearchFilters = {
   value: string;
 };
 
-export type SearchType = "type" | "expertise" | "tag";
+export type SearchType = "type" | "expertise" | "tag" | "tag-search";
+
+export type SortType = "expertise_asc" | "expertise_dsc";
 
 export function getPostFrontMatter(slug: string): ProjectSlug {
   const grayMatterForSlug = getPostBySlug([slug]);
@@ -67,6 +69,7 @@ export function getSlugsByFacets(
   limit?: number
 ): ProjectSlug[] {
   const allProjectSlugs = getAllProjectSlugs();
+  const normalizedFilterValue = filter.value.toLowerCase();
 
   switch (filter.key) {
     case "type":
@@ -80,8 +83,16 @@ export function getSlugsByFacets(
     case "tag":
       return allProjectSlugs
         .filter((slug) =>
-          slug.tags.some(
-            (tag) => tag.toLowerCase() === filter.value.toLowerCase()
+          slug.tags.some((tag) => tag.toLowerCase() === normalizedFilterValue)
+        )
+        .slice(0, limit);
+    case "tag-search":
+      return allProjectSlugs
+        .filter((slug) =>
+          [slug.location.collection, slug.expertise, ...slug.tags].some(
+            (property) =>
+              property.toLowerCase().includes(normalizedFilterValue) ||
+              property.toLowerCase().includes(getSynonym(normalizedFilterValue))
           )
         )
         .slice(0, limit);
