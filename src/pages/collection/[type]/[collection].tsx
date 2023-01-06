@@ -27,6 +27,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { type: "type", collection: "backend" } },
       { params: { type: "type", collection: "ai" } },
       { params: { type: "expertise", collection: "easy" } },
+      { params: { type: "expertise", collection: "intermediate" } },
+      { params: { type: "expertise", collection: "advanced" } },
       { params: { type: "tag", collection: "java" } },
       { params: { type: "tag", collection: "javascript" } },
     ],
@@ -40,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const collection = convertedParams.collection;
   const slugs: ProjectSlug[] = getSlugsByFacets(
     { key: convertedParams.type as SearchType, value: collection },
-    9
+    10
   );
 
   return {

@@ -39,13 +39,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
       <section className="flex rounded-xl bg-primary-white">
         <section className="hidden lg:block w-[200px] h-[200px] relative">
           {imgData && (
-            <Image
-              width="200"
-              height="200"
-              layout="fill"
-              src={imgData.url}
-              alt={imgData.description}
-            />
+            <Image fill={true} src={imgData.url} alt={imgData.description} />
           )}
         </section>
         <section className="py-4 px-4 md:p-6 flex flex-col">
@@ -56,21 +50,20 @@ export const ProjectPageHero = (props: ProjectHero) => {
           {imgData && (
             <span className="text-xs text-primary-text hidden lg:inline">
               Photo by{" "}
-              <Link passHref href={`https://unsplash.com/${imgData.username}`}>
-                <a className="hover:cursor-pointer hover:text-primary-highlight">
-                  {imgData.author}
-                </a>
+              <Link
+                href={`https://unsplash.com/${imgData.username}`}
+                className="hover:cursor-pointer hover:text-primary-highlight"
+              >
+                {imgData.author}
               </Link>{" "}
               on{" "}
               <Link
-                passHref
+                className="hover:cursor-pointer hover:text-primary-highlight"
                 href={
                   "https://unsplash.com/?utm_source=100 Projects&utm_medium=referral"
                 }
               >
-                <a className="hover:cursor-pointer hover:text-primary-highlight">
-                  Unsplash
-                </a>
+                Unsplash
               </Link>
             </span>
           )}
