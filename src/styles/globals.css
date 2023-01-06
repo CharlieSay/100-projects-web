@@ -16,7 +16,9 @@
   color: theme(colors.primary.text);
   font-weight: 700;
   font-size: 2rem;
-  line-height: 2rem
+  line-height: 2rem;
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .markdown-styles > h2 {
@@ -28,6 +30,11 @@
   margin-bottom: 16px;
 }
 
+.markdown-styles > code {
+  padding-bottom: 16px;
+  margin-top: 16px;
+}
+
 .markdown-styles > ul {
   list-style-type: disc;
 
@@ -36,6 +43,7 @@
   margin-left: 32px;
 }
 .markdown-styles > p:first-of-type {
+  margin-top: 18px;
   margin-bottom: 18px;
 }
 

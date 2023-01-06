@@ -13,7 +13,7 @@ export const DropDownMenu = () => {
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center rounded-md border border-primary-highlight bg-white px-4 pb-2 pt-2 text-sm font-medium text-gray-700 shadow-sm bg-secondary-background"
+          className="inline-flex w-full justify-center rounded-md border border-primary-highlight bg-white px-4 pb-2 pt-2 text-sm font-medium text-gray-700 shadow-sm bg-primary-white"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
           Popular
@@ -22,14 +22,14 @@ export const DropDownMenu = () => {
 
       {isDropdownOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-secondary-background shadow-lg ring-primary-highlight ring-opacity-5 focus:outline-none"
+          className="right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-primary-white shadow-lg ring-primary-highlight ring-opacity-5 focus:outline-none"
           role="menu"
         >
           <div className="py-1" role="none">
             {popularMenu.map((item) => (
               <a
                 href={item.url}
-                className="hover:bg-primary-background  text-gray-700 block px-4 py-2 text-sm"
+                className="hover:bg-primary-background text-gray-700 block px-4 py-2 text-sm"
                 role="menuitem"
                 id={`menu-item-${item.text}`}
                 key={item.text}

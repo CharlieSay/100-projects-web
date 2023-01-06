@@ -62,7 +62,7 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
 
   if (noResults) {
     return (
-      <section className="my-6 w-full bg-secondary-background p-4">
+      <section className="my-6 w-full bg-primary-white p-4">
         <h1 className="text-primary-ctaText font-bold text-2xl">
           There seems to be no projects matching
         </h1>

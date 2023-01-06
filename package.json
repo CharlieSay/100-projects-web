@@ -12,6 +12,7 @@
     "update-submodules": "git submodule update --recursive --remote"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.8",
     "@types/capitalize": "^2.0.0",
     "@types/react-syntax-highlighter": "^15.5.4",
     "capitalize": "^2.0.4",

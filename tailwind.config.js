@@ -8,23 +8,31 @@ module.exports = {
         background: "#FAF9F6",
         text: "#141A46",
         ctaText: "#000000",
-        ctaBackground: "#FFC300",
         highlight: "#FFC300",
+        white: "#ffffff",
+        black: "#ffffff",
       },
-      secondary: {
-        background: "#ffffff",
-        text: "#000000",
-        ctaText: "#ffffff",
-        ctaBackground: "#008044",
-        highlight: "#008044",
+    },
+    container: {
+      center: true,
+    },
+    extend: {
+      animation: {
+        text: "text 5s ease infinite",
       },
-      tertiary: {
-        background: "#0d291c",
-        text: "#ffffff",
-        ctaText: "",
-        ctaBackground: "",
+      keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

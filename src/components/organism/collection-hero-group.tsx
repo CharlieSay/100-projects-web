@@ -17,15 +17,15 @@ export const CollectionHeroGroup = (props: {
   const { heroCollectionGroup } = props;
 
   return (
-    <section className="my-6 w-full bg-secondary-background p-4">
+    <section className="my-6 w-full bg-primary-white rounded-lg">
       <section key={heroCollectionGroup.title}>
-        <h2 className="text-primary-ctaText text-2xl font-bold">
-          {heroCollectionGroup.title}.
+        <h2 className="text-primary-ctaText text-2xl font-bold mb-2 p-4">
+          {heroCollectionGroup.title}
         </h2>
-        <ul className="grid">
+        <ul className="grid grid-cols-1 gap-1">
           {heroCollectionGroup.collections.map((collection) => (
             <Link key={collection.title} href={collection.url}>
-              <li className="hover:cursor-pointer">
+              <li className="hover:cursor-pointer hover:bg-red-600 px-4 pb-4">
                 <h3 className="font-semibold text-xl text-primary-text hover:text-primary-highlight">
                   {collection.title}
                 </h3>

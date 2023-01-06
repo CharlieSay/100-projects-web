@@ -11,7 +11,7 @@ type HomePageProps = {
 function getPopularProjects(): HeroCollectionType[] {
   return [
     {
-      title: "By project type",
+      title: "By role",
       collections: [
         {
           title: "Front-end (web)",
@@ -118,9 +118,13 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
   const { heroCollections } = props;
   return (
     <section>
-      <h1 className="text-primary-ctaText text-2xl">
-        Popular type of projects ideas
-      </h1>
+      <section className="container my-10 flex justify-center align-middle flex-col text-center">
+        <h1 className="font-bold text-2xl sm:text-5xl">Developer Projects</h1>
+        <h2 className="text-sm sm:text-xl mt-2">
+          Unleash your creativity and find your next project here - a go-to
+          project inspiration for software developers!
+        </h2>
+      </section>
       {heroCollections &&
         heroCollections.map((popularCollection) => (
           <CollectionHeroGroup

@@ -5,9 +5,7 @@ export const SearchBox = () => {
   const [route, setRoute] = useState("");
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    let tempRoute = route;
-    setRoute("");
-    router.push("/collection/tag-search/" + tempRoute);
+    router.push("/collection/tag-search/" + route);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -20,9 +18,9 @@ export const SearchBox = () => {
             <svg
               fill="none"
               stroke="#000"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
               viewBox="0 0 24 24"
               className="w-6 h-6"
             >

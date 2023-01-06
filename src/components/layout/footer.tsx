@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="mt-16 pb-8">
@@ -5,6 +7,9 @@ const Footer = () => {
         100 Projects by{" "}
         <span className="text-xs font-bold text-primary-text">100DEV</span>
       </p>
+      <Link href={"/all-projects"}>
+        <p className="text-xs text-primary-text">All Projects</p>
+      </Link>
       <p className="text-xs text-primary-text">
         Made in{" "}
         <a
@@ -25,7 +30,7 @@ const Footer = () => {
           className="text-xs hover:cursor-pointer hover:text-primary-highlight"
           href="//github.com/charlieSay/100-projects"
         >
-          (GitHub Repo)
+          We are open source! - (GitHub Repo)
         </a>
       </p>
       <a href="https://discord.gg/ePXzKzQ7GZ">
