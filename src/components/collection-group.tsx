@@ -16,7 +16,7 @@ export const CollectionGroup = (props: CollectionProps) => {
                 {capitalize(getSynonym(slug.title))}
               </h1>
             )}
-            <ul className="grid auto-rows-max grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid auto-rows-max grid-cols-1 gap-2 md:grid-cols-3">
               {slug.slugs.map((subSlug) => (
                 <ProjectCard
                   title={subSlug.title}
