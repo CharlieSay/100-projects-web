@@ -1,10 +1,8 @@
 @tailwind base;
 @tailwind components;
-@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
 
 * {
   box-sizing: border-box;
-  font-family: 'Sora', sans-serif;
   text-decoration-thickness: auto;
   text-decoration-style: solid;
   -webkit-font-smoothing: antialiased;

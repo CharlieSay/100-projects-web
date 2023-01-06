@@ -7,6 +7,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
     <main className="h-full w-screen bg-primary-background mx-auto max-w-screen-lg px-6">
       <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <title>100 Projects</title>
         <meta name="title" content="100 Projects for developers to do" />
