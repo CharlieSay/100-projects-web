@@ -42,6 +42,7 @@ export type PostMatter = {
     username: string;
   };
   similarProjects?: CollectionSlug[];
+  canonUrl: string;
 };
 
 export type SearchFilters = {
@@ -128,5 +129,6 @@ export function getPostBySlug(slug: string[]): PostMatter {
     language: grayMatter.language,
     source: {},
     imgData: { url: "", description: "", author: "", username: "" },
+    canonUrl: `https://100projects.dev/projects/${slug[0]}/${slug[1]}`,
   };
 }

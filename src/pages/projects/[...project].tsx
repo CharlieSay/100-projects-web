@@ -45,6 +45,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           ? ""
           : unsplashPhotoData.user.username,
       },
+      canonUrl: grayMatter.canonUrl,
     },
   };
 };
@@ -84,6 +85,11 @@ export default function GetStaticPathsIndex(props: PostMatter) {
     <>
       <Head>
         <title>{`${props.data.title} | 100 Projects`}</title>
+        <meta name="description" content={props.data.description} />
+        <meta property="og:URL" content={props.canonUrl} />
+        <meta property="og:title" content={props.data.title} />
+        <meta property="og:description" content={props.data.description} />
+        <meta property="og:type" content="website" />
       </Head>
       <ProjectPageHero
         title={props.data.title}
