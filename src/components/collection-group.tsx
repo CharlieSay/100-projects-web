@@ -12,7 +12,7 @@ export const CollectionGroup = (props: CollectionProps) => {
         collectedSlugData.map((slug: CollectionSlug) => (
           <li key={slug.title} className="mt-4">
             {slug.title && (
-              <h1 className="mb-8 text-4xl text-primary-ctaText">
+              <h1 className="mb-8 text-4xl dark:text-darkMode-ctaText text-lightMode-ctaText">
                 {capitalize(getSynonym(slug.title))}
               </h1>
             )}

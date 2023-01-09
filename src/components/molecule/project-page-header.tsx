@@ -21,7 +21,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
     <section className="mb-4">
       <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
         <Link passHref href={`/collection/expertise/${expertise}`}>
-          <p className="text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
+          <p className="text-sm font-bold text-lightMode-text dark:text-darkMode-text hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight">
             {capitalize(expertise.trim())}
           </p>
         </Link>
@@ -29,14 +29,14 @@ export const ProjectPageHero = (props: ProjectHero) => {
           {tags &&
             tags.map((tag) => (
               <Link key={tag} href={`/collection/tag/${tag.trim()}`}>
-                <p className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold text-primary-text hover:cursor-pointer hover:text-primary-highlight">
+                <p className="text-xs pr-2 lg:pl-2 lg:text-sm font-bold dark:text-darkMode-text text-lightMode-text hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight">
                   {capitalize(tag.trim())}
                 </p>
               </Link>
             ))}
         </section>
       </section>
-      <section className="flex rounded-xl bg-primary-white">
+      <section className="flex rounded-xl bg-lightMode-white">
         <section className="hidden lg:block w-[200px] h-[200px] relative">
           {imgData && (
             <Image fill={true} src={imgData.url} alt={imgData.description} />
@@ -44,21 +44,25 @@ export const ProjectPageHero = (props: ProjectHero) => {
         </section>
         <section className="py-4 px-4 md:p-6 flex flex-col">
           <section className="grow">
-            <h1 className="text-primary-ctaText font-bold text-2xl">{title}</h1>
-            <h2 className="text-primary-ctaText text-base">{description}</h2>
+            <h1 className="text-lightMode-ctaText dark:text-darkMode-ctaText font-bold text-2xl">
+              {title}
+            </h1>
+            <h2 className="text-lightMode-ctaText dark:text-darkMode-ctaText text-base">
+              {description}
+            </h2>
           </section>
           {imgData && (
-            <span className="text-xs text-primary-text hidden lg:inline">
+            <span className="text-xs text-lightMode-text dark:text-darkMode-text hidden lg:inline">
               Photo by{" "}
               <Link
                 href={`https://unsplash.com/${imgData.username}`}
-                className="hover:cursor-pointer hover:text-primary-highlight"
+                className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
               >
                 {imgData.author}
               </Link>{" "}
               on{" "}
               <Link
-                className="hover:cursor-pointer hover:text-primary-highlight"
+                className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
                 href={
                   "https://unsplash.com/?utm_source=100 Projects&utm_medium=referral"
                 }

@@ -2,36 +2,27 @@
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     colors: {
-      primary: {
+      lightMode: {
         background: "#FAF9F6",
         text: "#141A46",
         ctaText: "#000000",
         highlight: "#FFC300",
-        white: "#ffffff",
-        black: "#ffffff",
       },
+      darkMode: {
+        background: "#0E1628",
+        backgroundAlt: "#1E293B",
+        text: "#f7f7f7",
+        ctaText: "#ffffff",
+        highlight: "#247BA0",
+      },
+      white: "#ffffff",
+      black: "#000000",
     },
     container: {
       center: true,
-    },
-    extend: {
-      animation: {
-        text: "text 5s ease infinite",
-      },
-      keyframes: {
-        text: {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
-      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

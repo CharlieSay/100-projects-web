@@ -11,7 +11,7 @@
 }
 
 .markdown-styles > h1 {
-  color: theme(colors.primary.text);
+  /* color: theme(colors.lightMode.text); */
   font-weight: 700;
   font-size: 2rem;
   line-height: 2rem;
@@ -20,7 +20,7 @@
 }
 
 .markdown-styles > h2 {
-  color: theme(colors.primary.text);
+  /* color: theme(colors.lightMode.text); */
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.5rem;

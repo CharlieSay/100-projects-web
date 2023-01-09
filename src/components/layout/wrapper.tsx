@@ -5,7 +5,7 @@ const Footer = dynamic(() => import("./footer"), { ssr: false });
 
 export const Wrapper = (props: { children: React.ReactNode }) => {
   return (
-    <main className="h-full w-screen bg-primary-background mx-auto max-w-screen-lg px-6">
+    <main className="h-full w-screen dark:bg-darkMode-background bg-lightMode-background mx-auto max-w-screen-lg px-6">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -45,7 +45,7 @@ export const Wrapper = (props: { children: React.ReactNode }) => {
         <meta name="msapplication-TileColor" content="#141A46" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <section className="bg-primary-background">
+      <section className="dark:bg-darkMode-background bg-lightMode-background">
         <Header />
         <main>{props.children}</main>
         <Footer />
