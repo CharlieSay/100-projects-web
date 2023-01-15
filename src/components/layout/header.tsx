@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { DropDownMenu } from "../molecule/dropdown-menu";
-import { SearchBox } from "../molecule/search-box";
+import { SearchBox } from "../organism/search-box";
 import { useTheme } from "next-themes";
 
 export const Header = () => {
@@ -23,10 +22,9 @@ export const Header = () => {
           </Link>
           <nav className="flex">
             <SearchBox />
-            {/* <DropDownMenu /> */}
             <DarkModeSwitch
               className="ml-4 mt-1"
-              checked={currentTheme! == "dark"}
+              checked={currentTheme === "dark"}
               onChange={() =>
                 setTheme(currentTheme === "dark" ? "light" : "dark")
               }

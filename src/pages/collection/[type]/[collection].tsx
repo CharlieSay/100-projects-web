@@ -64,11 +64,13 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
 
   if (noResults) {
     return (
-      <section className="my-6 w-full bg-lightMode-white p-4">
-        <h1 className="text-lightMode-ctaText font-bold text-2xl">
+      <section className="my-6 w-full bg-white dark:bg-darkMode-backgroundAlt rounded-lg p-4">
+        <h1 className="text-inherit dark:text-darkMode-text text-lightMode-ctaText font-bold text-2xl">
           There seems to be no projects matching
         </h1>
-        <h3 className="text-lightMode-ctaText text-lg">{query}</h3>
+        <h3 className="text-inherit dark:text-darkMode-text text-lightMode-ctaText text-lg">
+          {query}
+        </h3>
       </section>
     );
   }

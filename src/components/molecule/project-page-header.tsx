@@ -36,7 +36,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
             ))}
         </section>
       </section>
-      <section className="flex rounded-xl bg-lightMode-white">
+      <section className="flex rounded-xl dark:bg-darkMode-backgroundAlt bg-white">
         <section className="hidden lg:block w-[200px] h-[200px] relative">
           {imgData && (
             <Image fill={true} src={imgData.url} alt={imgData.description} />

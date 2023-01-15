@@ -13,6 +13,7 @@ import { ProjectPageHero } from "../../components/molecule/project-page-header";
 
 const defaultProjectImageUrl =
   "https://images.unsplash.com/photo-1598791318878-10e76d178023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTU1MjB8MHwxfGFsbHx8fHx8fHx8fDE2NzE2NjY3NjM&ixlib=rb-4.0.3&q=80&w=400";
+
 interface IParams extends ParsedUrlQuery {
   project: string[];
 }

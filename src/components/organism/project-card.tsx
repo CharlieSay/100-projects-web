@@ -15,7 +15,7 @@ export const ProjectCard = (props: ProjectSlug) => {
       href={`/projects/[collection]/[projectSlug]`}
       as={`/projects/${collection}/${projectLocation}`}
       key={title}
-      className="bg-lightMode-white dark:bg-darkMode-background border-solid border-lightMode-highlight dark:border-darkMode-highlight border-[1px] p-6 rounded-lg shadow-xs transition-all hover:bg-lightMode-background hover:shadow-lg hover:cursor-pointer flex flex-col basis-auto"
+      className="bg-white dark:bg-darkMode-background border-solid border-lightMode-highlight dark:border-darkMode-highlight border-[1px] p-6 rounded-lg shadow-xs transition-all hover:bg-lightMode-background hover:shadow-lg hover:cursor-pointer flex flex-col basis-auto"
     >
       <span className="text-sm dark:text-darkMode-highlight text-lightMode-highlight font-semibold">
         {capitalize(expertise)}
