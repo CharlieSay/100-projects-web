@@ -12,11 +12,13 @@ type ProjectHero = {
     description: string;
     author: string;
     username: string;
+    downloadLocation: string;
   };
 };
 
 export const ProjectPageHero = (props: ProjectHero) => {
   const { title, tags, description, expertise, imgData } = props;
+  console.log(imgData);
   return (
     <section className="mb-4">
       <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
@@ -57,24 +59,33 @@ export const ProjectPageHero = (props: ProjectHero) => {
             </h2>
           </section>
           {imgData && (
-            <span className="text-xs text-lightMode-text dark:text-darkMode-text hidden lg:inline">
-              Photo by{" "}
-              <Link
-                href={`https://unsplash.com/${imgData.username}`}
-                className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
-              >
-                {imgData.author}
-              </Link>{" "}
-              on{" "}
-              <Link
-                className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
-                href={
-                  "https://unsplash.com/?utm_source=100 Projects&utm_medium=referral"
-                }
-              >
-                Unsplash
-              </Link>
-            </span>
+            <section className="flex flex-col">
+              <span className="text-xs text-lightMode-text dark:text-darkMode-text hidden lg:inline">
+                Photo by{" "}
+                <Link
+                  href={`https://unsplash.com/${imgData.username}`}
+                  className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
+                >
+                  {imgData.author}
+                </Link>{" "}
+                on{" "}
+                <Link
+                  className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
+                  href={
+                    "https://unsplash.com/?utm_source=100 Projects&utm_medium=referral"
+                  }
+                >
+                  Unsplash
+                </Link>
+                {" - "}
+                <Link
+                  href={imgData.downloadLocation}
+                  className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
+                >
+                  Download image
+                </Link>
+              </span>
+            </section>
           )}
         </section>
       </section>
