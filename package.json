@@ -16,6 +16,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "@types/capitalize": "^2.0.0",
     "@types/react-syntax-highlighter": "^15.5.4",
+    "@vercel/analytics": "^0.1.8",
     "capitalize": "^2.0.4",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",
