@@ -1,9 +1,31 @@
-# Create T3 App
+# 100 Projects
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+100 Projects is a developer resource to get inspiration for their next project.
 
-# Rules of Projects
+This is the NextJS repo that is populated by [100 Projects Content Repo](https://github.com/CharlieSay/100-projects-content)
+## Contributing
 
-- Max 3 tags
-- Short description maximum 92 characters
-- Long description whatever
+### Project idea?
+More project ideas are always welcome! - Please raise them over at [100 Projects Content Repo](https://github.com/CharlieSay/100-projects-content)
+
+### Web idea?
+Perfect! - Raise a PR or an issue 😊
+## FAQ
+
+#### Can anyone contribute to 100 Projects?
+
+Yup! ✅ - We are open source by devs for devs.
+
+#### Can I help improve the website?
+
+Sure thing - feel free to raise an issue / PR on this repo.
+
+#### How do I run this?
+
+Make sure you have ```pnpm``` installed and you have run ```pnpm install```
+
+Then run ```pnpm run dev``` and you're good to go!
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
