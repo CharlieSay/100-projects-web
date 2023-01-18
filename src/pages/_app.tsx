@@ -2,6 +2,7 @@ import { Sora } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Wrapper } from "../components/layout/wrapper";
+import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
 
 const sora = Sora({ subsets: ["latin"] });
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </Wrapper>
         </div>
       </ThemeProvider>
+      <Analytics />
     </main>
   );
 }
