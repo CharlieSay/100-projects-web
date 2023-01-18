@@ -37,9 +37,14 @@ export const ProjectPageHero = (props: ProjectHero) => {
         </section>
       </section>
       <section className="flex rounded-xl dark:bg-darkMode-backgroundAlt bg-white">
-        <section className="hidden lg:block w-[200px] h-[200px] relative">
+        <section className="hidden object-cover lg:block w-[200px] h-[200px] relative">
           {imgData && (
-            <Image fill={true} src={imgData.url} alt={imgData.description} />
+            <Image
+              className="object-cover"
+              fill={true}
+              src={imgData.url}
+              alt={imgData.description}
+            />
           )}
         </section>
         <section className="py-4 px-4 md:p-6 flex flex-col">
