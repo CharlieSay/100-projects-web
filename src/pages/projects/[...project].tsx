@@ -45,6 +45,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         username: unsplashPhotoData.error
           ? ""
           : unsplashPhotoData.user.username,
+        downloadLocation: unsplashPhotoData.error
+          ? ""
+          : unsplashPhotoData.links.download,
       },
       canonUrl: grayMatter.canonUrl,
     },

@@ -40,6 +40,7 @@ export type PostMatter = {
     description: string;
     author: string;
     username: string;
+    downloadLocation: string;
   };
   similarProjects?: CollectionSlug[];
   canonUrl: string;
@@ -128,7 +129,13 @@ export function getPostBySlug(slug: string[]): PostMatter {
     matter: grayMatter.matter,
     language: grayMatter.language,
     source: {},
-    imgData: { url: "", description: "", author: "", username: "" },
+    imgData: {
+      url: "",
+      description: "",
+      author: "",
+      username: "",
+      downloadLocation: "",
+    },
     canonUrl: `https://100projects.dev/projects/${slug[0]}/${slug[1]}`,
   };
 }
