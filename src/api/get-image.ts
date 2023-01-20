@@ -2,7 +2,7 @@ export type UnsplashPhotoData = {
   urls: { small: string };
   description: string;
   user: { name: string; username: string };
-  links: { download: string };
+  links: { download: string; download_location: string };
   error?: boolean;
 };
 
