@@ -16,9 +16,10 @@ type ProjectHero = {
   };
 };
 
+const unsplash_UTM = "?utm_source=100 Projects&utm_medium=referral";
+
 export const ProjectPageHero = (props: ProjectHero) => {
   const { title, tags, description, expertise, imgData } = props;
-  console.log(imgData);
   return (
     <section className="mb-4">
       <section className="flex flex-col flex-wrap lg:justify-between lg:flex-row pb-4">
@@ -63,7 +64,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
               <span className="text-xs text-lightMode-text dark:text-darkMode-text hidden lg:inline">
                 Photo by{" "}
                 <Link
-                  href={`https://unsplash.com/${imgData.username}`}
+                  href={`https://unsplash.com/${imgData.username}${unsplash_UTM}`}
                   className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
                 >
                   {imgData.author}
@@ -71,9 +72,7 @@ export const ProjectPageHero = (props: ProjectHero) => {
                 on{" "}
                 <Link
                   className="hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
-                  href={
-                    "https://unsplash.com/?utm_source=100 Projects&utm_medium=referral"
-                  }
+                  href={`https://unsplash.com/${unsplash_UTM}`}
                 >
                   Unsplash
                 </Link>

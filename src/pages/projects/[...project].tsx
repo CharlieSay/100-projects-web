@@ -7,25 +7,44 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { useEffect } from "react";
-import { getImageUrl } from "../../api/get-image";
+import { getImageUrl, UnsplashPhotoData } from "../../api/get-image";
 import { getPostBySlug, PostMatter } from "../../api/get-posts";
-import { ProjectPageHero } from "../../components/molecule/project-page-header";
+import { ProjectPageHero } from "../../components/molecule/project-page-hero";
 
-const defaultProjectImageUrl =
-  "https://images.unsplash.com/photo-1598791318878-10e76d178023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTU1MjB8MHwxfGFsbHx8fHx8fHx8fDE2NzE2NjY3NjM&ixlib=rb-4.0.3&q=80&w=400";
+const defaultProjectImageUrl = `https://images.unsplash.com/photo-1598791318878-10e76d178023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=${process.env.UNSPLASH_BEARER_TOKEN}&ixlib=rb-4.0.3&q=80&w=400`;
 
 interface IParams extends ParsedUrlQuery {
   project: string[];
 }
 
+const formatImgData = (data: UnsplashPhotoData): any => {
+  if (data.error) {
+    return {
+      url: defaultProjectImageUrl,
+      description: "",
+      author: "",
+      username: "",
+      downloadLocation: "",
+    };
+  }
+  return {
+    url: data.urls.small,
+    description: data.description,
+    author: data.user.name,
+    username: data.user.username,
+    downloadLocation: data.links.download,
+  };
+};
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { project } = params as IParams;
 
-  if (project === undefined) return { props: {} };
+  if (!project) return { props: {} };
 
   const grayMatter = getPostBySlug(project);
   const sourceContent = await serialize(grayMatter.content);
   const unsplashPhotoData = await getImageUrl(grayMatter.data.thumbId);
+  const imgData = formatImgData(unsplashPhotoData);
 
   return {
     props: {
@@ -34,22 +53,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       matter: grayMatter.matter || "",
       language: grayMatter.language || "",
       source: sourceContent,
-      imgData: {
-        url: unsplashPhotoData.error
-          ? defaultProjectImageUrl
-          : unsplashPhotoData.urls.small,
-        description: unsplashPhotoData.error
-          ? ""
-          : unsplashPhotoData.description,
-        author: unsplashPhotoData.error ? "" : unsplashPhotoData.user.name,
-        username: unsplashPhotoData.error
-          ? ""
-          : unsplashPhotoData.user.username,
-        downloadLocation: unsplashPhotoData.error
-          ? ""
-          : unsplashPhotoData.links.download,
-      },
       canonUrl: grayMatter.canonUrl,
+      imgData,
     },
   };
 };
