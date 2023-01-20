@@ -32,14 +32,18 @@ const formatImgData = (data: UnsplashPhotoData): any => {
     description: data.description,
     author: data.user.name,
     username: data.user.username,
-    downloadLocation: data.links.download,
+    downloadLocation:
+      data.links.download + `&client_id=${process.env.UNSPLASH_ACCESS_KEY}`,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { project } = params as IParams;
-
   if (!project) return { props: {} };
+
+  if (project[1]) {
+    project[1] = `${project[1]}.mdx`;
+  }
 
   const grayMatter = getPostBySlug(project);
   const sourceContent = await serialize(grayMatter.content);

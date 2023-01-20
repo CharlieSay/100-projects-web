@@ -13,7 +13,10 @@ export const ProjectCard = (props: ProjectSlug) => {
   return (
     <Link
       href={`/projects/[collection]/[projectSlug]`}
-      as={`/projects/${collection}/${projectLocation}`}
+      as={`/projects/${collection}/${projectLocation.substring(
+        0,
+        projectLocation.length - 4
+      )}`}
       key={title}
       className="bg-white dark:bg-black border-solid border-lightMode-highlight dark:border-darkMode-highlight border-[1px] p-6 rounded-lg shadow-xs transition-all hover:bg-lightMode-background hover:shadow-lg hover:cursor-pointer flex flex-col basis-auto"
     >

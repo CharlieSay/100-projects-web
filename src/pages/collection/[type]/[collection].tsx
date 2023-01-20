@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const collection = convertedParams.collection;
   const slugs: ProjectSlug[] = getSlugsByFacets(
     { key: convertedParams.type as SearchType, value: collection },
-    10
+    999 // TO-DO - Actually do this
   );
 
   return {
