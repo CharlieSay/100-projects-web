@@ -29,6 +29,11 @@ function getPopularProjects(): HeroCollectionType[] {
           url: "collection/type/data",
         },
         {
+          title: "Full-stack",
+          desc: "Building a whole website from top to bottom!",
+          url: "collection/type/fullstack",
+        },
+        {
           title: "AI / Machine Learning",
           desc: "Artificial intelligence and learning",
           url: "collection/type/ai",
