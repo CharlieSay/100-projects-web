@@ -7,7 +7,7 @@ const Footer = () => {
         <p className="text-xs text-lightMode-text dark:text-darkMode-text">
           100 Projects by{" "}
           <span className="text-xs font-bold text-lightMode-text dark:text-darkMode-text">
-            100DEV
+            Everyone!
           </span>
         </p>
         <Link href={"/all-projects"}>

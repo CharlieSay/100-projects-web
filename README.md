@@ -1,3 +1,5 @@
+![100 Projects](https://repository-images.githubusercontent.com/515122623/cdb20b7b-5c9c-4af7-81d1-4672e79c7adc)
+
 # 100 Projects
 
 100 Projects is a developer resource to get inspiration for their next project.
