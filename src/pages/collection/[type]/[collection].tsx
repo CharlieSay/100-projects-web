@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Link from "next/link";
 import {
   CollectionSlug,
   getSlugsByFacets,
@@ -73,6 +74,15 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
         </h1>
         <h3 className="text-inherit dark:text-darkMode-text text-lightMode-ctaText text-lg">
           {query}
+        </h3>
+        <h3 className="text-inherit dark:text-darkMode-text text-lightMode-ctaText text-lg">
+          You should help us make a project for this? Raise a PR over at{" "}
+          <Link
+            className="font-bold text-lightMode-text dark:text-darkMode-text hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
+            href={"https://github.com/CharlieSay/100-projects-content"}
+          >
+            100 Projects Content Repo
+          </Link>
         </h3>
       </section>
     );

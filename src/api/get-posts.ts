@@ -90,14 +90,24 @@ export function getSlugsByFacets(
         .slice(0, limit);
     case "tag-search":
       return allProjectSlugs
-        .filter((slug) =>
-          [slug.location.collection, slug.expertise, ...slug.tags].some(
-            (property) =>
-              property.toLowerCase().includes(normalizedFilterValue) ||
-              property.toLowerCase().includes(getSynonym(normalizedFilterValue))
-          )
-        )
+        .filter((slug) => {
+          const searchValues = normalizedFilterValue
+            .split(/[ ,]+/)
+            .map((value) => value.trim().toLowerCase());
+          return searchValues.some((searchValue) => {
+            return [
+              slug.location.collection,
+              slug.expertise,
+              ...slug.tags,
+            ].some(
+              (property) =>
+                property.toLowerCase().includes(searchValue) ||
+                property.toLowerCase().includes(getSynonym(searchValue))
+            );
+          });
+        })
         .slice(0, limit);
+
     default:
       return allProjectSlugs.slice(0, limit);
   }
