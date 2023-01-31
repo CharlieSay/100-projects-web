@@ -16,7 +16,20 @@ export function getSynonym(word: string): string {
       return "css";
     case "ts":
       return "typescript";
-    // add more cases as needed
+    case "db":
+      return "database";
+    case "aws":
+      return "Amazon Web Service";
+    case "azure":
+      return "Microsoft Azure";
+    case "gcp":
+      return "Google Cloud platform";
+    case "web dev":
+      return "web development";
+    case "Node":
+      return "Node.js";
+    case "vr":
+      return "Virtual Reality";
     default:
       return word;
   }
