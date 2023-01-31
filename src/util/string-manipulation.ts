@@ -30,6 +30,8 @@ export function getSynonym(word: string): string {
       return "Node.js";
     case "vr":
       return "Virtual Reality";
+    case "mongo":
+      return "MongoDB";
     default:
       return word;
   }
