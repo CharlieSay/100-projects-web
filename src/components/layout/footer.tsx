@@ -35,7 +35,7 @@ const Footer = () => {
             className="text-xs hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
             href="//github.com/charlieSay/100-projects"
           >
-            We are open source! - (GitHub Repo)
+            We are open source ! - (GitHub Repo)
           </a>
         </p>
       </section>
