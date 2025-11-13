@@ -1,14 +1,12 @@
 import { readdirSync, readFileSync } from "fs-extra";
 import matter from "gray-matter";
 import { join } from "path";
+import { PROJECTS_DIR } from "@100-projects/content";
 import { capitalizeWords, getSynonym } from "../util/string-manipulation";
 
-const postsDirectory = join(
-  process.cwd(),
-  "project_content",
-  "_mdx",
-  "projects"
-);
+// Use package import instead of process.cwd() for Vercel compatibility
+// PROJECTS_DIR uses __dirname which resolves correctly in Vercel's build environment
+const postsDirectory = PROJECTS_DIR;
 
 export type CollectionSlug = {
   title: string;
@@ -117,7 +115,7 @@ export function getAllProjectSlugs(): ProjectSlug[] {
   const listOfCollections = readdirSync(postsDirectory);
   return listOfCollections.flatMap((collection: string) => {
     const foundSlugs = readdirSync(
-      join(process.cwd(), `project_content/_mdx/projects/${collection}`)
+      join(postsDirectory, collection)
     );
     return foundSlugs.map((slug) => {
       const slugFrontMatter = getPostFrontMatter(`${collection}/${slug}`);
