@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const collection = convertedParams.collection;
   const slugs: ProjectSlug[] = getSlugsByFacets(
     { key: convertedParams.type as SearchType, value: collection },
-    999 // TO-DO - Actually do this
+    999, // TO-DO - Actually do this
   );
 
   return {
@@ -79,9 +79,9 @@ const CollectionsBySearch = (props: CollectionGroupProps) => {
           You should help us make a project for this? Raise a PR over at{" "}
           <Link
             className="font-bold text-lightMode-text dark:text-darkMode-text hover:cursor-pointer dark:hover:text-darkMode-highlight hover:text-lightMode-highlight"
-            href={"https://github.com/CharlieSay/100-projects-content"}
+            href={"https://github.com/CharlieSay/100-projects-web"}
           >
-            100 Projects Content Repo
+            100 Projects Repo
           </Link>
         </h3>
       </section>

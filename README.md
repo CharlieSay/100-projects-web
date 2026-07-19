@@ -4,11 +4,11 @@
 
 100 Projects is a developer resource to get inspiration for their next project.
 
-This is the NextJS repo that is populated by [100 Projects Content Repo](https://github.com/CharlieSay/100-projects-content)
+This is the NextJS repo for 100 Projects. The project content lives in [`project_content/_mdx`](./project_content/_mdx).
 ## Contributing
 
 ### Project idea?
-More project ideas are always welcome! - Please raise them over at [100 Projects Content Repo](https://github.com/CharlieSay/100-projects-content)
+More project ideas are always welcome! - Raise a PR adding an MDX file under [`project_content/_mdx/projects`](./project_content/_mdx/projects), or open an issue.
 
 ### Web idea?
 Perfect! - Raise a PR or an issue 😊
