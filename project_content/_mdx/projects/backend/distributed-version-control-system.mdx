@@ -1,0 +1,45 @@
+---
+title: Distributed Version Control System
+tags: java, version control, git
+description: a distributed version control system (DVCS) implemented in Java, featuring branching, merging, and conflict resolution
+expertise: advanced
+thumbId: wX2L8L-fGeA
+---
+
+A distributed version control system (DVCS) allows developers to track and manage changes to code repositories in a decentralized manner. In this project, you will create a DVCS using Java, implementing features like branching, merging, and conflict resolution.
+
+<h1>Create a Distributed Version Control System</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>A way for developers to create and manage branches of code</li>
+  <li>A way to merge branches of code, including handling conflicts</li>
+  <li>A user interface for interacting with the system</li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>Can you add functionality for collaborating with other developers, such as pulling and pushing changes between repositories?</li>
+  <li>Can you add support for versioning non-code files, such as documents or media?</li>
+</ul>
+<h2>Hint</h2>
+<p>
+To get started with this project, you can begin by implementing the core version control functionality, including branching and merging. You can use a library like JGit to help with this. Once you have the basic functionality in place, you can then focus on adding the user interface and any additional features.
+Here is some sample code to get you started with JGit:
+
+</p>
+```java
+// Import the JGit library
+import org.eclipse.jgit.api.Git;
+// Initialize a new Git repository
+Git git = Git.init().setDirectory(new File("/path/to/repository")).call();
+
+// Add a file to the repository
+git.add().addFilepattern("path/to/file").call();
+
+// Commit the changes to the repository
+git.commit().setMessage("Initial commit").call();
+
+```
+
+<p>
+This code initializes a new Git repository, adds a file to it, and makes an initial commit. You can then build on this foundation by adding the branching and merging functionality, as well as the user interface.
+</p>

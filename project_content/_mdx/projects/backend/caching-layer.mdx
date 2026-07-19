@@ -1,0 +1,60 @@
+---
+title: Caching Layer
+tags: backend, caching, performance, redis, nodejs
+description: Implement a caching layer to improve API response times and reduce database load
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Build a caching system that stores frequently accessed data in memory or Redis, reducing database queries and improving application performance.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement in-memory cache with TTL (time-to-live)</li>
+  <li>Create cache get, set, and delete operations</li>
+  <li>Add cache key generation strategy</li>
+  <li>Implement cache invalidation on data updates</li>
+  <li>Add cache statistics tracking</li>
+  <li>Handle cache misses gracefully</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Integrate Redis for distributed caching</li>
+  <li>Implement cache warming strategies</li>
+  <li>Add cache compression for large values</li>
+  <li>Create cache hit/miss metrics</li>
+  <li>Implement cache versioning</li>
+  <li>Add cache preloading for critical data</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Redis</li>
+  <li>Memcached</li>
+  <li>Varnish</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const cache = new Map();
+
+function getCacheKey(key) {
+  return `cache:${key}`;
+}
+
+async function get(key) {
+  const cacheKey = getCacheKey(key);
+  const cached = cache.get(cacheKey);
+  if (cached && cached.expires > Date.now()) {
+    return cached.value;
+  }
+  cache.delete(cacheKey);
+  return null;
+}
+
+async function set(key, value, ttl = 3600) {
+  const cacheKey = getCacheKey(key);
+  cache.set(cacheKey, {
+    value,
+    expires: Date.now() + ttl * 1000
+  });
+}
+```

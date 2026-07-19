@@ -1,0 +1,173 @@
+---
+title: Weather App
+tags: mobile, weather, swift, android
+description: An app that displays current weather and forecast for user's location
+expertise: intermediate
+thumbId: BqKdvJ8a5TI
+---
+
+In this project, we will be creating a weather app that displays the current temperature and forecast for a user's location. The app will use the device's GPS to determine the user's location and display the current weather conditions, as well as a forecast for the next several days. The app will also include additional features such as displaying the current time and date, and the ability to switch between Fahrenheit and Celsius.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Design and layout the user interface for the app</li>
+  <li>Retrieve user's location using device's GPS</li>
+  <li>Fetch current weather data from a weather API</li>
+  <li>
+    Display current weather conditions and forecast for the next several days
+  </li>
+  <li>Include a feature for switching between Fahrenheit and Celsius</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add the ability to search for weather by city or zip code</li>
+  <li>
+    Include additional weather information such as wind speed and humidity
+  </li>
+  <li>
+    Implement a feature to receive push notifications for severe weather alerts
+  </li>
+  <li>Include a feature for displaying a 5-day forecast</li>
+  <li>Include a feature for displaying the current time and date</li>
+</ul>
+<h2>Inspiration</h2>
+<ul>
+  <li>AccuWeather</li>
+  <li>Weather Underground</li>
+  <li>The Weather Channel</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippets to set up the basic structure
+of the app for Android and iOS platforms:
+
+<h2>Android Starter</h2>
+
+```java
+
+public class MainActivity extends AppCompatActivity {
+    private TextView temperatureTextView;
+    private TextView forecastTextView;
+    private Button refreshButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+        temperatureTextView = findViewById(R.id.temperature_text_view);
+        forecastTextView = findViewById(R.id.forecast_text_view);
+        refreshButton = findViewById(R.id.refresh_button);
+
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get user's location and fetch weather data
+                getLocationAndFetchWeather();
+            }
+        });
+    }
+
+    private void getLocationAndFetchWeather() {
+    // Use the device's GPS to get user's location
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        LocationListener locationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+        // Fetch weather data using the location coordinates
+            fetchWeatherData(location.getLatitude(), location.getLongitude());
+        }
+    };
+    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, locationListener);
+
+}
+
+    private void fetchWeatherData(double latitude, double longitude) {
+    // Use a weather API to fetch the current weather data using the location coordinates
+    String weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=YOUR_API_KEY";
+
+    // Use a library such as Retrofit to make the API call
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(weatherApiUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+    WeatherApiService service = retrofit.create(WeatherApiService.class);
+    Call<WeatherData> call = service.getWeatherData();
+    call.enqueue(new Callback<WeatherData>() {
+        @Override
+        public void onResponse(Call<WeatherData> call, Response<WeatherData> response) {
+            if (response.isSuccessful()) {
+                WeatherData weatherData = response.body();
+                // Update the temperature and forecast text views with the data from the API
+                temperatureTextView.setText(weatherData.getTemperature());
+                forecastTextView.setText(weatherData.getForecast());
+            } else {
+                // Handle unsuccessful API call
+            }
+        }
+
+        @Override
+        public void onFailure(Call<WeatherData> call, Throwable t) {
+            // Handle failure to connect to the API
+        }
+        });
+    }
+
+}
+
+```
+
+<h2>iOS/Swift Starter</h2>
+
+```swift
+
+class MainViewController: UIViewController {
+
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var forecastLabel: UILabel!
+    @IBOutlet weak var refreshButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        refreshButton.addTarget(self, action: #selector(getLocationAndFetchWeather), for: .touchUpInside)
+    }
+
+    @objc func getLocationAndFetchWeather() {
+        // Use the device's GPS to get user's location
+        let locationManager = CLLocationManager()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+            locationManager.delegate = self
+            }
+        }
+
+    extension MainViewController: CLLocationManagerDelegate {
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let location = locations.last else { return }
+            fetchWeatherData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            }
+    }
+
+    extension MainViewController {
+    private func fetchWeatherData(latitude: Double, longitude: Double) {
+    // Use a weather API to fetch the current weather data using the location coordinates
+    let weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=YOUR_API_KEY"
+        // Use a library such as Alamofire to make the API call
+        AF.request(weatherApiUrl).responseDecodable(of: WeatherData.self) { [weak self] (response) in
+            guard let self = self else { return }
+            switch response.result {
+            case.success(let weatherData):
+                // Update the temperature and forecast label with the data from the API
+                self.temperatureLabel.text = weatherData.temperature
+                self.forecastLabel.text = weatherData.forecast
+            case.failure(let error):
+                // Handle error
+                print(error)
+            }
+        }
+    }
+}
+
+```
+
+This is just a basic example, you can expand on it with additional functionality and features as needed. Also, you can use other weather API like DarkSky API, OpenWeather API, etc.

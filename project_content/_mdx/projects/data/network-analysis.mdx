@@ -1,0 +1,69 @@
+---
+title: Advanced Network Analysis
+tags: python, networking, data analysis
+description: a program that performs advanced network analysis tasks using Python
+expertise: advanced
+thumbId: 40XgDxBfYXM
+---
+
+In this project, you will create a program that performs advanced network analysis tasks using Python. This could include tasks such as analyzing network traffic, detecting network security threats, or analyzing network performance.
+
+<h1>Create a Program for Advanced Network Analysis</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>
+    The ability to capture and analyze network traffic using tools like
+    Wireshark or Tshark
+  </li>
+  <li>
+    The ability to detect and analyze network security threats using techniques
+    like packet sniffing and packet analysis
+  </li>
+  <li>
+    The ability to analyze network performance using tools like traceroute and
+    ping
+  </li>
+  <li>
+    The ability to visualize and interpret network data using libraries like
+    Matplotlib or Seaborn
+  </li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add a feature that allows users to customize the analysis tasks and
+    parameters?
+  </li>
+  <li>
+    Can you add a feature that allows users to save and export the results of
+    the analysis?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+  To get started on this project, you may want to familiarize yourself with
+  Python libraries and tools like Scapy, Numpy, and Pandas, which can be used
+  for network analysis and data manipulation. You may also want to consider
+  using a framework like Django or Flask to build a user interface for
+  interacting with the program. Here is some sample code to get you started with
+  capturing and analyzing network traffic using Scapy:
+</p>
+
+```python
+from scapy.all import *
+def packet_callback(packet):
+if packet[TCP].payload:
+mail_packet = str(packet[TCP].payload)
+if "user" in mail_packet.lower() or "pass" in mail_packet.lower():
+print("Server: %s" % packet[IP].dst)
+print("%s" % packet[TCP].payload)
+
+sniff(filter="tcp", prn=packet_callback, store=0)
+
+```
+
+<p>
+  This code creates a sniffer that captures TCP packets and prints the payload
+  if it contains the strings "user" or "pass". You can then build on this
+  foundation by adding additional analysis and visualization functionality.
+</p>

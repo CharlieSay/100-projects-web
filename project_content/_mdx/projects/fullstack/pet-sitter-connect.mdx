@@ -1,0 +1,45 @@
+---
+title: Pet Sitter Connect
+tags: web development, pets, community, full-stack
+description: Build a web-based platform for connecting pet owners and pet-sitters.
+expertise: intermediate
+thumbId: wFbkj9ilGnQ
+---
+
+Are you a pet owner looking for a pet-sitter or a pet-sitter looking for new clients? This project is perfect for you! In this project, you will create a web-based platform for connecting pet owners and pet-sitters.
+
+Users will be able to create an account, create a profile, and search for pet-sitters by location and availability. Pet-sitters will be able to create a profile, set their availability, and receive requests from pet owners. Both pet owners and pet-sitters will be able to view profiles, read reviews, and message each other to make arrangements.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a user registration and login system</li>
+<li>Design a database to store user information, availability and reviews</li>
+<li>Build an interface for creating and editing profiles, setting availability and searching for pet-sitters</li>
+<li>Implement a feature for messaging between pet owners and pet-sitters</li>
+<li>Allow users to view profiles, read reviews and make arrangements</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Implement a feature for booking and payment</li>
+<li>Add a feature for creating a schedule for pet-sitting</li>
+<li>Implement a feature for generating personalized pet-sitter recommendations based on user preferences and past interactions</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Rover.com</li>
+<li>DogVacay.com</li>
+<li>TrustedHousesitters.com</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for searching for pet-sitters by location and availability using Node.js and Express
+app.get('/search', (req, res) => {
+    const {location, availability} = req.query;
+    PetSitter.find({location: location, availability: availability})
+        .then(petSitters => res.json(petSitters))
+        .catch(err => res.status(400).json(err))
+});
+```
+
+This code snippet is an example of how to use the GET method to search for pet-sitters in the database by location and availability, and then returning the results in JSON format.

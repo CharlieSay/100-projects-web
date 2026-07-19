@@ -1,0 +1,42 @@
+---
+title: Create a Simple Command-Line Tool for File Format Conversion
+tags: command-line, file conversion, easy
+description: Build a tool for converting between different file formats using command-line
+expertise: easy
+thumbId: xJQQXRiZNlQ
+---
+
+In this project, we will be building a simple command-line tool for converting between different file formats. The tool will allow users to convert files from one format to another, such as converting a PDF to a JPG, or a WAV to an MP3.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Research different file format conversion libraries</li>
+<li>Design and implement a command-line interface for the file conversion tool</li>
+<li>Allow users to convert files from one format to another</li>
+<li>Test and debug the application</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add support for batch converting multiple files at once</li>
+<li>Implement a feature for changing the quality or resolution of the converted files</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>FFmpeg</li>
+<li>ImageMagick</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic file conversion function using a library such as FFmpeg:
+
+```rust
+extern crate ffmpeg;
+
+fn main() {
+    let input_path = "example.mp3";
+    let output_path = "example.wav";
+
+    ffmpeg::execute(&["-i", input_path, output_path]).unwrap();
+}
+```
+
+This code uses the FFmpeg library to convert a file from one format to another, in this case converting an MP3 to a WAV. You can use this code snippet as a starting point to build the file conversion tool.

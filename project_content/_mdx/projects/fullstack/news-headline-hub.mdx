@@ -1,0 +1,47 @@
+---
+title: News Headlines Hub
+tags: web development, news, API, full-stack
+description: Implement a web application for displaying news headlines from different sources.
+expertise: easy
+thumbId: WYd_PkCa1BY
+---
+
+Are you interested in staying up-to-date with the latest news from a variety of sources? This project is perfect for you! In this project, you will implement a web application for displaying news headlines from different sources using a news API.
+
+Users will be able to view the top headlines from a selection of news sources, filter news by category and search for specific keywords. The application will display the headline, a brief summary, and a link to the full article.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Integrate a news API to fetch news headlines</li>
+<li>Create a simple front-end using HTML, CSS and JavaScript</li>
+<li>Build a server-side application using Node.js and Express</li>
+<li>Implement a feature to filter news by category</li>
+<li>Add a search feature to search for specific keywords</li>
+<li>Display the news headlines, summary and link to the full article</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Implement a feature to allow users to select their preferred news sources</li>
+<li>Add a feature to save articles for later reading</li>
+<li>Implement a feature to share articles on social media</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>NewsAPI.org</li>
+
+<li>Google News</li>
+<li>BBC News</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for fetching news headlines using Node.js and Express
+app.get('/headlines', (req, res) => {
+    const {category, keyword} = req.query;
+    axios.get(`https://news-api.com/v2/top-headlines?category=${category}&q=${keyword}&apiKey=YOUR_API_KEY`)
+        .then(response => res.json(response.data))
+        .catch(err => res.status(400).json(err))
+});
+```
+
+This code snippet is an example of how to use the GET method to fetch news headlines using category and keyword as parameters, and an API key, and then returning the data in JSON format.

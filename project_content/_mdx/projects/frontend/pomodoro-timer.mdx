@@ -1,0 +1,63 @@
+---
+title: Pomodoro Timer
+tags: javascript, html, css, frontend, productivity
+description: Build a Pomodoro technique timer with work and break sessions, customizable durations, and statistics
+expertise: easy
+thumbId: GlavtG-umzE
+---
+
+Create a Pomodoro timer application that helps users manage their work sessions using the Pomodoro Technique - 25 minutes of focused work followed by short breaks.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create a circular or linear timer display showing remaining time</li>
+  <li>Implement start, pause, and reset functionality</li>
+  <li>Add automatic switching between work and break sessions</li>
+  <li>Include audio notifications when sessions end</li>
+  <li>Display current session type (work/break)</li>
+  <li>Add session counter to track completed Pomodoros</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Allow customization of work and break durations</li>
+  <li>Add long break after multiple Pomodoros</li>
+  <li>Implement statistics tracking (sessions completed per day/week)</li>
+  <li>Add task list integration to track what you're working on</li>
+  <li>Create visual progress indicators</li>
+  <li>Add background music or ambient sounds</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Forest</li>
+  <li>Focus Keeper</li>
+  <li>Pomodoro Timer apps</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to implement the timer:
+
+```javascript
+let timeLeft = 25 * 60; // 25 minutes in seconds
+let isRunning = false;
+let isBreak = false;
+
+function startTimer() {
+  if (!isRunning) {
+    isRunning = true;
+    interval = setInterval(() => {
+      timeLeft--;
+      updateDisplay();
+      if (timeLeft === 0) {
+        completeSession();
+      }
+    }, 1000);
+  }
+}
+
+function completeSession() {
+  clearInterval(interval);
+  playNotificationSound();
+  isBreak = !isBreak;
+  timeLeft = isBreak ? 5 * 60 : 25 * 60;
+  updateDisplay();
+}
+```

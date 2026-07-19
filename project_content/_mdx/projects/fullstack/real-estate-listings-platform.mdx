@@ -1,0 +1,52 @@
+---
+title: Real Estate Listings Platform
+tags: fullstack, real-estate, maps, search, filters
+description: Build a real estate platform with property listings, advanced search, map integration, and agent management
+expertise: hard
+thumbId: WYd_PkCa1BY
+---
+
+Create a comprehensive real estate platform where agents can list properties, buyers can search with advanced filters, view properties on maps, and schedule viewings.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create property listing creation and management</li>
+  <li>Implement advanced search with filters (price, location, type)</li>
+  <li>Integrate map view with property markers</li>
+  <li>Add image gallery for properties</li>
+  <li>Create agent profiles and contact forms</li>
+  <li>Implement saved searches and favorites</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add virtual tour integration</li>
+  <li>Implement mortgage calculator</li>
+  <li>Create property comparison tool</li>
+  <li>Add email alerts for new matching properties</li>
+  <li>Implement property valuation estimates</li>
+  <li>Add neighborhood information and statistics</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Zillow</li>
+  <li>Realtor.com</li>
+  <li>Rightmove</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Property search
+async function searchProperties(filters) {
+  const query = {
+    price: { $gte: filters.minPrice, $lte: filters.maxPrice },
+    propertyType: filters.propertyType,
+    bedrooms: { $gte: filters.minBedrooms },
+    location: {
+      $near: {
+        $geometry: { type: 'Point', coordinates: [filters.lng, filters.lat] },
+        $maxDistance: filters.radius
+      }
+    }
+  };
+  return await db.properties.find(query);
+}
+```

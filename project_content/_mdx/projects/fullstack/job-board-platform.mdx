@@ -1,0 +1,47 @@
+---
+title: Job Board Platform
+tags: fullstack, jobs, recruitment, react, nodejs
+description: Build a job board where employers post jobs and job seekers can search, apply, and track applications
+expertise: intermediate
+thumbId: WYd_PkCa1BY
+---
+
+Create a job board platform connecting employers with job seekers, featuring job posting, search, application tracking, and resume management.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create job posting interface for employers</li>
+  <li>Implement job search with filters (location, salary, type)</li>
+  <li>Build application submission system</li>
+  <li>Add resume upload and management</li>
+  <li>Create application tracking dashboard</li>
+  <li>Implement email notifications for applications</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add saved jobs functionality</li>
+  <li>Implement job recommendations based on profile</li>
+  <li>Create employer dashboard for managing applications</li>
+  <li>Add salary range filtering</li>
+  <li>Implement job alerts for new matching positions</li>
+  <li>Add company profiles and reviews</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>LinkedIn Jobs</li>
+  <li>Indeed</li>
+  <li>Glassdoor</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Job search
+async function searchJobs(filters) {
+  const query = {
+    status: 'active',
+    ...(filters.location && { location: { $regex: filters.location, $options: 'i' } }),
+    ...(filters.salaryMin && { salary: { $gte: filters.salaryMin } }),
+    ...(filters.type && { type: filters.type })
+  };
+  return await db.jobs.find(query).sort({ postedAt: -1 });
+}
+```

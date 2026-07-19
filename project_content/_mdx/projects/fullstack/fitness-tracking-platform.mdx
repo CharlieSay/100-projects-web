@@ -1,0 +1,54 @@
+---
+title: Fitness Tracking Platform
+tags: fullstack, fitness, health, tracking, react, nodejs
+description: Build a fitness tracking platform with workout logging, progress charts, and social features
+expertise: intermediate
+thumbId: WYd_PkCa1BY
+---
+
+Create a fitness tracking platform where users can log workouts, track progress, set goals, and connect with other fitness enthusiasts.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create workout logging interface</li>
+  <li>Implement exercise database with instructions</li>
+  <li>Build progress tracking with charts</li>
+  <li>Add goal setting and achievement system</li>
+  <li>Create user profiles with fitness stats</li>
+  <li>Implement social feed for sharing workouts</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add workout plan templates</li>
+  <li>Implement nutrition tracking</li>
+  <li>Create workout challenges and competitions</li>
+  <li>Add integration with fitness wearables</li>
+  <li>Implement personal trainer matching</li>
+  <li>Add video exercise demonstrations</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>MyFitnessPal</li>
+  <li>Strava</li>
+  <li>Nike Training Club</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Log workout
+async function logWorkout(userId, exercises, date) {
+  const workout = await db.workouts.create({
+    userId,
+    exercises: exercises.map(ex => ({
+      exerciseId: ex.id,
+      sets: ex.sets,
+      reps: ex.reps,
+      weight: ex.weight
+    })),
+    date,
+    duration: calculateDuration(exercises)
+  });
+  
+  await updateUserStats(userId, workout);
+  return workout;
+}
+```

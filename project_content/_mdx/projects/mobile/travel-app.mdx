@@ -1,0 +1,127 @@
+---
+title: Transport App
+tags: transport, mobile, swift, android
+description: A transportation app that helps users plan their routes and find the best transportation options such as buses, trains, and rideshares.
+expertise: Intermediate
+thumbId: qyAka7W5uMY
+---
+
+A transportation app that helps users plan their routes and find the best transportation options, such as buses, trains, and rideshares can be a very handy tool for anyone who frequently travels or commutes. This app can be a great project for learning about routing and geolocation, as well as integrating with transportation APIs.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Implement a routing feature that calculates the best route for the user's destination</li>
+<li>Integrate with transportation APIs to provide information about bus, train, and rideshare options</li>
+<li>Design a user-friendly interface to display route and transportation options</li>
+</ul>
+
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add the ability for users to purchase tickets or book rides directly through the app</li>
+<li>Implement real-time tracking of transportation options</li>
+</ul>
+
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Google Maps</li>
+<li>Citymapper</li>
+</ul>
+
+<h2>Hint/Code snippet to start</h2>
+
+<h2>iOS/Swift Starter</h2>
+
+```swift
+
+import UIKit
+import CoreLocation
+
+class TransitViewController: UIViewController {
+
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+
+    func calculateRoute(destination: CLLocation) {
+        // Code to calculate the best route to the destination
+    }
+
+    func fetchTransportationOptions(location: CLLocation) {
+        // Code to fetch information about transportation options
+        // from transportation APIs
+    }
+}
+
+extension TransitViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.last
+    }
+}
+```
+
+<h2>Android Starter</h2>
+
+```java
+public class TransitActivity extends AppCompatActivity {
+
+    private FusedLocationProviderClient fusedLocationClient;
+    private Location currentLocation;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_transit);
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Request location permission
+            return;
+        }
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            currentLocation = location;
+                        }
+                    }
+                });
+
+        LocationRequest locationRequest = LocationRequest.create();
+        locationRequest.setInterval(10000);
+        locationRequest.setFastestInterval(5000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+
+            LocationCallback locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null) {
+                    return;
+                }
+                for (Location location : locationResult.getLocations()) {
+                    currentLocation = location;
+                }
+            };
+        };
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+    }
+
+    private void calculateRoute(Location destination) {
+        // Code to calculate the best route to the destination
+    }
+
+    private void fetchTransportationOptions(Location location) {
+        // Code to fetch information about transportation options
+        // from transportation APIs
+    }
+}
+
+```
+
+The above code snippets are just examples to give you a starting point and are not meant to be fully functional. They will likely require additional code and modifications in order to work as part of a complete transportation app. For example, you would need to implement the routing algorithm, handle the API calls and data storage for the transportation options, and design and implement the user interface for the app. Additionally, you would need to handle the necessary permissions and location updates to get the current location of the user. The above code snippets are provided as a guide to help you understand the basic concepts and techniques that would be used to build a transportation app.

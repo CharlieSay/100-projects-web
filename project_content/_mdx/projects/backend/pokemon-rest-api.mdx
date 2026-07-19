@@ -1,0 +1,90 @@
+---
+title: Create a Pokémon REST API
+tags: web development, API, backend, Pokémon
+description: Build a REST API for managing a database of Pokémon
+expertise: easy
+thumbId: aEKwSdX5pJU
+---
+
+In this project, we will be building a REST API for managing a database of Pokémon. The API will allow users to retrieve a list of Pokémon, a single Pokémon by ID, and Pokémon by type. It will also include features such as adding, updating, and deleting Pokémon from the database.
+
+Some of pokemon to use:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Bulbasaur",
+    "type": ["Grass", "Poison"],
+    "gen": 1
+  },
+  {
+    "id": 2,
+    "name": "Squirtle",
+    "type": ["Water"],
+    "gen": 1
+  },
+  {
+    "id": 3,
+    "name": "Charmander",
+    "type": ["Fire"],
+    "gen": 1
+  }
+]
+```
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Design and implement a REST API for managing a database of Pokémon</li>
+  <li>
+    Include routes for retrieving a list of Pokémon, a single Pokémon by ID, and
+    Pokémon by type
+  </li>
+  <li>Allow users to add, update, and delete Pokémon from the database</li>
+  <li>Test and debug the API using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Add authentication and authorization to the API, so that only authorized
+    users can make certain types of requests
+  </li>
+  <li>Add support for pagination and filtering to the list of Pokémon route</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>PokéAPI</li>
+  <li>Pokémon REST API</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic REST API
+using a framework such as Express.js:
+
+```javascript
+const express = require('express')
+const app = express()
+
+app.get('/pokemon', (req, res) => {
+  // Return a list of Pokémon from the database
+})
+
+app.get('/pokemon/:id', (req, res) => {
+  // Return a single Pokémon by ID from the database
+})
+
+app.post('/pokemon', (req, res) => {
+  // Add a new Pokémon to the database
+})
+
+app.put('/pokemon/:id', (req, res) => {
+  // Update a Pokémon by ID in the database
+})
+
+app.delete('/pokemon/:id', (req, res) => {
+  // Delete a Pokémon by ID from the database
+})
+
+app.listen(3000, () => console.log('API listening on port 3000'))
+```
+
+This code sets up a basic REST API with routes for retrieving a list of Pokémon, a single Pokémon by ID, and adding, updating, and deleting Pokémon from the database. You can use this code snippet as a starting point to build the Pokémon REST API.

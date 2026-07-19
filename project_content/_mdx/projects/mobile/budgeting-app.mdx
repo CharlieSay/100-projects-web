@@ -1,0 +1,98 @@
+---
+title: Budget App
+tags: swift, android, finance, tracking
+description: A budgeting app that helps users track their income and expenses
+expertise: easy
+thumbId: 8lnbXtxFGZw
+---
+
+A budgeting app that helps users track their income and expenses can be a great way to stay on top of your finances and make informed decisions about how to save and spend your money. This app can be built using basic programming concepts and can be a great starting point for those new to mobile app development and learning about financial data.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a feature for users to input their income and expenses</li>
+<li>Allow users to categorize and view their income and expenses</li>
+<li>Design a user-friendly interface</li>
+</ul>
+
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Implement a budget tracking feature</li>
+<li>Add the ability to view income and expense history over time</li>
+</ul>
+
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Mint</li>
+<li>PocketGuard</li>
+</ul>
+
+<h2>Hint/Code snippet to start</h2>
+Here are the code snippets for iOS and Android:
+
+<h2>iOS / Swift Starter</h2>
+```swift
+import UIKit
+
+class BudgetViewController: UIViewController {
+
+    var income: Double = 0.0
+    var expenses: [Expense] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateTotal()
+    }
+
+    func addIncome(amount: Double) {
+        income += amount
+        updateTotal()
+    }
+
+    func addExpense(expense: Expense) {
+        expenses.append(expense)
+        updateTotal()
+    }
+
+    func updateTotal() {
+        // Code to update the total income and expenses
+    }
+}
+
+```
+<h2>Android Starter</h2>
+```java
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BudgetActivity extends AppCompatActivity {
+
+    private double income;
+    private List<Expense> expenses = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_budget);
+    }
+
+    private void addIncome(double amount) {
+        income += amount;
+        updateTotal();
+    }
+
+    private void addExpense(Expense expense) {
+        expenses.add(expense);
+        updateTotal();
+    }
+
+    private void updateTotal() {
+        // Code to update the total income and expenses
+    }
+}
+
+```
+The above code snippets are just examples to give you a starting point and are not meant to be fully functional. They will likely require additional code and modifications in order to work as part of a complete budgeting app. For example, you would need to implement the Expense class, as well as handle the data storage for the income and expense input and history. Additionally, you would need to design and implement the user interface for the app, including features such as categorizing and viewing expenses, budget tracking, and viewing income and expense history over time. The above code snippets are provided as a guide to help you understand the basic concepts and techniques that would be used to build a budgeting app.

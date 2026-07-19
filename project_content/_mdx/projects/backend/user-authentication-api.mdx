@@ -1,0 +1,57 @@
+---
+title: User Authentication API
+tags: backend, api, authentication, security, jwt
+description: Build a secure REST API for user registration, login, and JWT-based authentication
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Create a robust authentication API that handles user registration, login, password reset, and JWT token management with proper security practices.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement user registration endpoint with email validation</li>
+  <li>Create login endpoint that returns JWT tokens</li>
+  <li>Add password hashing using bcrypt or similar</li>
+  <li>Implement JWT token generation and validation middleware</li>
+  <li>Create protected routes that require authentication</li>
+  <li>Add password reset functionality with email tokens</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement refresh token rotation</li>
+  <li>Add rate limiting to prevent brute force attacks</li>
+  <li>Create email verification system</li>
+  <li>Add two-factor authentication (2FA)</li>
+  <li>Implement session management and logout</li>
+  <li>Add OAuth integration (Google, GitHub)</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Auth0</li>
+  <li>Firebase Auth</li>
+  <li>Passport.js</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+async function register(req, res) {
+  const { email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  // Save user to database
+  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+  res.json({ token });
+}
+
+function authenticateToken(req, res, next) {
+  const token = req.headers['authorization'];
+  if (!token) return res.sendStatus(401);
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
+```

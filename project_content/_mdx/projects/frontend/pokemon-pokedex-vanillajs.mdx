@@ -1,0 +1,55 @@
+---
+title: Pokemon Pokedex shower
+tags: web, javascript, typescript
+description: simple pokedex displayer in JS, HTML and CSS
+expertise: easy
+thumbId: dip9IIwUK6w
+---
+
+In this project, we will be using the API at https://pokeapi.co/ to display the first generation of Pokemon. The display will show the Pokemon's number, name, sprite/image, and type.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Design and implement a web-based Pokemon Pokedex display using HTML, CSS,
+    and JavaScript/TypeScript
+  </li>
+  <li>
+    Use the Pokeapi to retrieve and display information about the first
+    generation of Pokemon
+  </li>
+  <li>Test and debug the display using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement pagination for the Pokemon display</li>
+  <li>Allow for custom pagination limits</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Pokemon API</li>
+  <li>Pokeapi.co</li>
+  <li>Pokedex</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic Pokemon
+Pokedex display using JavaScript and the Pokeapi:
+
+```javascript
+// Set the base URL for the Pokeapi
+const baseUrl = 'https://pokeapi.co/api/v2'
+
+// Function to get a list of Pokemon from the Pokeapi
+async function getAllPokemon() {
+  try {
+    // Send a GET request to the Pokeapi to retrieve the list of Pokemon
+    const response = await fetch(`${baseUrl}/pokemon`)
+    const data = await response.json()
+
+    // Return the list of Pokemon
+    return data.results
+  } catch (error) {
+    console.error(error)
+  }
+}
+```

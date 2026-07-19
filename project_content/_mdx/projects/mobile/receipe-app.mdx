@@ -1,0 +1,97 @@
+---
+title: Recipe App
+tags: mobile, recipe, swift, android
+description: A recipe app that allows users to search and save their favorite recipes
+expertise: easy
+thumbId: hwy3W3qFjgM
+---
+
+A recipe mobile app that allows users to search and save their favorite recipes is a great way to keep track of your favorite recipes and easily find new ones. This app can be built using basic programming concepts and can be a great starting point for those new to mobile app development.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a search function for recipes</li>
+<li>Allow users to save their favorite recipes</li>
+<li>Design a user-friendly interface</li>
+</ul>
+
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add a feature for users to share their own recipes</li>
+<li>Integrate with a recipe API to expand the available recipe options</li>
+</ul>
+
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Allrecipes</li>
+<li>Epicurious</li>
+</ul>
+
+<h2>Hint/Code snippet to start</h2>
+Here are the code snippets for iOS and Android:
+
+<h2>iOS / Swift Starter</h2>
+
+```swift
+
+import UIKit
+
+class RecipeTableViewController: UITableViewController {
+
+    var recipes: [Recipe] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchRecipes(query: "chicken")
+    }
+
+    func searchRecipes(query: String) {
+        // Code to search for recipes with the given query
+    }
+
+    func saveRecipe(recipe: Recipe) {
+        // Code to save the given recipe
+    }
+}
+
+```
+<h2>Android Starter</h2>
+
+```java
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecipeActivity extends AppCompatActivity {
+
+    private List<Recipe> recipes = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recipe);
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new RecipeAdapter(recipes));
+
+        searchRecipes("chicken");
+    }
+
+    private void searchRecipes(String query) {
+        // Code to search for recipes with the given query
+    }
+
+    private void saveRecipe(Recipe recipe) {
+        // Code to save the given recipe
+    }
+}
+
+```
+
+The above code snippets are just examples to give you a starting point and are not meant to be fully functional. They will likely require additional code and modifications in order to work as part of a complete recipe app. For example, you would need to implement the Recipe and RecipeAdapter classes, as well as handle the API calls and data storage for the search and save functionality. Additionally, you would need to design and implement the user interface for the app. The above code snippets are provided as a guide to help you understand the basic concepts and techniques that would be used to build a recipe app.

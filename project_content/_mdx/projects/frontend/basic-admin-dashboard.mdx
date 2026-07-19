@@ -1,0 +1,51 @@
+---
+title: Build a Basic Admin Dashboard for JavaScript Frameworks
+tags: web development, JavaScript, frameworks
+description: Create a simple admin dashboard using a JavaScript framework
+expertise: easy
+thumbId: M1qSY_IuF4c
+---
+
+In this project, we will be building a basic admin dashboard using a JavaScript framework such as React, Vue, or Angular. The dashboard will include features such as a user login system, a dashboard home page, and the ability to add, edit, and delete users.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Design and implement an admin dashboard using a JavaScript framework</li>
+  <li>Create a user login system</li>
+  <li>Design and implement a dashboard home page</li>
+  <li>Add, edit, and delete users</li>
+  <li>Test and debug the dashboard using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Add additional features such as a notification system or analytics tracking
+  </li>
+  <li>Improve the design and usability of the dashboard</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Admin Dashboard</li>
+  <li>JavaScript Frameworks</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic admin dashboard
+using React:
+
+```javascript
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Login from './components/Login'
+import Dashboard from './components/Dashboard'
+
+function App() {
+  return (
+    <Router>
+      <Route path="/login" component={Login} />
+      <Route path="/dashboard" component={Dashboard} />
+    </Router>
+  )
+}
+
+export default App
+```

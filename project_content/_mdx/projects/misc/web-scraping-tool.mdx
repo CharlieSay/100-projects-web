@@ -1,0 +1,49 @@
+---
+title: Build a Web Scraping Tool using Rust and reqwest or surf
+tags: web scraping, Rust, reqwest, surf
+description: Build a tool for scraping website data using Rust and reqwest or surf
+expertise: moderate
+thumbId: XF6T-JhUxjg
+---
+
+In this project, we will be building a web scraping tool using the Rust programming language and a library such as reqwest or surf. The tool will allow users to extract data from websites, and display the extracted data in a user-friendly format.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Learn the basics of web scraping with Rust and reqwest or surf</li>
+<li>Design and implement a user interface for the web scraping tool</li>
+<li>Allow users to extract data from websites</li>
+<li>Allow users to view the extracted data in a user-friendly format</li>
+<li>Test and debug the application</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add support for scraping data from multiple websites at once</li>
+<li>Implement a feature for exporting extracted data to a file</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Scrapy</li>
+<li>BeautifulSoup</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic web scraping function using Rust and reqwest or surf:
+
+```rust
+extern crate reqwest;
+use select::document::Document;
+use select::predicate::Name;
+
+fn main() {
+    let resp = reqwest::get("https://www.example.com/").unwrap();
+    assert!(resp.status().is_success());
+
+    let document = Document::from_read(resp).unwrap();
+
+    for node in document.find(Name("a")) {
+        println!("{}", node.text());
+    }
+}
+```
+
+This code fetches the HTML from a website and uses the select crate to navigate the DOM and find specific elements. You can use this code snippet as a starting point to build the web scraping tool.

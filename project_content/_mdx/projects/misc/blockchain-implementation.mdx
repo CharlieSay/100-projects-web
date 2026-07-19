@@ -1,0 +1,47 @@
+---
+title: Create a Blockchain Implementation using Rust and Substrate or Parity
+tags: blockchain, Rust, Substrate, Parity, advanced
+description: Build a blockchain implementation using Rust and Substrate or Parity
+expertise: advanced
+thumbId: zs4U6ZzF-l4
+---
+
+In this project, we will be building a blockchain implementation using the Rust programming language and the Substrate or Parity frameworks. The blockchain will be fully functional, with the ability to add and verify transactions, and maintain a decentralized network of nodes.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Learn the basics of blockchain technology and the Rust programming language</li>
+<li>Research and choose between the Substrate or Parity frameworks</li>
+<li>Design and implement the blockchain using Rust and the chosen framework</li>
+<li>Test and debug the blockchain implementation</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add support for smart contract functionality</li>
+<li>Implement a feature for mining new blocks on the blockchain</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Ethereum</li>
+<li>Hyperledger</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic blockchain implementation using the Substrate or Parity framework:
+
+
+```rust
+extern crate substrate;
+
+fn main() {
+    let mut chain = substrate::Chain::new();
+
+    // Add a new block to the blockchain
+    let block = substrate::Block::new(vec![substrate::Transaction::new(/* ... */)]);
+    chain.push(block);
+
+    // Verify the blockchain
+    assert!(chain.is_valid());
+}
+```
+
+This code uses the substrate library to create a new blockchain and add a new block to it. You can use this code snippet as a starting point to build the blockchain implementation using Rust and the Substrate or Parity frameworks.

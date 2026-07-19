@@ -1,0 +1,60 @@
+---
+title: Create a Simple CI Pipeline
+tags: continuous integration, automation, deployment
+description: Build a continuous integration pipeline for a small project
+expertise: easy
+thumbId: 9AxFJaNySB8
+---
+
+In this project, we will be creating a simple continuous integration (CI) pipeline for a small project. Continuous integration is the process of automating the build and testing of code every time a change is made, ensuring that the code is always in a deployable state.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Set up a version control system (such as Git) for the project</li>
+  <li>Create a build script to compile and test the code</li>
+  <li>
+    Configure a CI server (such as Jenkins) to automatically run the build
+    script on every code change
+  </li>
+  <li>
+    Set up a deployment process to automatically push the code to a staging or
+    production environment
+  </li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add notification alerts for build failures or successes</li>
+  <li>
+    Implement code coverage tools to track test coverage and identify areas that
+    need more testing
+  </li>
+  <li>Set up automatic rollbacks in case of deployment failures</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Travis CI</li>
+  <li>CircleCI</li>
+  <li>GitLab CI</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic build script
+using a tool like Gradle:
+
+```groovy
+// Build script for a Java project using Gradle
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+task build(type: Test) {
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+}
+```

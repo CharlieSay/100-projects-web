@@ -1,0 +1,50 @@
+---
+title: File Upload Service
+tags: backend, file-upload, storage, nodejs, express
+description: Create a file upload service with validation, storage, and retrieval capabilities
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Build a robust file upload service that handles file validation, storage, and provides APIs for uploading and retrieving files with support for multiple file types.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create upload endpoint accepting multipart/form-data</li>
+  <li>Implement file type and size validation</li>
+  <li>Store files securely with unique naming</li>
+  <li>Create endpoint to retrieve uploaded files</li>
+  <li>Add file metadata storage (name, size, type, upload date)</li>
+  <li>Implement file deletion endpoint</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add image resizing/optimization</li>
+  <li>Implement progress tracking for large uploads</li>
+  <li>Add virus scanning integration</li>
+  <li>Create thumbnail generation for images</li>
+  <li>Implement CDN integration</li>
+  <li>Add file sharing with expiration links</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>AWS S3</li>
+  <li>Cloudinary</li>
+  <li>Imgur API</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const multer = require('multer');
+const upload = multer({ 
+  dest: 'uploads/',
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = /jpeg|jpg|png|gif|pdf/;
+    cb(null, allowedTypes.test(file.mimetype));
+  }
+});
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  res.json({ fileId: req.file.filename, url: `/files/${req.file.filename}` });
+});
+```

@@ -1,0 +1,52 @@
+---
+title: Recipe Sharing Platform
+tags: fullstack, recipes, cooking, social, react, nodejs
+description: Build a recipe sharing platform where users can share recipes, rate them, and create meal plans
+expertise: intermediate
+thumbId: WYd_PkCa1BY
+---
+
+Create a recipe sharing platform where users can post recipes, browse collections, rate recipes, save favorites, and create meal plans.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create recipe creation form with ingredients and instructions</li>
+  <li>Implement recipe search and filtering</li>
+  <li>Build rating and review system</li>
+  <li>Add recipe collections and favorites</li>
+  <li>Create meal planning calendar</li>
+  <li>Add shopping list generation from recipes</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement recipe scaling (adjust servings)</li>
+  <li>Add nutritional information calculation</li>
+  <li>Create video recipe support</li>
+  <li>Add dietary restriction filtering</li>
+  <li>Implement recipe recommendations</li>
+  <li>Add print-friendly recipe view</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>AllRecipes</li>
+  <li>Food Network</li>
+  <li>Yummly</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Generate shopping list
+function generateShoppingList(recipes) {
+  const ingredients = {};
+  recipes.forEach(recipe => {
+    recipe.ingredients.forEach(ing => {
+      const key = ing.name.toLowerCase();
+      if (ingredients[key]) {
+        ingredients[key].amount += convertUnit(ing.amount, ing.unit);
+      } else {
+        ingredients[key] = { name: ing.name, amount: ing.amount, unit: ing.unit };
+      }
+    });
+  });
+  return Object.values(ingredients);
+}
+```

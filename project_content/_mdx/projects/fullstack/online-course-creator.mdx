@@ -1,0 +1,57 @@
+---
+title: Online Course Creator
+tags: web development, e-learning, full-stack
+description: Implement a web application for creating and managing online course content.
+expertise: expert
+thumbId: EeS69TTPQ18
+---
+
+Are you interested in creating and managing online course content? This project is perfect for you! In this project, you will implement a web application for creating and managing online course content.
+
+Users will be able to create and manage their own online courses, including creating lectures, quizzes, and assignments. They will also be able to share their courses with others, and track progress and engagement of students.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a user registration and login system</li>
+<li>Design a database to store user information, courses, and student progress</li>
+<li>Build an interface for creating and editing lectures, quizzes, and assignments</li>
+<li>Implement a feature for sharing courses with others</li>
+<li>Allow users to track progress and engagement of students</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Implement a feature for accepting payments for courses</li>
+<li>Add a feature to allow for live classes and discussions</li>
+<li>Implement a feature to generate personalized course recommendations based on user interests and past interactions</li>
+
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Udemy.com</li>
+<li>Coursera.org</li>
+<li>edX.org</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for creating a new course using Node.js, Express and Mongoose
+const express = require('express')
+const router = express.Router()
+const Course = require('../models/Course')
+router.post('/create', (req, res) => {
+  const { title, description, modules } = req.body
+  const newCourse = new Course({
+    title,
+    description,
+    modules,
+  })
+  newCourse
+    .save()
+    .then((course) => res.json(course))
+    .catch((err) => res.status(400).json(err))
+})
+```
+
+This code snippet is an example of how to use the POST method to create a new course using the title, description and modules as parameters, and save it in the database using Mongoose.
+
+As for the frameworks, you can use Node.js and Express for the server-side development, MongoDB for the database, and React.js for the front-end development. Additionally you can use Mongoose for Object Data Modelling, Passport.js for authentication, and Stripe for handling payments.

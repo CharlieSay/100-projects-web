@@ -1,0 +1,94 @@
+---
+title: URL Shortener
+tags: javascript, node.js, express
+description: Create a simple URL shortener using JavaScript to create shorter and more shareable links
+expertise: intermediate
+thumbId: mZnx9429i94
+---
+
+Have you ever wanted to share a long URL with someone, but didn't want to take up too much space in a text message or social media post? A URL shortener can help with that!
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Design and implement a web-based URL shortener using HTML, CSS, and
+    JavaScript
+  </li>
+  <li>
+    Implement a system for generating short, unique URLs for given long URLs
+  </li>
+  <li>Test and debug the application using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Implement a system for storing and retrieving short and long URLs using a
+    database or local storage
+  </li>
+  <li>
+    Add additional features such as link expiration or password protection
+  </li>
+  <li>
+    Integrate the application with a URL shortener API or library, such as Bitly
+    or Rebrandly
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Bitly</li>
+  <li>Rebrandly</li>
+  <li>TinyURL</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic URL shortener
+using JavaScript:
+
+```html
+<html>
+  <head>
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <h1>URL Shortener</h1>
+    <form id="shorten-form">
+      <input
+        type="text"
+        id="long-url-input"
+        placeholder="Enter a long URL..."
+      />
+      <button type="submit">Shorten</button>
+    </form>
+    <div id="short-url-output"></div>
+  </body>
+  <style>
+    /* Add some basic styling for the URL shortener */
+  </style>
+  <script>
+    // Get a reference to the form and output element
+    const form = document.querySelector('#shorten-form')
+    const output = document.querySelector('#short-url-output')
+
+    // Add an event listener for the submit event
+    form.addEventListener('submit', (event) => {
+      // Prevent the form from submitting
+      event.preventDefault()
+
+      // Get the value of the long URL input
+      const longUrl = event.target.elements
+      // Generate a short URL using some function
+      const shortUrl = generateShortUrl(longUrl)
+
+      // Display the short URL
+      output.textContent = shortUrl
+    })
+
+    // Add a function to generate a short URL from a given long URL
+    function generateShortUrl(longUrl) {
+      // Implement logic to generate a short URL here
+      return shortUrl
+    }
+  </script>
+</html>
+```
+
+This code will create a basic form for inputting a long URL and a function for generating a short URL. You can then implement the logic for generating the short URL using a library or algorithm of your choice.

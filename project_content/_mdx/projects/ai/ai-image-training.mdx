@@ -1,0 +1,44 @@
+---
+title: AI Image Training
+tags: AI, machine learning, image recognition
+description: This project will focus on training a machine learning model to accurately classify images using deep learning techniques
+expertise: intermediate
+thumbId: zwd435-ewb4
+---
+
+In this project, we will be using a combination of convolutional neural networks (CNNs) and transfer learning to train a model to recognize and classify different types of images. We will start by gathering a large dataset of images, and then use this dataset to train and fine-tune our model.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Gather a dataset of images for training and testing</li>
+  <li>Preprocess and clean the data</li>
+  <li>Split the data into training and testing sets</li>
+  <li>Train a CNN model on the training data</li>
+  <li>Fine-tune the model using transfer learning</li>
+  <li>Evaluate the model on the testing data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement data augmentation to improve model performance</li>
+  <li>Experiment with different CNN architectures and hyperparameters</li>
+  <li>Apply the trained model to real-world image classification tasks</li>
+</ul>
+<h2>Hint</h2>
+To get started, you can use the following code snippet to download and preprocess
+the data:
+
+```python
+import tensorflow as tf
+
+# Download and extract the data
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+
+# Preprocess the data
+x_train = x_train / 255.0
+x_test = x_test / 255.0
+```
+
+<h2>Similar companies / libraries</h2>
+There are several companies and libraries that have implemented similar image training
+projects, including Google's TensorFlow, Amazon's SageMaker, and Microsoft's Azure
+Machine Learning.

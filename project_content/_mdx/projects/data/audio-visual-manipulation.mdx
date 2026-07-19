@@ -1,0 +1,64 @@
+---
+title: Advanced Audio/Video Manipulation
+tags: python, audio, video, PyDub, MoviePy
+description: a program that performs advanced audio and video manipulation tasks using PyDub and MoviePy
+expertise: advanced
+thumbId: jhLKriqv3DE
+---
+
+In this project, you will create a program that performs advanced audio and video manipulation tasks using the PyDub and MoviePy libraries in Python. These libraries provide a range of functionality, including audio and video processing, conversion, and editing.
+
+<h1>Create an Advanced Audio/Video Manipulation Program</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>
+    A way to import and manipulate audio and video files using PyDub and MoviePy
+  </li>
+  <li>
+    A way to perform tasks such as audio and video editing, conversion, and processing
+  </li>
+  <li>
+    A user interface for interacting with the program and selecting audio and video files
+  </li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add a feature that allows users to apply audio and video effects (e.g. filters, transitions)?
+  </li>
+  <li>
+    Can you add a feature that allows users to create audio and video compositions from multiple sources?
+  </li>
+  <li>
+    Can you add a feature that allows users to extract audio or video from other media (e.g. YouTube videos, podcasts)?
+  </li>
+</ul>
+<h2>Hints</h2>
+<p>
+  To get started with this project, you can begin by installing PyDub and MoviePy and familiarizing yourself with their documentation. Then, you can create a basic user interface using a library like Tkinter or PyQt, which will allow users to select audio and video files and perform various manipulation tasks.
+Here is some sample code to load an audio file using PyDub and play it back:
+
+</p>
+```python
+pip install pydub
+
+from pydub import AudioSegment
+
+audio = AudioSegment.from_file("audio.mp3", format="mp3")
+
+print(f"Audio length: {audio.duration_seconds} seconds")
+print(f"Audio sample rate: {audio.frame_rate} Hz")
+print(f"Audio channels: {audio.channels}")
+print(f"Audio sample width: {audio.sample_width} bytes")
+
+cropped_audio = audio[:30000]
+cropped_audio.export("cropped_audio.mp3", format="mp3")
+lowered_audio = audio.apply_gain(-6.0)
+lowered_audio.export("lowered_audio.mp3", format="mp3")
+fast_audio = audio.speedup(playback_speed=1.2)
+fast_audio.export("fast_audio.mp3", format="mp3")
+
+```
+<p>
+This code demonstrates how to open an audio file using PyDub, access audio information, crop the audio, lower the volume, and increase the tempo. You can then build on this foundation by implementing other audio/video manipulation tasks using the various functions and methods available in PyDub.
+</p>

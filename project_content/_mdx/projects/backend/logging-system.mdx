@@ -1,0 +1,64 @@
+---
+title: Logging System
+tags: backend, logging, monitoring, nodejs, express
+description: Build a comprehensive logging system with different log levels, structured logging, and log aggregation
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Create a logging system that captures application events, errors, and metrics with different severity levels, structured formatting, and log aggregation capabilities.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement different log levels (debug, info, warn, error)</li>
+  <li>Create structured logging with metadata</li>
+  <li>Add file-based log storage with rotation</li>
+  <li>Implement request logging middleware</li>
+  <li>Add error logging with stack traces</li>
+  <li>Create log filtering and search capabilities</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Integrate with log aggregation services (ELK, Splunk)</li>
+  <li>Add log correlation IDs for request tracing</li>
+  <li>Implement log sampling for high-volume applications</li>
+  <li>Create log alerting for critical errors</li>
+  <li>Add performance metrics logging</li>
+  <li>Implement log compression and archival</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Winston</li>
+  <li>Pino</li>
+  <li>Datadog</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const fs = require('fs');
+const path = require('path');
+
+class Logger {
+  constructor(level = 'info') {
+    this.levels = { debug: 0, info: 1, warn: 2, error: 3 };
+    this.currentLevel = this.levels[level];
+  }
+  
+  log(level, message, metadata = {}) {
+    if (this.levels[level] >= this.currentLevel) {
+      const logEntry = {
+        timestamp: new Date().toISOString(),
+        level,
+        message,
+        ...metadata
+      };
+      console.log(JSON.stringify(logEntry));
+      this.writeToFile(logEntry);
+    }
+  }
+  
+  writeToFile(entry) {
+    const logFile = path.join(__dirname, 'logs', 'app.log');
+    fs.appendFileSync(logFile, JSON.stringify(entry) + '\n');
+  }
+}
+```

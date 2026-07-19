@@ -1,0 +1,64 @@
+---
+title: Build a Containerization Platform
+tags: Docker, Kubernetes, containerization
+description: Use Docker and Kubernetes to build a containerization platform for deploying applications
+expertise: intermediate
+thumbId: 1VW6HLOQE5A
+---
+
+In this project, we will be building a containerization platform using Docker and Kubernetes. Containerization allows us to package applications and their dependencies into lightweight, portable containers that can be easily deployed and scaled on any infrastructure.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Install and set up Docker and Kubernetes on a local or cloud-based
+    infrastructure
+  </li>
+  <li>Create Docker images for the applications to be deployed</li>
+  <li>
+    Deploy the Docker images to a Kubernetes cluster using deployment yaml files
+  </li>
+  <li>
+    Configure and manage the deployment and scaling of the applications using
+    Kubernetes
+  </li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Implement continuous delivery to automatically deploy new versions of the
+    applications
+  </li>
+  <li>
+    Set up monitoring and logging tools to track the health and performance of
+    the containers and applications
+  </li>
+  <li>
+    Integrate with a cloud provider (such as AWS or GCP) for added scalability
+    and management capabilities
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Docker Cloud</li>
+  <li>Google Kubernetes Engine</li>
+  <li>AWS Elastic Container Service</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to create a basic Docker image
+for a Java application: ```
+
+```dockerfile
+# Dockerfile for a Java application
+
+FROM openjdk:8-jre-alpine
+
+ADD . /app
+
+WORKDIR /app
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "app.jar"]
+
+```

@@ -1,0 +1,58 @@
+---
+title: Forum & Community Platform
+tags: fullstack, forum, discussion, moderation, reputation
+description: Build a community forum with threads, replies, voting, user reputation, and moderation tools
+expertise: intermediate
+thumbId: WYd_PkCa1BY
+---
+
+Create a community forum platform where users can create discussion threads, reply to posts, vote on content, build reputation, and moderators can manage the community.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create forum categories and subcategories</li>
+  <li>Implement thread creation and display</li>
+  <li>Build reply/comment system with nesting</li>
+  <li>Add upvote/downvote functionality</li>
+  <li>Create user profiles with reputation scores</li>
+  <li>Implement basic moderation tools</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add thread tagging and search</li>
+  <li>Implement thread locking and pinning</li>
+  <li>Create badge/achievement system</li>
+  <li>Add markdown support for rich text</li>
+  <li>Implement thread subscriptions and notifications</li>
+  <li>Add spam detection and auto-moderation</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Reddit</li>
+  <li>Stack Overflow</li>
+  <li>Discourse</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Thread model
+const threadSchema = {
+  title: String,
+  content: String,
+  authorId: ObjectId,
+  categoryId: ObjectId,
+  upvotes: Number,
+  downvotes: Number,
+  createdAt: Date
+};
+
+// Vote on thread
+async function voteThread(threadId, userId, voteType) {
+  await db.votes.upsert({
+    threadId,
+    userId,
+    voteType
+  });
+  await updateThreadScore(threadId);
+  await updateUserReputation(userId, voteType);
+}
+```

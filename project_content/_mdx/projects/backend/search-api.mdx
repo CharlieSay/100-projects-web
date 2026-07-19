@@ -1,0 +1,63 @@
+---
+title: Search API
+tags: backend, search, elasticsearch, api
+description: Build a full-text search API with filtering, sorting, and relevance scoring
+expertise: hard
+thumbId: aEKwSdX5pJU
+---
+
+Create a powerful search API that enables full-text search across your data with advanced features like filtering, faceting, fuzzy matching, and relevance scoring.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement basic full-text search functionality</li>
+  <li>Add search query parsing and tokenization</li>
+  <li>Create search result ranking by relevance</li>
+  <li>Implement filtering by multiple criteria</li>
+  <li>Add pagination for search results</li>
+  <li>Support sorting by various fields</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Integrate with Elasticsearch or similar search engine</li>
+  <li>Implement fuzzy matching for typo tolerance</li>
+  <li>Add faceted search (filter by categories, tags, etc.)</li>
+  <li>Create autocomplete/suggestions functionality</li>
+  <li>Implement search analytics (popular queries, no results)</li>
+  <li>Add search result highlighting</li>
+  <li>Create advanced search operators (AND, OR, NOT, phrases)</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Elasticsearch</li>
+  <li>Algolia</li>
+  <li>Meilisearch</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet for basic search:
+
+```javascript
+function search(query, documents) {
+  const terms = query.toLowerCase().split(/\s+/);
+  
+  return documents
+    .map(doc => ({
+      ...doc,
+      score: calculateRelevance(doc, terms)
+    }))
+    .filter(doc => doc.score > 0)
+    .sort((a, b) => b.score - a.score);
+}
+
+function calculateRelevance(doc, terms) {
+  let score = 0;
+  const text = `${doc.title} ${doc.content}`.toLowerCase();
+  
+  terms.forEach(term => {
+    const matches = (text.match(new RegExp(term, 'g')) || []).length;
+    score += matches;
+  });
+  
+  return score;
+}
+```

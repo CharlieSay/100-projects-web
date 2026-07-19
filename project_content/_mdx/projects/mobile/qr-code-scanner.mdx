@@ -1,0 +1,72 @@
+---
+title: QR Code Scanner App
+tags: mobile, qr-codes, camera, scanning, swift, kotlin
+description: Build a QR code and barcode scanner app with history, favorites, and code generation
+expertise: easy
+thumbId: BqKdvJ8a5TI
+---
+
+Create a QR code and barcode scanner application that can scan codes using the device camera, display results, save scan history, and generate custom QR codes.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement camera-based QR code scanning</li>
+  <li>Parse different QR code types (URL, text, contact, WiFi)</li>
+  <li>Create scan history with timestamps</li>
+  <li>Add QR code generation for text, URLs, and contacts</li>
+  <li>Implement favorites/bookmarking for frequently scanned codes</li>
+  <li>Add share functionality for scan results</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add support for multiple barcode formats (EAN, UPC, Code128)</li>
+  <li>Implement batch scanning mode</li>
+  <li>Create custom QR code designs and colors</li>
+  <li>Add WiFi QR code generation and scanning</li>
+  <li>Implement QR code validation and error correction</li>
+  <li>Create export scan history (CSV, JSON)</li>
+  <li>Add flashlight support for low-light scanning</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>QR Code Reader</li>
+  <li>Barcode Scanner</li>
+  <li>QR Code Generator apps</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet for QR scanning:
+
+```swift
+import AVFoundation
+import Vision
+
+class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    func setupCamera() {
+        captureSession = AVCaptureSession()
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        
+        let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice)
+        if captureSession.canAddInput(videoInput!) {
+            captureSession.addInput(videoInput!)
+        }
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        if captureSession.canAddOutput(metadataOutput) {
+            captureSession.addOutput(metadataOutput)
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.qr]
+        }
+    }
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        if let qrCode = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
+            if let stringValue = qrCode.stringValue {
+                handleScannedCode(stringValue)
+            }
+        }
+    }
+}
+```

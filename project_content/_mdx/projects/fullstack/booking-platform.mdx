@@ -1,0 +1,47 @@
+---
+title: Booking Platform
+tags: fullstack, booking, reservations, calendar, react, nodejs
+description: Build a booking platform for hotels, restaurants, or services with availability management and calendar integration
+expertise: intermediate
+thumbId: WYd_PkCa1BY
+---
+
+Create a booking platform where users can search for availability, make reservations, and manage their bookings with calendar integration.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create availability search interface</li>
+  <li>Implement calendar view for date selection</li>
+  <li>Build booking creation and confirmation system</li>
+  <li>Add email confirmation for bookings</li>
+  <li>Create admin panel for managing availability</li>
+  <li>Implement booking cancellation and modification</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add payment processing for bookings</li>
+  <li>Implement waitlist functionality</li>
+  <li>Create recurring booking support</li>
+  <li>Add booking reminders and notifications</li>
+  <li>Implement review system after booking</li>
+  <li>Add multi-timezone support</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Booking.com</li>
+  <li>OpenTable</li>
+  <li>Airbnb</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Check availability
+async function checkAvailability(resourceId, startDate, endDate) {
+  const bookings = await db.bookings.find({
+    resourceId,
+    startDate: { $lt: endDate },
+    endDate: { $gt: startDate },
+    status: 'confirmed'
+  });
+  return bookings.length === 0;
+}
+```

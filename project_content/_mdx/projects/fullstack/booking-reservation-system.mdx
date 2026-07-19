@@ -1,0 +1,61 @@
+---
+title: Booking & Reservation System
+tags: fullstack, booking, calendar, availability, payments
+description: Build a booking system for hotels, restaurants, or services with availability management, calendar integration, and payment processing
+expertise: intermediate
+thumbId: WYd_PkCa1BY
+---
+
+Create a booking and reservation system that allows customers to book appointments, check availability in real-time, and complete payments. Includes admin interface for managing bookings.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create availability calendar system</li>
+  <li>Implement booking creation with time slot selection</li>
+  <li>Build real-time availability checking</li>
+  <li>Add customer information collection</li>
+  <li>Create booking confirmation and email notifications</li>
+  <li>Implement admin dashboard for managing bookings</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add payment integration for deposits</li>
+  <li>Implement booking cancellation and refunds</li>
+  <li>Create recurring booking support</li>
+  <li>Add waitlist functionality</li>
+  <li>Implement booking reminders (SMS/Email)</li>
+  <li>Add calendar sync (Google Calendar, iCal)</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Calendly</li>
+  <li>OpenTable</li>
+  <li>Booking.com</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Check availability
+async function checkAvailability(date, timeSlot) {
+  const existingBookings = await db.bookings.find({
+    date,
+    timeSlot,
+    status: 'confirmed'
+  });
+  return existingBookings.length < MAX_CAPACITY;
+}
+
+// Create booking
+async function createBooking(customerId, date, timeSlot) {
+  if (!await checkAvailability(date, timeSlot)) {
+    throw new Error('Time slot not available');
+  }
+  const booking = await db.bookings.create({
+    customerId,
+    date,
+    timeSlot,
+    status: 'pending'
+  });
+  await sendConfirmationEmail(booking);
+  return booking;
+}
+```

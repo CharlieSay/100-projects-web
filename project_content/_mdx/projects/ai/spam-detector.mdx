@@ -1,0 +1,50 @@
+---
+title: Spam Detector
+tags: ai, machine-learning, nlp, classification, python
+description: Build a spam detection system that classifies emails or messages as spam or legitimate
+expertise: easy
+thumbId: fOwb7GrCg5I
+---
+
+Create a spam detection system using machine learning that can accurately classify emails or messages as spam or legitimate content.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Collect labeled dataset of spam and legitimate messages</li>
+  <li>Preprocess text data (tokenization, cleaning)</li>
+  <li>Extract features from text (TF-IDF, word counts)</li>
+  <li>Train classification model (Naive Bayes, SVM, or Logistic Regression)</li>
+  <li>Evaluate model accuracy and precision</li>
+  <li>Create API endpoint for spam detection</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement real-time spam filtering</li>
+  <li>Add confidence scores for predictions</li>
+  <li>Create feedback mechanism to improve model</li>
+  <li>Add support for multiple languages</li>
+  <li>Implement adaptive learning from user feedback</li>
+  <li>Add phishing detection capabilities</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Gmail Spam Filter</li>
+  <li>SpamAssassin</li>
+  <li>Cloudmark</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(messages)
+y = labels  # 0 for spam, 1 for legitimate
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = MultinomialNB()
+model.fit(X_train, y_train)
+accuracy = model.score(X_test, y_test)
+```

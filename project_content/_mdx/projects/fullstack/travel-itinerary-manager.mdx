@@ -1,0 +1,55 @@
+---
+title: Travel Itinerary Manager
+tags: web development, travel, itinerary, full-stack
+description: Build a platform for managing and booking travel itineraries.
+expertise: intermediate
+thumbId: uq2E2V4LhCY
+---
+
+Are you a travel enthusiast looking for an easier way to manage and book your itineraries? Look no further! In this project, you will create a web-based platform for managing and booking travel itineraries.
+
+Users will be able to create an account, plan and organize their own itineraries, and book travel arrangements such as flights, hotels and rental cars. They will also be able to view and edit their itineraries, receive notifications and confirmations and share their itineraries with others.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a user registration and login system</li>
+<li>Design a database to store user information, itineraries, and bookings</li>
+<li>Build an interface for adding and editing itineraries and bookings</li>
+<li>Integrate a travel booking API to search and book flights, hotels, and rental cars</li>
+<li>Implement features for notifications and confirmations</li>
+<li>Allow users to share and view other users' itineraries</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Integrate a weather forecast API to provide weather information for the destinations</li>
+<li>Allow users to rate and review their travel experiences</li>
+<li>Implement a feature for generating personalized travel recommendations</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Tripit.com</li>
+<li>Kayak.com</li>
+<li>Google Trips (Mobile App)</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for integrating a travel booking API using Node.js and Express
+app.get('/search', (req, res) => {
+    const {destination, start_date, end_date} = req.query;
+    axios.get(`https://travel-booking-api.com/search?destination=${destination}&start_date=${start_date}&end_date=${end_date}`)
+        .then(response => res.json(response.data))
+        .catch(err => res.status(400).json(err))
+});
+
+app.post('/book', (req, res) => {
+    const {user_id, booking_id} = req.body;
+    //create new booking in database
+    Booking.create({user_id, booking_id})
+        .then(booking => res.json(booking))
+        .catch(err => res.status(400).json(err))
+});
+
+```
+
+This code snippet is an example of how to use the POST method to book a travel option, passing in the user_id and booking_id, and then creating a new booking in the database.

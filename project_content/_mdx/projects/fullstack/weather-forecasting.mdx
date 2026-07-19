@@ -1,0 +1,44 @@
+---
+title: Weather Forecast App
+tags: web development, weather forecast, full-stack
+description: Build a full-stack web application for displaying weather forecast.
+expertise: easy
+thumbId: kKyxIwvljBg
+---
+Are you interested in building a web application that can display the current and forecast weather for any location? This project is perfect for you! In this project, you will create a full-stack web application for displaying weather forecast using a weather API.
+
+Users will be able to search for the current weather and a 5-day forecast for any location by entering a city or zip code. The application will display the current temperature, humidity, wind, and a brief description of the weather conditions, as well as the forecast for the next five days.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a simple front-end using HTML, CSS and JavaScript</li>
+<li>Integrate a weather API to fetch weather data</li>
+<li>Build a server-side application using Node.js and Express</li>
+<li>Implement a search feature for users to enter a city or zip code</li>
+<li>Display the current weather and 5-day forecast on the front-end</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add a feature to switch between Celsius and Fahrenheit</li>
+<li>Add a feature to save the user's last search</li>
+<li>Implement a feature to display weather alerts if any</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>OpenWeatherMap.org</li>
+<li>Weather.com</li>
+<li>Accuweather.com</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for integrating a weather API using Node.js and Express
+app.get('/weather', (req, res) => {
+    const {city, zip_code} = req.query;
+    axios.get(`https://weather-api.com/weather?q=${city}&zip=${zip_code}&appid=YOUR_API_KEY`)
+        .then(response => res.json(response.data))
+        .catch(err => res.status(400).json(err))
+});
+```
+
+This code snippet is an example of how to use the GET method to fetch weather data using a city or zip code as a parameter and an API key, and then returning the data in JSON format.

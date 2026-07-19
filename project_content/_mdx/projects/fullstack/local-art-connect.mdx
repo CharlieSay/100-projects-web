@@ -1,0 +1,46 @@
+---
+title: Local Art Connect
+tags: web development, art, community, full-stack
+description: Build a web-based platform for connecting local artists and art enthusiasts.
+expertise: intermediate
+thumbId: D5nh6mCW52c
+---
+
+Are you an artist or an art enthusiast looking to connect with other like-minded individuals in your community? This project is perfect for you! In this project, you will create a web-based platform for connecting local artists and art enthusiasts.
+
+Users will be able to create an account, create a profile, and share their artworks and events. They will also be able to view other users' profiles, artworks and events, and connect with other artists. They will also be able to search for artists and artworks by location, medium, and style, and receive notifications about upcoming events and exhibitions.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a user registration and login system</li>
+<li>Design a database to store user information, artworks, events, and connections</li>
+<li>Build an interface for creating and editing profiles, artworks, and events</li>
+<li>Implement a feature for searching for artists and artworks by location, medium, and style</li>
+<li>Allow users to connect with other artists and receive notifications about upcoming events and exhibitions</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Implement a feature for buying and selling artworks</li>
+<li>Add a feature to allow users to book classes and workshops</li>
+<li>Implement a feature to generate personalized art recommendations based on userinterests and past interactions</li>
+
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Artsy.net</li>
+<li>Saatchiart.com</li>
+<li>Deviantart.com</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for searching for artworks by location and medium using Node.js and Express
+app.get('/search', (req, res) => {
+    const {location, medium} = req.query;
+    Artwork.find({location: location, medium: medium})
+        .then(artworks => res.json(artworks))
+        .catch(err => res.status(400).json(err))
+});
+```
+
+This code snippet is an example of how to use the GET method to search for artworks in the database by location and medium, and then returning the results in JSON format.

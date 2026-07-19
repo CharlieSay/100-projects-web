@@ -1,0 +1,57 @@
+---
+title: API Gateway
+tags: backend, microservices, api, nodejs, architecture
+description: Build an API gateway that routes requests, handles authentication, and aggregates responses from multiple services
+expertise: hard
+thumbId: aEKwSdX5pJU
+---
+
+Create an API gateway that acts as a single entry point for multiple backend services, handling routing, authentication, request aggregation, and load balancing.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create routing system to forward requests to appropriate services</li>
+  <li>Implement authentication middleware</li>
+  <li>Add request/response transformation</li>
+  <li>Create service discovery mechanism</li>
+  <li>Implement request aggregation for multiple service calls</li>
+  <li>Add error handling and fallback mechanisms</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement load balancing across service instances</li>
+  <li>Add caching layer for frequently accessed data</li>
+  <li>Create API versioning support</li>
+  <li>Implement circuit breaker pattern</li>
+  <li>Add request/response logging and monitoring</li>
+  <li>Create API documentation endpoint</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Kong</li>
+  <li>AWS API Gateway</li>
+  <li>Zuul</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const services = {
+  users: 'http://user-service:3001',
+  products: 'http://product-service:3002',
+  orders: 'http://order-service:3003'
+};
+
+app.use('/api/*', authenticate);
+
+app.get('/api/users/:id', async (req, res) => {
+  const response = await fetch(`${services.users}/users/${req.params.id}`);
+  res.json(await response.json());
+});
+
+app.get('/api/user-orders/:userId', async (req, res) => {
+  const [user, orders] = await Promise.all([
+    fetch(`${services.users}/users/${req.params.userId}`),
+    fetch(`${services.orders}/orders?userId=${req.params.userId}`)
+  ]);
+  res.json({ user: await user.json(), orders: await orders.json() });
+});
+```

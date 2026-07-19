@@ -1,0 +1,71 @@
+---
+title: Java Search Engine
+tags: java, search engine, web crawling, indexing, ranking
+description: a search engine that crawls, indexes, and ranks web pages using Java
+expertise: advanced
+thumbId: zhZydTyNMPg
+---
+
+A search engine is a powerful tool that allows users to quickly find relevant information on the internet. In this project, you will build a search engine using Java that crawls and indexes web pages, allowing users to search for specific terms and retrieve relevant results.
+
+<h1>Build a Java-based Search Engine</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>A way to crawl the web and retrieve web pages for indexing</li>
+  <li>
+    A way to index web pages, storing relevant information for later searching
+  </li>
+  <li>A way to rank search results based on relevance and importance</li>
+  <li>A user interface for performing searches and displaying results</li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you implement advanced search features like synonym matching or
+    stemming?
+  </li>
+  <li>Can you optimize the search engine for performance and scalability?</li>
+  <li>
+    Can you integrate the search engine with other tools or platforms (e.g. API,
+    cloud)?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+  To build a search engine in Java, you can start by setting up a basic web
+  crawler using a library like JSoup. You can then implement an indexing system
+  to store relevant information about the web pages you crawl, such as the
+  page's content, links, and metadata. To rank search results, you can use a
+  combination of techniques like keyword matching, page rank, and content
+  analysis. Finally, you can build a user interface using a tool like JavaFX or
+  Swing to allow users to perform searches and view results.
+
+Here is some sample code to get you started with a basic web crawler using JSoup:
+
+</p>
+
+```java
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+public class WebCrawler {
+
+  public static void main(String[] args) {
+    try {
+      // retrieve web page
+      Document doc = Jsoup.connect("https://www.example.com").get();
+      // print page content
+      System.out.println(doc.toString());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+<p>
+  This code retrieves a web page using JSoup and prints its content to the
+  console. You can then build on this foundation by implementing the indexing
+  and ranking systems, as well as the user interface for performing searches and
+  displaying results.
+</p>

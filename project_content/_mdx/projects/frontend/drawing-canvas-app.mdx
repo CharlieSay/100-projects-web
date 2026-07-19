@@ -1,0 +1,58 @@
+---
+title: Drawing Canvas App
+tags: javascript, html5, canvas, frontend, creative
+description: Create a digital drawing application with multiple tools, colors, and brush sizes
+expertise: intermediate
+thumbId: GlavtG-umzE
+---
+
+Build a full-featured drawing application using HTML5 Canvas. Users can draw, paint, and create artwork with various tools including brushes, shapes, and color palettes.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Set up HTML5 Canvas element and drawing context</li>
+  <li>Implement basic drawing functionality with mouse/touch events</li>
+  <li>Create a toolbar with different brush sizes and colors</li>
+  <li>Add shape tools (circle, rectangle, line)</li>
+  <li>Implement undo/redo functionality</li>
+  <li>Add ability to save drawings as images</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add layers support for complex drawings</li>
+  <li>Implement different brush types (pencil, marker, spray, eraser)</li>
+  <li>Add image import and editing capabilities</li>
+  <li>Create a color picker with custom color selection</li>
+  <li>Add text tool for adding labels to drawings</li>
+  <li>Implement drawing history playback</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>MS Paint</li>
+  <li>Sketchpad</li>
+  <li>Procreate (simplified version)</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up basic drawing:
+
+```javascript
+const canvas = document.getElementById('drawing-canvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+
+function startDrawing(e) {
+  isDrawing = true;
+  ctx.beginPath();
+  ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+function draw(e) {
+  if (!isDrawing) return;
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+}
+```

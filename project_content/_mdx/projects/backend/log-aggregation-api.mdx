@@ -1,0 +1,59 @@
+---
+title: Log Aggregation API
+tags: backend, logging, monitoring, analytics, elasticsearch
+description: Build a centralized logging service that collects, stores, and queries application logs from multiple sources
+expertise: hard
+thumbId: aEKwSdX5pJU
+---
+
+Create a log aggregation system that receives logs from multiple applications, stores them efficiently, and provides search and analytics capabilities.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create API endpoint to receive log entries</li>
+  <li>Store logs in database with indexing</li>
+  <li>Implement log search and filtering</li>
+  <li>Add log level filtering (info, warn, error)</li>
+  <li>Create log retention policies</li>
+  <li>Add basic log aggregation and statistics</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Integrate with Elasticsearch for advanced search</li>
+  <li>Implement log parsing and structured logging</li>
+  <li>Add real-time log streaming</li>
+  <li>Create log visualization dashboards</li>
+  <li>Implement log alerting for error thresholds</li>
+  <li>Add log correlation across services</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+  <li>Datadog</li>
+  <li>Splunk</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+app.post('/logs', async (req, res) => {
+  const { level, message, service, metadata } = req.body;
+  const logEntry = {
+    timestamp: new Date(),
+    level,
+    message,
+    service,
+    metadata
+  };
+  await db.logs.insert(logEntry);
+  res.status(201).json({ success: true });
+});
+
+app.get('/logs', async (req, res) => {
+  const { level, service, startDate, endDate } = req.query;
+  const logs = await db.logs.find({
+    level,
+    service,
+    timestamp: { $gte: startDate, $lte: endDate }
+  });
+  res.json(logs);
+});
+```

@@ -1,0 +1,63 @@
+---
+title: Build a Serverless Application
+tags: serverless, cloud platform, AWS Lambda, Google Cloud Functions
+description: Use a cloud platform such as AWS Lambda or Google Cloud Functions to build a serverless application
+expertise: advanced
+thumbId: M5tzZtFCOfs
+---
+
+In this project, we will be building a serverless application using a cloud platform such as AWS Lambda or Google Cloud Functions. Serverless applications are ones that are built and run without the need to worry about infrastructure, allowing developers to focus on writing code and deploying updates without worrying about servers or scaling.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Choose a cloud platform (such as AWS Lambda or Google Cloud Functions) and
+    set up a development environment
+  </li>
+  <li>
+    Design and implement the serverless application, including any necessary
+    triggers and integrations
+  </li>
+  <li>Test and debug the application locally or in a staging environment</li>
+  <li>Deploy the application to the cloud platform</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Integrate the serverless application with other cloud services or APIs
+  </li>
+  <li>
+    Implement a continuous delivery pipeline to automatically deploy updates and
+    new versions of the application
+  </li>
+  <li>
+    Set up monitoring and alerting to track the health and performance of the
+    application
+  </li>
+  <li>
+    Optimize the application for cost and performance using techniques such as
+    function concurrency and cold start optimization
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>AWS Lambda</li>
+  <li>Google Cloud Functions</li>
+  <li>Azure Functions</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to create a basic AWS Lambda
+function using Node.js:
+
+```javascript
+exports.handler = async (event) => {
+  console.log(event)
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Hello from Lambda!',
+      event: event,
+    }),
+  }
+}
+```

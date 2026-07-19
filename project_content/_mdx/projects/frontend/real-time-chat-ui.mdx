@@ -1,0 +1,49 @@
+---
+title: Real-Time Chat UI
+tags: javascript, html, css, frontend, websockets
+description: Design and implement a real-time chat interface with message history and user presence
+expertise: intermediate
+thumbId: GlavtG-umzE
+---
+
+Build a modern chat interface that displays messages in real-time, shows typing indicators, and includes features like message reactions and user status.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create a chat message list with scrollable container</li>
+  <li>Design message input area with send button</li>
+  <li>Implement message bubbles with timestamps and sender names</li>
+  <li>Add auto-scroll to latest message functionality</li>
+  <li>Style messages differently for sent vs received messages</li>
+  <li>Add typing indicator when users are typing</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement emoji picker for reactions</li>
+  <li>Add message editing and deletion features</li>
+  <li>Create user presence indicators (online, offline, away)</li>
+  <li>Add file/image upload and preview functionality</li>
+  <li>Implement message search and filtering</li>
+  <li>Add dark mode support</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Slack</li>
+  <li>Discord</li>
+  <li>WhatsApp Web</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to structure messages:
+
+```javascript
+function addMessage(text, sender, timestamp) {
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${sender === 'me' ? 'sent' : 'received'}`;
+  messageDiv.innerHTML = `
+    <div class="message-content">${text}</div>
+    <div class="message-time">${formatTime(timestamp)}</div>
+  `;
+  document.getElementById('chat-messages').appendChild(messageDiv);
+  scrollToBottom();
+}
+```

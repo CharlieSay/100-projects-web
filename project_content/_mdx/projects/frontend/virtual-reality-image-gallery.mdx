@@ -1,0 +1,123 @@
+---
+title: Virtual Reality Experience Creator
+tags: javascript, html, css, virtual reality, 360-degree media
+description: a web application that allows users to create and share their own virtual reality experiences using 360-degree photos and videos
+expertise: advanced
+thumbId: HI6gy-p-WBI
+---
+
+A virtual reality experience creator allows users to create and share their own virtual reality experiences using 360-degree photos and videos. In this project, you will build a web application that allows users to upload and view 360-degree media, and create immersive virtual reality experiences using HTML, CSS, and JavaScript.
+
+<h1>Create a Virtual Reality Experience Creator</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>
+    A way for users to upload and view 360-degree photos and videos
+  </li>
+  <li>
+    A way to create immersive virtual reality experiences using HTML, CSS, and
+    JavaScript
+  </li>
+  <li>
+    A way to share virtual reality experiences with others and view others'
+    experiences
+  </li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add a feature that allows users to customize their virtual reality
+    experiences with different background music or sound effects?
+  </li>
+  <li>
+    Can you add a feature that allows users to create and view virtual reality
+    experiences in real-time using a web camera or other input device?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+ To implement the virtual reality functionality, you can use a library like A-Frame or three.js. You will need to create a user interface for uploading and previewing 360-degree photos and videos, as well as a way to share the created experiences with others. You may also want to add features like the ability to add captions or annotations to the experiences, or to allow users to customize the appearance of the virtual reality viewer
+
+Here is an example of ThreeJS code to give you an idea of how to start.
+
+</p>
+
+```javascript
+// import three.js library
+import * as THREE from 'three'
+
+// create a canvas element to render the scene
+const canvas = document.createElement('canvas')
+document.body.appendChild(canvas)
+
+// create a WebGLRenderer to render the scene
+const renderer = new THREE.WebGLRenderer({ canvas })
+
+// set the size of the renderer to match the canvas
+renderer.setSize(canvas.clientWidth, canvas.clientHeight)
+
+// create a scene to hold the VR experience
+const scene = new THREE.Scene()
+
+// create a camera to view the scene
+const camera = new THREE.PerspectiveCamera(
+  45,
+  canvas.clientWidth / canvas.clientHeight,
+  0.1,
+  1000,
+)
+
+// add the camera to the scene
+scene.add(camera)
+
+// create a VRControls object to handle VR input
+const controls = new THREE.VRControls(camera)
+
+// create a VREffect object to handle VR rendering
+const effect = new THREE.VREffect(renderer)
+
+// create a VRDisplay object to handle VR display
+const display = new THREE.VRDisplay()
+
+// create a VRManager object to handle VR management
+const manager = new THREE.VRManager(renderer, effect, display)
+
+// add objects to the scene
+
+// create a cube
+const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
+const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
+
+// add the cube to the scene
+scene.add(cube)
+
+// create a function to render the scene
+const render = () => {
+  // update the VR controls
+  controls.update()
+
+  // update the VR manager
+  manager.render(scene, camera)
+}
+
+// create a function to animate the scene
+const animate = () => {
+  // request the next animation frame
+  requestAnimationFrame(animate)
+
+  // render the scene
+  render()
+}
+
+// start animating the scene
+animate()
+```
+
+<p>
+  This code creates a simple VR experience that consists of a green cube that
+  the user can view using a VR headset. You can then build on this foundation by
+  adding more objects and features to the scene, and using the VRControls,
+  VREffect, and VRManager objects to handle VR input, rendering, and display.
+</p>
+

@@ -1,0 +1,64 @@
+---
+title: Create a CI Plugin for Detecting Vulnerable Dependencies
+tags: CI plugin, vulnerability detection, pull requests
+description: Build a CI plugin that automatically detects vulnerable dependencies in projects and raises pull requests to the repository to rectify them
+expertise: advanced
+thumbId: 842ofHC6MaI
+---
+
+In this project, we will be creating a CI plugin that automatically detects vulnerable dependencies in projects and raises pull requests to the repository to rectify them. This can help ensure that projects are using secure and up-to-date dependencies, reducing the risk of vulnerabilities and exploits.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Choose a language and CI platform to build the plugin</li>
+  <li>
+    Design and implement a system for detecting vulnerable dependencies in
+    project repositories
+  </li>
+  <li>
+    Integrate the plugin with the CI pipeline to automatically run the
+    vulnerability detection during builds
+  </li>
+  <li>
+    Implement a mechanism for raising pull requests to the repository with
+    updates or fixes for vulnerable dependencies
+  </li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Implement a notification system to alert project maintainers when vulnerable
+    dependencies are detected
+  </li>
+  <li>
+    Integrate the plugin with a vulnerability database or API to retrieve the
+    latest information on known vulnerabilities
+  </li>
+  <li>
+    Allow users to configure custom rules or thresholds for vulnerability
+    detection
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Dependabot</li>
+  <li>Snyk</li>
+  <li>WhiteSource</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic CI plugin
+using Node.js and the GitHub API:
+
+```javascript
+async function main() {
+  // Authenticate with the GitHub API
+  const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+
+  // List the repositories for the authenticated user
+  const { data: repos } = await octokit.repos.listForAuthenticatedUser()
+
+  console.log(repos)
+}
+
+main()
+```

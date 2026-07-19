@@ -1,0 +1,50 @@
+---
+title: Email Automation
+tags: python, automation, email
+description: a program that automates the process of sending and receiving emails using libraries like IMAPClient or SMTPLib
+expertise: advanced
+thumbId: 3Mhgvrk4tjM
+---
+
+An email automation program allows users to automate the process of sending and receiving emails using Python libraries like IMAPClient or SMTPLib. In this project, you will create a program that automates email tasks such as sending emails, reading emails, and organizing emails.
+
+<h1>Create an Email Automation Program</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>
+    A way to connect to an email server and authenticate using credentials
+  </li>
+  <li>
+    A way to send emails using SMTPLib or a similar library
+  </li>
+  <li>
+    A way to read and organize emails using IMAPClient or a similar library
+  </li>
+  <li>
+    A way to perform actions based on specific email criteria (e.g. subject line, sender, recipient)
+  </li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add a feature that allows the program to send emails at specific intervals or based on specific triggers?
+  </li>
+  <li>
+    Can you add a feature that allows the program to perform actions on attachments (e.g. download, save, delete)?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+ To get started with this project, you can begin by setting up a connection to an email server using IMAPClient or SMTPLib. You can then implement functions for sending and reading emails, and add logic for performing actions based on specific email criteria.
+Here is some sample code to connect to an email server using IMAPClient:
+
+</p>
+```python
+from imapclient import IMAPClient
+server = IMAPClient('imap.example.com')
+server.login('user@example.com', 'password')
+
+```
+<p>
+This code establishes a connection to an email server and authenticates using the provided credentials. You can then build on this foundation by implementing functions for sending and reading emails, and adding logic for performing actions based on specific email criteria.
+</p>

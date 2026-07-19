@@ -1,0 +1,56 @@
+---
+title: Color Palette Generator
+tags: javascript, html, css, frontend, design
+description: Build a tool that generates harmonious color palettes with hex codes and export options
+expertise: easy
+thumbId: GlavtG-umzE
+---
+
+Create a color palette generator that produces aesthetically pleasing color schemes. Users can generate random palettes, lock specific colors, and export palettes for use in design projects.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Generate random color palettes (5-7 colors)</li>
+  <li>Display colors with hex codes and RGB values</li>
+  <li>Allow users to copy color codes to clipboard</li>
+  <li>Implement color locking to keep specific colors while regenerating others</li>
+  <li>Add different palette generation algorithms (complementary, triadic, analogous)</li>
+  <li>Create a visual preview area showing colors together</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add color picker to manually select starting colors</li>
+  <li>Implement accessibility checking (contrast ratios, WCAG compliance)</li>
+  <li>Add export options (CSS, JSON, PNG image)</li>
+  <li>Create a favorites system to save preferred palettes</li>
+  <li>Add color name detection (e.g., "Crimson Red")</li>
+  <li>Implement gradient generation from palette</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Coolors</li>
+  <li>Adobe Color</li>
+  <li>Paletton</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to generate colors:
+
+```javascript
+function generateRandomColor() {
+  return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+}
+
+function generatePalette(count = 5) {
+  const palette = [];
+  for (let i = 0; i < count; i++) {
+    palette.push(generateRandomColor());
+  }
+  return palette;
+}
+
+function generateComplementaryPalette(baseColor) {
+  const hsl = hexToHsl(baseColor);
+  const complementary = [(hsl[0] + 180) % 360, hsl[1], hsl[2]];
+  return [baseColor, hslToHex(complementary)];
+}
+```

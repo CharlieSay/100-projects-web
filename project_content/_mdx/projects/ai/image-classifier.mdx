@@ -1,0 +1,52 @@
+---
+title: Image Classifier
+tags: ai, machine-learning, computer-vision, python, tensorflow
+description: Build an image classification model that can identify objects in images using deep learning
+expertise: intermediate
+thumbId: fOwb7GrCg5I
+---
+
+Create an image classification system using convolutional neural networks that can categorize images into different classes with high accuracy.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Collect and preprocess image dataset</li>
+  <li>Build CNN model architecture</li>
+  <li>Train model on training data</li>
+  <li>Evaluate model performance on test set</li>
+  <li>Create API endpoint for image classification</li>
+  <li>Build simple web interface for uploading images</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement transfer learning with pre-trained models</li>
+  <li>Add data augmentation to improve accuracy</li>
+  <li>Create confidence scores for predictions</li>
+  <li>Implement batch prediction</li>
+  <li>Add model versioning and A/B testing</li>
+  <li>Create model retraining pipeline</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Google Cloud Vision API</li>
+  <li>Amazon Rekognition</li>
+  <li>Clarifai</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```python
+import tensorflow as tf
+from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    keras.layers.MaxPooling2D(2, 2),
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D(2, 2),
+    keras.layers.Flatten(),
+    keras.layers.Dense(128, activation='relu'),
+    keras.layers.Dense(num_classes, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+model.fit(train_images, train_labels, epochs=10, validation_data=(val_images, val_labels))
+```

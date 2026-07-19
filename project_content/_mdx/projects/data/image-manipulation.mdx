@@ -1,0 +1,60 @@
+---
+title: Image Manipulation with Pillow
+tags: python, image processing, Pillow
+description: a simple program that performs basic image manipulation tasks using the Pillow library
+expertise: intermediate
+thumbId: MgtHZ4zlC1U
+---
+
+Image manipulation is a common task in many fields, including web development, data analysis, and computer vision. In this project, you will create a simple program that performs basic image manipulation tasks using the Pillow library in Python.
+
+<h1>Create a Basic Image Manipulation Program</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>A way to load and display an image using Pillow</li>
+  <li>
+    A way to perform basic image manipulation tasks like resizing, cropping, and
+    color correction using Pillow
+  </li>
+  <li>A way to save the manipulated image to a file</li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add a feature that allows users to apply multiple image manipulation
+    tasks in a single program run?
+  </li>
+  <li>
+    Can you add a feature that allows users to specify the image manipulation
+    tasks and parameters through command-line arguments or a GUI?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+  To get started with this project, you will need to install the Pillow library
+  using pip:
+</p>
+
+```python
+pip install Pillow
+```
+
+<p>
+  Then, you can use the following code to open and display an image using Pillow
+</p>
+
+```python
+from PIL import Image
+image = Image.open("image.jpg")
+image.show()
+```
+
+<p>
+This code opens the image file "image.jpg" and displays it using the default image viewer. You can then build on this foundation by adding the image manipulation functionality. For example, the following code resizes an image to a specific width and height:
+</p>
+```python
+image = image.resize((width, height))
+```
+<p>
+You can find more information about the available image manipulation functions in the Pillow documentation: https://pillow.readthedocs.io/en/stable/
+</p>

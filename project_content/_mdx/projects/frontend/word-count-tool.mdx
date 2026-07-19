@@ -1,0 +1,44 @@
+---
+title: Word Count Tool
+tags: javascript, html, css, frontend, text-analysis
+description: Build a comprehensive text analysis tool that counts words, characters, sentences, and provides readability metrics
+expertise: easy
+thumbId: GlavtG-umzE
+---
+
+Create a text analysis tool that provides real-time statistics as users type. Display word count, character count (with and without spaces), sentence count, paragraph count, and reading time estimates.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create a text input area (textarea)</li>
+  <li>Display word count, character count, and character count without spaces</li>
+  <li>Count sentences and paragraphs</li>
+  <li>Calculate estimated reading time</li>
+  <li>Update statistics in real-time as user types</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add readability scores (Flesch Reading Ease, SMOG index)</li>
+  <li>Display most frequent words</li>
+  <li>Add keyword density analysis</li>
+  <li>Export statistics as JSON or CSV</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+function analyzeText(text) {
+  const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+  const characters = text.length;
+  const charactersNoSpaces = text.replace(/\s/g, '').length;
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+  
+  return {
+    wordCount: words.length,
+    characterCount: characters,
+    characterCountNoSpaces: charactersNoSpaces,
+    sentenceCount: sentences.length,
+    paragraphCount: paragraphs.length,
+    readingTime: Math.ceil(words.length / 200)
+  };
+}
+```

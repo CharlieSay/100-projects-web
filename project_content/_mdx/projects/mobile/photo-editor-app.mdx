@@ -1,0 +1,51 @@
+---
+title: Photo Editor App
+tags: mobile, photo-editing, image-processing, react-native
+description: Build a mobile photo editing app with filters, adjustments, and creative tools
+expertise: hard
+thumbId: BqKdvJ8a5TI
+---
+
+Create a comprehensive photo editing mobile app with filters, adjustments, cropping, text overlays, and creative effects.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement image picker from gallery or camera</li>
+  <li>Create filter library (vintage, black & white, etc.)</li>
+  <li>Add adjustment tools (brightness, contrast, saturation)</li>
+  <li>Implement crop and rotate functionality</li>
+  <li>Add text overlay tool</li>
+  <li>Create save and share functionality</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add drawing and brush tools</li>
+  <li>Implement sticker and emoji overlays</li>
+  <li>Create collage maker</li>
+  <li>Add face detection and beautification</li>
+  <li>Implement batch editing</li>
+  <li>Add cloud sync for edited photos</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>VSCO</li>
+  <li>Snapseed</li>
+  <li>Adobe Lightroom Mobile</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Apply filter
+function applyFilter(imageUri, filterType) {
+  const filters = {
+    vintage: { brightness: 0.9, contrast: 1.1, saturation: 0.8 },
+    blackwhite: { saturation: 0 },
+    sepia: { sepia: 1 }
+  };
+  
+  return ImageManipulator.manipulateAsync(
+    imageUri,
+    [{ [filterType]: filters[filterType] }],
+    { compress: 0.8, format: ImageManipulator.SaveFormat.JPEG }
+  );
+}
+```

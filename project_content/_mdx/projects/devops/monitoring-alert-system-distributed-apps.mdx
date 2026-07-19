@@ -1,0 +1,45 @@
+---
+title: Build a Monitoring and Alerting System
+tags: monitoring, alerting, distributed application
+description: Create a monitoring and alerting system to track the health and performance of a distributed application
+expertise: intermediate
+thumbId: Bd7gNnWJBkU
+---
+
+In this project, we will be building a monitoring and alerting system to track the health and performance of a distributed application. A distributed application is one that is spread across multiple servers or devices, making it essential to have a system in place to monitor its overall health and detect any issues.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Install and set up a monitoring tool (such as Prometheus or Datadog) on the servers or devices where the application is running</li>
+<li>Configure the monitoring tool to collect metrics and logs from the application and its dependencies</li>
+<li>Set up alerting rules to trigger notifications when certain thresholds or events are detected</li>
+<li>Integrate the monitoring and alerting system with other tools, such as a ticketing system or chat platform, to facilitate response and resolution of issues</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Implement dashboards and visualizations to make it easier to track and analyze the collected metrics and logs</li>
+<li>Set up anomaly detection algorithms to identify unusual patterns or behavior in the collected data</li>
+<li>Integrate the monitoring and alerting system with a distributed tracing tool to help identify the root cause of issues</li>
+
+<li>Implement a notification escalation process to ensure that critical issues are addressed in a timely manner</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Prometheus</li>
+<li>Datadog</li>
+<li>New Relic</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic monitoring configuration using Prometheus:
+
+```yml
+# Prometheus configuration file
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'myapp'
+    static_configs:
+      - targets: ['localhost:9090']
+```

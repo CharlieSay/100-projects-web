@@ -1,0 +1,57 @@
+---
+title: Expense Tracker
+tags: javascript, html, css, frontend, finance
+description: Build a personal expense tracking application with categories, charts, and budget management
+expertise: intermediate
+thumbId: GlavtG-umzE
+---
+
+Create a comprehensive expense tracker that helps users monitor their spending, categorize expenses, and visualize their financial data through charts and graphs.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create a form to add new expenses with amount, description, category, and date</li>
+  <li>Display a list of all expenses with filtering and sorting options</li>
+  <li>Implement category-based expense grouping</li>
+  <li>Add a summary section showing total expenses and remaining budget</li>
+  <li>Use localStorage to persist expense data</li>
+  <li>Create basic charts to visualize spending patterns</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add budget limits per category with alerts when exceeded</li>
+  <li>Implement date range filtering (daily, weekly, monthly views)</li>
+  <li>Add export functionality (CSV, JSON)</li>
+  <li>Create advanced charts using Chart.js or D3.js</li>
+  <li>Add recurring expense tracking</li>
+  <li>Implement expense search and advanced filtering</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Mint</li>
+  <li>YNAB (You Need A Budget)</li>
+  <li>PocketGuard</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to manage expenses:
+
+```javascript
+let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+function addExpense(amount, description, category, date) {
+  const expense = {
+    id: Date.now(),
+    amount: parseFloat(amount),
+    description,
+    category,
+    date: new Date(date)
+  };
+  expenses.push(expense);
+  localStorage.setItem('expenses', JSON.stringify(expenses));
+  updateUI();
+}
+
+function getTotalExpenses() {
+  return expenses.reduce((sum, expense) => sum + expense.amount, 0);
+}
+```

@@ -1,0 +1,63 @@
+---
+title: Stopwatch & Lap Timer
+tags: javascript, html, css, frontend
+description: Build a precise stopwatch with lap timing functionality and split tracking
+expertise: easy
+thumbId: GlavtG-umzE
+---
+
+Create a professional stopwatch application with lap timing capabilities. Perfect for tracking workouts, races, or any timed activities with multiple checkpoints.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement start, stop, and reset controls</li>
+  <li>Display time in hours:minutes:seconds.milliseconds format</li>
+  <li>Add lap/split functionality to record intermediate times</li>
+  <li>Display a list of all recorded laps</li>
+  <li>Show fastest and slowest lap times</li>
+  <li>Ensure accurate timing using requestAnimationFrame or high-resolution timers</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add multiple stopwatch instances for comparing times</li>
+  <li>Implement countdown timer mode</li>
+  <li>Add sound alerts at specific time intervals</li>
+  <li>Export lap times as CSV or JSON</li>
+  <li>Create visual lap time graphs</li>
+  <li>Add preset timers for common activities</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>iPhone Stopwatch</li>
+  <li>Sports timing apps</li>
+  <li>Fitness trackers</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to implement timing:
+
+```javascript
+let startTime = null;
+let elapsedTime = 0;
+let laps = [];
+let animationFrameId = null;
+
+function start() {
+  startTime = performance.now() - elapsedTime;
+  update();
+}
+
+function update() {
+  elapsedTime = performance.now() - startTime;
+  displayTime(elapsedTime);
+  animationFrameId = requestAnimationFrame(update);
+}
+
+function recordLap() {
+  laps.push({
+    lapNumber: laps.length + 1,
+    time: elapsedTime,
+    lapTime: laps.length > 0 ? elapsedTime - laps[laps.length - 1].time : elapsedTime
+  });
+  displayLaps();
+}
+```

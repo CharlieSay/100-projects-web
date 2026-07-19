@@ -1,0 +1,55 @@
+---
+title: Flashcard Study App
+tags: mobile, education, flashcards, spaced-repetition, learning
+description: Build a flashcard app with spaced repetition algorithm to optimize learning and memory retention
+expertise: intermediate
+thumbId: BqKdvJ8a5TI
+---
+
+Create a flashcard study app that uses spaced repetition to help users memorize information more effectively by scheduling reviews based on difficulty and performance.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create flashcard creation interface (front/back)</li>
+  <li>Implement card deck organization</li>
+  <li>Build spaced repetition algorithm (SM-2 or similar)</li>
+  <li>Add card review interface with difficulty rating</li>
+  <li>Create progress tracking and statistics</li>
+  <li>Implement card search and filtering</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add image and audio support for cards</li>
+  <li>Implement card sharing and import/export</li>
+  <li>Create study reminders and notifications</li>
+  <li>Add multiple choice quiz mode</li>
+  <li>Implement card difficulty analytics</li>
+  <li>Add collaborative deck creation</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Anki</li>
+  <li>Quizlet</li>
+  <li>Memrise</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+// Spaced repetition algorithm (SM-2)
+function calculateNextReview(card, quality) {
+  if (quality < 3) {
+    card.repetitions = 0;
+    card.interval = 1;
+  } else {
+    if (card.repetitions === 0) {
+      card.interval = 1;
+    } else if (card.repetitions === 1) {
+      card.interval = 6;
+    } else {
+      card.interval = Math.round(card.interval * card.easinessFactor);
+    }
+    card.repetitions += 1;
+  }
+  card.easinessFactor = Math.max(1.3, card.easinessFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
+  card.nextReview = new Date(Date.now() + card.interval * 24 * 60 * 60 * 1000);
+}
+```

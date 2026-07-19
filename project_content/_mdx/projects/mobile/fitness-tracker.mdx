@@ -1,0 +1,125 @@
+---
+title: Create a Mobile Fitness App
+tags: mobile, fitness, swift, android
+description: This project will involve building a mobile application that allows users to track their fitness activities and share them with others. The app will also include features such as personalized training plans and real-time tracking.
+expertise: intermediate
+thumbId: HM-Y497t5CU
+---
+
+In this project, we will be creating a mobile application that helps users track and share their fitness activities. The app will allow users to log their workouts, running routes, and other fitness activities, and see their progress over time. It will also include features such as personalized training plans, social sharing, and real-time tracking.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Design and layout the user interface for the app</li>
+  <li>Create a database to store user data and fitness activity information</li>
+  <li>Implement features for logging and tracking fitness activities</li>
+  <li>
+    Add functionality for creating and sharing personalized training plans
+  </li>
+  <li>
+    Include social media integration for sharing activities and progress with
+    friends
+  </li>
+  <li>
+    Implement real-time tracking and mapping for running routes and other
+    activities
+  </li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Integrate with wearable fitness devices for automatic tracking</li>
+  <li>Add nutrition tracking and meal planning features</li>
+  <li>
+    Implement a messaging system for users to communicate and motivate each
+    other
+  </li>
+  <li>
+    Include a marketplace for users to purchase and sell fitness-related
+    products and services
+  </li>
+  <li>
+    Integrate with other popular fitness apps and services for seamless tracking
+    and data synchronization
+  </li>
+</ul>
+<h2>Hint/Code snippet to start them</h2>
+To get started, you can use the following code snippet to set up the basic structure
+of the app:
+
+<h2>Android Starter</h2>
+
+```java
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Set up button click listeners
+        Button logWorkoutButton = findViewById(R.id.log_workout_button);
+        logWorkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open the log workout activity
+                Intent intent = new Intent(MainActivity.this, LogWorkoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button viewProgressButton = findViewById(R.id.view_progress_button);
+        viewProgressButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open the view progress activity
+                Intent intent = new Intent(MainActivity.this, ViewProgressActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+}
+
+```
+
+<h2>Swift/iOS Starter</h2>
+
+```swift
+
+class MainViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Set up button click listeners
+        let logWorkoutButton = UIButton(type: .system)
+        logWorkoutButton.setTitle("Log Workout", for: .normal)
+        logWorkoutButton.addTarget(self, action: #selector(logWorkoutButtonTapped), for: .touchUpInside)
+        view.addSubview(logWorkoutButton)
+
+        let viewProgressButton = UIButton(type: .system)
+        viewProgressButton.setTitle("View Progress", for: .normal)
+        viewProgressButton.addTarget(self, action: #selector(viewProgressButtonTapped), for: .touchUpInside)
+        view.addSubview(viewProgressButton)
+    }
+
+    @objc func logWorkoutButtonTapped() {
+        // Open the log workout activity
+        let logWorkoutVC = LogWorkoutViewController()
+        navigationController?.pushViewController(logWorkoutVC, animated: true)
+    }
+
+    @objc func viewProgressButtonTapped() {
+        // Open the view progress activity
+        let viewProgressVC = ViewProgressViewController()
+        navigationController?.pushViewController(viewProgressVC, animated: true)
+    }
+}
+
+```
+
+<h2>Any companies / libraries that have already done this</h2>
+There are several popular fitness tracking apps on the market, including Fitbit,
+MyFitnessPal, and Strava. These apps offer similar functionality to what we will
+be building in this project.

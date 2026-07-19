@@ -1,0 +1,53 @@
+---
+title: Recommendation Engine
+tags: ai, machine-learning, recommendations, python, collaborative-filtering
+description: Build a recommendation system that suggests products, movies, or content based on user preferences
+expertise: intermediate
+thumbId: fOwb7GrCg5I
+---
+
+Create a recommendation engine using collaborative filtering or content-based filtering to suggest relevant items to users.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Collect user interaction data (ratings, views, purchases)</li>
+  <li>Implement collaborative filtering algorithm</li>
+  <li>Build content-based filtering as alternative</li>
+  <li>Create hybrid recommendation system</li>
+  <li>Evaluate recommendation quality with metrics</li>
+  <li>Build API to serve recommendations</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement matrix factorization for better accuracy</li>
+  <li>Add real-time recommendation updates</li>
+  <li>Create explanation system (why items are recommended)</li>
+  <li>Implement A/B testing for recommendation algorithms</li>
+  <li>Add diversity metrics to avoid filter bubbles</li>
+  <li>Create cold-start solutions for new users/items</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Netflix recommendations</li>
+  <li>Amazon product recommendations</li>
+  <li>Spotify Discover Weekly</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```python
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
+def collaborative_filter(user_id, user_item_matrix):
+    # Calculate user similarity
+    user_similarities = cosine_similarity(user_item_matrix)
+    similar_users = user_similarities[user_id].argsort()[-10:][::-1]
+    
+    # Generate recommendations
+    recommendations = {}
+    for similar_user in similar_users:
+        for item_id, rating in enumerate(user_item_matrix[similar_user]):
+            if user_item_matrix[user_id][item_id] == 0 and rating > 0:
+                recommendations[item_id] = recommendations.get(item_id, 0) + rating
+    
+    return sorted(recommendations.items(), key=lambda x: x[1], reverse=True)[:10]
+```

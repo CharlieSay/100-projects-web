@@ -1,0 +1,64 @@
+---
+title: Task Queue System
+tags: backend, queue, background-jobs, nodejs, redis
+description: Build a task queue system for processing background jobs asynchronously
+expertise: hard
+thumbId: aEKwSdX5pJU
+---
+
+Create a robust task queue system that processes background jobs asynchronously, handles job retries, prioritization, and provides job status tracking.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create queue data structure for job storage</li>
+  <li>Implement job enqueueing with metadata</li>
+  <li>Build worker system to process jobs</li>
+  <li>Add job status tracking (pending, processing, completed, failed)</li>
+  <li>Implement job retry mechanism for failed jobs</li>
+  <li>Add priority levels for job processing</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement delayed/scheduled jobs</li>
+  <li>Add job progress tracking</li>
+  <li>Create job cancellation functionality</li>
+  <li>Implement multiple worker pools</li>
+  <li>Add job result storage</li>
+  <li>Create monitoring dashboard</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Bull</li>
+  <li>Celery</li>
+  <li>AWS SQS</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+class TaskQueue {
+  constructor() {
+    this.queue = [];
+    this.processing = false;
+  }
+  
+  async enqueue(job) {
+    this.queue.push({ ...job, status: 'pending', id: Date.now() });
+    this.process();
+  }
+  
+  async process() {
+    if (this.processing || this.queue.length === 0) return;
+    this.processing = true;
+    const job = this.queue.shift();
+    job.status = 'processing';
+    try {
+      await this.executeJob(job);
+      job.status = 'completed';
+    } catch (error) {
+      job.status = 'failed';
+      job.retries = (job.retries || 0) + 1;
+    }
+    this.processing = false;
+    this.process();
+  }
+}
+```

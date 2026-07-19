@@ -1,0 +1,58 @@
+---
+title: Note Taking App
+tags: javascript, html, css, frontend, markdown
+description: Build a markdown-enabled note-taking application with organization and search capabilities
+expertise: intermediate
+thumbId: GlavtG-umzE
+---
+
+Create a feature-rich note-taking application that supports markdown formatting, note organization with tags/folders, and full-text search.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create note editor with markdown support and live preview</li>
+  <li>Implement note creation, editing, and deletion</li>
+  <li>Add note organization (folders, tags, categories)</li>
+  <li>Build search functionality to find notes by content or title</li>
+  <li>Use localStorage to persist notes</li>
+  <li>Add note list sidebar with sorting options</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement rich text editor with formatting toolbar</li>
+  <li>Add note sharing via URL generation</li>
+  <li>Create note templates for common note types</li>
+  <li>Add export options (Markdown, PDF, HTML)</li>
+  <li>Implement note versioning/history</li>
+  <li>Add dark mode and theme customization</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Notion</li>
+  <li>Evernote</li>
+  <li>Obsidian</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+function createNote(title, content) {
+  const note = {
+    id: Date.now(),
+    title,
+    content,
+    createdAt: new Date(),
+    tags: []
+  };
+  notes.push(note);
+  saveNotes();
+  return note;
+}
+
+function searchNotes(query) {
+  return notes.filter(note => 
+    note.title.toLowerCase().includes(query.toLowerCase()) ||
+    note.content.toLowerCase().includes(query.toLowerCase())
+  );
+}
+```

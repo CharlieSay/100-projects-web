@@ -1,0 +1,57 @@
+---
+title: Build a Command-Line Application to Convert CSV to JSON in Rust
+tags: Rust, command-line, CSV, JSON
+description: Create a command-line application to convert a CSV file to a JSON file using the Rust programming language
+expertise: easy
+thumbId: R401qwThw7w
+---
+
+In this project, we will be building a command-line application to convert a CSV file to a JSON file using the Rust programming language. This can be useful for working with data in different formats or for integrating with APIs that require JSON input.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Install and set up a Rust development environment</li>
+  <li>
+    Design and implement a command-line application to read in a CSV file and
+    convert it to a JSON file
+  </li>
+  <li>Test and debug the application using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Implement additional command-line options or flags to customize the
+    conversion process, such as specifying the input and output file paths or
+    the JSON formatting
+  </li>
+  <li>
+    Add error handling to the application to gracefully handle invalid input or
+    file errors
+  </li>
+  <li>
+    Integrate the application with a data processing library or crate, such as
+    csv or serde
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>csv</li>
+  <li>serde</li>
+  <li>csv-to-json</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic command-line
+application using Rust:
+
+```rust
+
+use std::env;
+
+fn main() {
+let args: Vec<String> = env::args().collect();
+println!("Hello, {}!", args[1]);
+}
+
+```
+
+This code will print the first command-line argument passed to the application. You can then add logic to read in the CSV file and convert it to a JSON file using the provided libraries or crates.

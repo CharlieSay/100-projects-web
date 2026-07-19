@@ -1,0 +1,48 @@
+---
+title: User Authentication System
+tags: backend, authentication, security, jwt, nodejs
+description: Build a secure user authentication system with registration, login, password reset, and JWT tokens
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Implement a complete authentication system with user registration, login, password hashing, JWT token generation, and password reset functionality.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create user registration endpoint with email validation</li>
+  <li>Implement secure password hashing using bcrypt</li>
+  <li>Build login endpoint that returns JWT tokens</li>
+  <li>Create middleware to protect routes requiring authentication</li>
+  <li>Implement password reset flow with secure tokens</li>
+  <li>Add email verification for new accounts</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add OAuth integration (Google, GitHub)</li>
+  <li>Implement refresh token rotation</li>
+  <li>Add rate limiting for login attempts</li>
+  <li>Create session management</li>
+  <li>Add two-factor authentication (2FA)</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Auth0</li>
+  <li>Firebase Auth</li>
+  <li>Clerk</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+async function registerUser(email, password) {
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await db.users.create({ email, password: hashedPassword });
+  return user;
+}
+
+function generateToken(userId) {
+  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '24h' });
+}
+```

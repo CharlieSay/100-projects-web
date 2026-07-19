@@ -1,0 +1,66 @@
+---
+title: Implement a Network Monitoring Tool using Rust and pnet or net2
+tags: network monitoring, Rust, pnet, net2
+description: Build a tool for monitoring network traffic using Rust and pnet or net2
+expertise: moderate
+thumbId: gZO2NlR1iKs
+---
+
+In this project, we will be building a network monitoring tool using the Rust programming language and the pnet or net2 libraries. The tool will allow users to capture and analyze network traffic, and display statistics about the network traffic.
+
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Learn the basics of network programming with Rust and the pnet or net2 libraries</li>
+<li>Design and implement a user interface for the network monitoring tool</li>
+<li>Allow users to capture and analyze network traffic</li>
+<li>Allow users to view statistics about the network traffic</li>
+<li>Test and debug the application</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Add support for filtering network traffic by protocol or IP address</li>
+<li>Implement a feature for exporting network traffic data to a file</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Wireshark</li>
+<li>tcpdump</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic network capture using Rust and the pnet or net2 libraries:
+
+```rust
+extern crate pnet;
+
+use pnet::datalink::{self, NetworkInterface};
+
+fn main() {
+    let interface_name = "eth0";
+    let interfaces = datalink::interfaces();
+    let interface = interfaces
+        .into_iter()
+        .filter(|iface| iface.name == interface_name)
+        .next()
+        .unwrap();
+
+    let (_, mut rx) = match datalink::channel(&interface, Default::default()) {
+        Ok(Ethernet(tx, rx)) => (tx, rx),
+        Ok(_) => panic!("Unhandled channel type"),
+        Err(e) => panic!("An error occurred when creating the datalink channel: {}", e),
+    };
+
+    loop {
+        match rx.next() {
+            Ok(packet) => {
+                // Process packet here
+            }
+            Err(e) => {
+                panic!("An error occurred while reading: {}", e);
+            }
+        }
+    }
+}
+```
+
+This code sets up a basic capture of network traffic on the specified interface and loops through the captured packets. You can use this code snippet as a starting point to build the network monitoring tool.

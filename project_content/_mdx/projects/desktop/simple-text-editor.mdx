@@ -1,0 +1,67 @@
+---
+title: Simple Text Editor
+tags: rust, text editor, cursive, termion
+description: a simple text editor using Rust and a library like Cursive or Termion for the user interface
+expertise: intermediate
+thumbId: hXrPSgGFpqQ
+---
+
+A text editor is a basic tool that allows users to create and edit text documents. In this project, you will create a simple text editor using Rust and a library like Cursive or Termion for the user interface.
+
+<h1>Create a Simple Text Editor</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>
+    A way for users to input and edit text
+  </li>
+  <li>
+    A user interface using a library like Cursive or Termion
+  </li>
+  <li>
+    A way to save and load text documents
+  </li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add support for formatting options like bold, italic, and underline?
+  </li>
+  <li>
+    Can you add support for syntax highlighting for programming languages?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+ To get started with this project, you can begin by setting up a basic user interface using a library like Cursive or Termion. You can then implement the text input and editing functionality, as well as the ability to save and load text documents.
+
+Here is some sample code to get you started with Cursive:
+
+</p>
+
+```rust
+extern crate cursive;
+extern crate termion;
+
+use cursive::views::TextView;
+use cursive::Cursive;
+use termion::input::TermRead;
+use termion::raw::IntoRawMode;
+
+fn main() {
+// Initialize the Cursive root
+let mut siv = Cursive::new();
+
+    // Create a new text view and add it to the root
+    let mut text_view = TextView::new("");
+    siv.add_layer(text_view.layer());
+
+    // Set up the event loop
+    siv.add_global_callback('q', |s| s.quit());
+    siv.run();
+
+}
+```
+
+This code creates a new Cursive root and adds a text view to it. It also sets up an event loop that listens for the 'q' key press and quits the application when it is detected.
+
+You can then build on this foundation by adding functionality to edit the text in the text view, save the edited text to a file, and handle other user actions. You can also customize the appearance and behavior of the text editor using the features provided by the Cursive or Termion library.

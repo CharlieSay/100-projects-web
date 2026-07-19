@@ -1,0 +1,57 @@
+---
+title: Face Recognition System
+tags: ai, computer-vision, face-recognition, python, opencv
+description: Build a face recognition system that can identify and verify faces in images or video streams
+expertise: hard
+thumbId: fOwb7GrCg5I
+---
+
+Create a face recognition system that can detect faces, extract features, and match them against a database of known faces.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement face detection using OpenCV or face_recognition library</li>
+  <li>Extract facial features/embeddings</li>
+  <li>Build face database with labeled images</li>
+  <li>Implement face matching algorithm</li>
+  <li>Create API for face recognition</li>
+  <li>Build simple web interface for face verification</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add real-time face recognition from video stream</li>
+  <li>Implement face liveness detection</li>
+  <li>Create face search functionality</li>
+  <li>Add age and gender estimation</li>
+  <li>Implement face clustering for unknown faces</li>
+  <li>Add privacy features (face blurring)</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Face ID</li>
+  <li>Amazon Rekognition</li>
+  <li>Microsoft Face API</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```python
+import face_recognition
+import cv2
+
+def encode_face(image_path):
+    image = face_recognition.load_image_file(image_path)
+    encodings = face_recognition.face_encodings(image)
+    return encodings[0] if encodings else None
+
+def recognize_face(unknown_image_path, known_encodings, known_names):
+    unknown_encoding = encode_face(unknown_image_path)
+    if unknown_encoding is None:
+        return "No face found"
+    
+    matches = face_recognition.compare_faces(known_encodings, unknown_encoding)
+    distances = face_recognition.face_distance(known_encodings, unknown_encoding)
+    
+    best_match_index = distances.argmin()
+    if matches[best_match_index] and distances[best_match_index] < 0.6:
+        return known_names[best_match_index]
+    return "Unknown"
+```

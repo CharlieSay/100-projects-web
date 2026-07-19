@@ -1,0 +1,62 @@
+---
+title: Rate Limiting Middleware
+tags: backend, middleware, security, nodejs, express
+description: Implement rate limiting middleware to protect APIs from abuse and ensure fair usage
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Build a rate limiting middleware that restricts the number of requests a client can make within a specified time window, protecting your API from abuse.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create middleware that tracks request counts per IP</li>
+  <li>Implement sliding window or fixed window rate limiting</li>
+  <li>Add configurable limits (requests per minute/hour)</li>
+  <li>Return appropriate HTTP status codes (429 Too Many Requests)</li>
+  <li>Include rate limit headers in responses</li>
+  <li>Store rate limit data in memory or Redis</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement different limits for different endpoints</li>
+  <li>Add user-based rate limiting (authenticated users)</li>
+  <li>Create whitelist/blacklist functionality</li>
+  <li>Implement distributed rate limiting with Redis</li>
+  <li>Add rate limit bypass for admin users</li>
+  <li>Create rate limit analytics dashboard</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>express-rate-limit</li>
+  <li>API Gateway rate limiting</li>
+  <li>Cloudflare rate limiting</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const rateLimit = {};
+
+function createRateLimiter(maxRequests, windowMs) {
+  return (req, res, next) => {
+    const ip = req.ip;
+    const now = Date.now();
+    
+    if (!rateLimit[ip]) {
+      rateLimit[ip] = { count: 1, resetTime: now + windowMs };
+      return next();
+    }
+    
+    if (now > rateLimit[ip].resetTime) {
+      rateLimit[ip] = { count: 1, resetTime: now + windowMs };
+      return next();
+    }
+    
+    if (rateLimit[ip].count >= maxRequests) {
+      return res.status(429).json({ error: 'Too many requests' });
+    }
+    
+    rateLimit[ip].count++;
+    next();
+  };
+}
+```

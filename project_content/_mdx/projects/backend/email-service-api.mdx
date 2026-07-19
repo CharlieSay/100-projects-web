@@ -1,0 +1,50 @@
+---
+title: Email Service API
+tags: backend, email, api, nodejs, smtp
+description: Build an email service API for sending transactional emails, templates, and email tracking
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Create an email service API that sends emails using SMTP, supports HTML templates, and includes email tracking capabilities.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Set up SMTP connection configuration</li>
+  <li>Create endpoint to send plain text emails</li>
+  <li>Implement HTML email support</li>
+  <li>Add email template system</li>
+  <li>Create email queue for reliable delivery</li>
+  <li>Add basic email validation</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement email tracking (open rates, click tracking)</li>
+  <li>Add attachment support</li>
+  <li>Create bulk email sending with rate limiting</li>
+  <li>Implement email scheduling</li>
+  <li>Add email delivery status webhooks</li>
+  <li>Create email analytics dashboard</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>SendGrid</li>
+  <li>Mailgun</li>
+  <li>Amazon SES</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
+});
+
+app.post('/send-email', async (req, res) => {
+  const { to, subject, html } = req.body;
+  await transporter.sendMail({ from: process.env.EMAIL_USER, to, subject, html });
+  res.json({ success: true });
+});
+```

@@ -1,0 +1,57 @@
+---
+title: Java News Aggregator
+tags: java, web development, API, database
+description: a simple news aggregator application using a web framework, a database, and an external news API
+expertise: easy
+thumbId: _Zua2hyvTBk
+---
+
+A news aggregator application allows users to view and search for news articles from various sources. In this project, you will create a basic news aggregator using Java and a web framework like Spring or JSF. You will also use a database to store news articles and an external news API to retrieve and display them to users.
+
+<h1>Create a Basic News Aggregator</h1>
+<h2>Requirements</h2>
+<ul>
+  <li>
+    A way for users to view and search for news articles
+  </li>
+  <li>
+    A way to retrieve news articles from an external news API and store them in a database
+  </li>
+  <li>
+    A way to display news articles to users using a web framework
+  </li>
+</ul>
+<h2>Bonus</h2>
+<ul>
+  <li>
+    Can you add a feature that allows users to save or bookmark articles for later reference?
+  </li>
+  <li>
+    Can you add a feature that allows users to filter articles by source or topic?
+  </li>
+</ul>
+<h2>Hint</h2>
+<p>
+ To get started with this project, you can set up a basic web server using a framework like Spring or JSF. You can then retrieve news articles from an external API using Java's built-in networking libraries. To store and retrieve news articles from a database, you can use a library like JDBC or Hibernate.
+Here is some sample code to get you started with a Spring web server:
+
+</p>
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class NewsAggregatorApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(NewsAggregatorApplication.class, args);
+  }
+}
+```
+
+<p>
+  This code creates a basic Spring app that can be run using the `main` method.
+  You can then build on this foundation by adding the news API integration and
+  database functionality.
+</p>

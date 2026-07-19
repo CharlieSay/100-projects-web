@@ -1,0 +1,65 @@
+---
+title: API Documentation Generator
+tags: backend, documentation, openapi, swagger, nodejs
+description: Create an automated API documentation generator that produces interactive API docs from code annotations
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Build a tool that automatically generates interactive API documentation from code comments and annotations, similar to Swagger/OpenAPI.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Parse code comments/annotations for API endpoint information</li>
+  <li>Extract route definitions, parameters, and response schemas</li>
+  <li>Generate OpenAPI/Swagger specification file</li>
+  <li>Create interactive documentation UI</li>
+  <li>Support multiple HTTP methods and status codes</li>
+  <li>Include request/response examples</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add "Try it out" functionality to test endpoints</li>
+  <li>Support authentication documentation</li>
+  <li>Generate code examples in multiple languages</li>
+  <li>Add versioning support</li>
+  <li>Implement automatic schema validation</li>
+  <li>Create PDF export functionality</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Swagger UI</li>
+  <li>Postman Documentation</li>
+  <li>Redoc</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+/**
+ * @route POST /api/users
+ * @description Create a new user
+ * @param {string} email - User email address
+ * @param {string} password - User password
+ * @returns {object} 201 - Created user object
+ * @returns {object} 400 - Validation error
+ */
+app.post('/api/users', async (req, res) => {
+  // Implementation
+});
+
+function generateOpenAPISpec(routes) {
+  return {
+    openapi: '3.0.0',
+    info: { title: 'API', version: '1.0.0' },
+    paths: routes.reduce((paths, route) => {
+      paths[route.path] = {
+        [route.method]: {
+          summary: route.description,
+          parameters: route.params,
+          responses: route.responses
+        }
+      };
+      return paths;
+    }, {})
+  };
+}
+```

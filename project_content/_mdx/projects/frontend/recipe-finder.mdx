@@ -1,0 +1,51 @@
+---
+title: Recipe Finder
+tags: javascript, html, css, api, frontend
+description: Create a recipe search application that finds recipes based on ingredients or cuisine type
+expertise: easy
+thumbId: GlavtG-umzE
+---
+
+Build a recipe finder that allows users to search for recipes by ingredients, cuisine type, or dietary restrictions. Display recipe details including ingredients, instructions, and cooking time.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create a search interface for recipe queries</li>
+  <li>Integrate with a recipe API (e.g., Spoonacular, Edamam)</li>
+  <li>Display recipe cards with images, title, and key information</li>
+  <li>Create a detailed recipe view with ingredients list and instructions</li>
+  <li>Add filtering by cuisine, dietary restrictions, or meal type</li>
+  <li>Implement responsive design for mobile and desktop</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add favorite recipes functionality with localStorage</li>
+  <li>Implement meal planning with calendar view</li>
+  <li>Add shopping list generation from selected recipes</li>
+  <li>Create recipe comparison feature</li>
+  <li>Add nutritional information display</li>
+  <li>Implement recipe sharing via URL or social media</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>AllRecipes</li>
+  <li>Food Network</li>
+  <li>Yummly</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to fetch recipes:
+
+```javascript
+async function searchRecipes(query) {
+  const apiKey = 'YOUR_API_KEY';
+  const url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}`;
+  
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    displayRecipes(data.results);
+  } catch (error) {
+    console.error('Error fetching recipes:', error);
+  }
+}
+```

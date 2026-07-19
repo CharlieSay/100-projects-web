@@ -1,0 +1,49 @@
+---
+title: Image Classification API
+tags: ai, machine-learning, image-recognition, api, tensorflow
+description: Build an API that classifies images using machine learning models, supporting custom model training
+expertise: hard
+thumbId: fOwb7GrCg5I
+---
+
+Create an image classification API that can identify objects, animals, or custom categories in uploaded images using pre-trained or custom-trained machine learning models.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Set up image upload endpoint</li>
+  <li>Integrate pre-trained image classification model (ResNet, MobileNet)</li>
+  <li>Implement image preprocessing and normalization</li>
+  <li>Return classification results with confidence scores</li>
+  <li>Add support for batch image processing</li>
+  <li>Create API documentation</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement custom model training endpoint</li>
+  <li>Add model versioning and A/B testing</li>
+  <li>Create model performance monitoring</li>
+  <li>Implement image augmentation for training</li>
+  <li>Add object detection (bounding boxes)</li>
+  <li>Create model explainability features</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Google Cloud Vision API</li>
+  <li>AWS Rekognition</li>
+  <li>Clarifai</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```python
+import tensorflow as tf
+from tensorflow import keras
+
+model = keras.applications.MobileNetV2(weights='imagenet')
+
+def classify_image(image_path):
+    img = keras.preprocessing.image.load_img(image_path, target_size=(224, 224))
+    img_array = keras.preprocessing.image.img_to_array(img)
+    img_array = tf.expand_dims(img_array, 0)
+    predictions = model.predict(img_array)
+    results = keras.applications.mobilenet_v2.decode_predictions(predictions, top=5)[0]
+    return results
+```

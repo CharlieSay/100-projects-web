@@ -1,0 +1,54 @@
+---
+title: Rate Limiter Middleware
+tags: backend, api, rate-limiting, security, redis
+description: Implement rate limiting middleware to protect APIs from abuse and ensure fair usage
+expertise: intermediate
+thumbId: aEKwSdX5pJU
+---
+
+Build a rate limiting system that restricts the number of requests a client can make within a time window, preventing API abuse and ensuring service stability.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Implement token bucket or sliding window algorithm</li>
+  <li>Create middleware that tracks requests per IP/user</li>
+  <li>Add configurable rate limits (requests per minute/hour)</li>
+  <li>Return appropriate HTTP status codes (429 Too Many Requests)</li>
+  <li>Include rate limit headers in responses</li>
+  <li>Support different limits for different endpoints</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Use Redis for distributed rate limiting</li>
+  <li>Implement different rate limits for authenticated vs anonymous users</li>
+  <li>Add whitelist/blacklist functionality</li>
+  <li>Create rate limit bypass for admin users</li>
+  <li>Implement rate limit analytics and monitoring</li>
+  <li>Add rate limit notifications/alerts</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>express-rate-limit</li>
+  <li>API Gateway rate limiting</li>
+  <li>Cloudflare rate limiting</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP'
+});
+
+app.use('/api/', limiter);
+
+// Custom rate limiter
+const strictLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 5
+});
+
+app.post('/api/login', strictLimiter, loginHandler);
+```

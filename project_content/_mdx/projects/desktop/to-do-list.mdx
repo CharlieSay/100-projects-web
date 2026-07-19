@@ -1,0 +1,54 @@
+---
+title: To-Do List
+tags: electron, desktop
+description: a desktop based to-do-list app in electron
+expertise: intermediate
+thumbId: 6aY-6B3MiZ4
+---
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Design and implement a simple desktop application for managing a to-do list
+  </li>
+  <li>Allow users to create and edit tasks</li>
+  <li>Allow users to mark tasks as complete</li>
+  <li>Allow users to view completed tasks</li>
+  <li>Test and debug the application</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Add additional features such as task prioritization or deadline tracking
+  </li>
+  <li>
+    Integrate with a cloud storage service to allow users to sync their tasks
+    across devices
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Todoist</li>
+  <li>Wunderlist</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to create a basic desktop
+application using a framework such as Electron:
+
+```javascript
+const electron = require('electron');
+const { app, BrowserWindow } = electron;
+
+let mainWindow;
+
+app.on('ready', () => {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+  });
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
+});
+
+```
+
+This code creates a basic desktop application with a main window and loads the main page. You can use this code snippet as a starting point to build the to-do list management application.

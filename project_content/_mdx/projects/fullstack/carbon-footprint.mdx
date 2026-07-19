@@ -1,0 +1,54 @@
+---
+title: Carbon Footprint Tracker
+tags: web development, carbon footprint, sustainable living, full-stack
+description: Create a full-stack application for tracking and managing personal carbon footprint and sustainable living practices.
+expertise: intermediate
+thumbId: aFGZmB0vmIg
+---
+
+Are you interested in reducing your carbon footprint and living a more sustainable lifestyle? This project is perfect for you! In this project, you will create a full-stack application for tracking and managing personal carbon footprint and sustainable living practices.
+
+Users will be able to create an account, input information about their daily activities and transportation, and the application will calculate their carbon footprint. They will be able to view their carbon footprint over time, set goals for reducing their footprint, and receive suggestions for sustainable living practices.
+
+<h1>Project Checklist</h1>
+<ul>
+<li>Create a user registration and login system</li>
+<li>Design a database to store user information, carbon footprint data and sustainable living practices</li>
+<li>Build an interface for inputting daily activities and transportation information</li>
+<li>Implement a feature to calculate the carbon footprint based on the inputted data</li>
+<li>Allow users to view their carbon footprint over time and set reduction goals</li>
+<li>Provide suggestions for sustainable living practices based on the user's carbon footprint</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+<li>Integrate a feature to track progress towards carbon footprint reduction goals</li>
+<li>Add a feature to compare the user's carbon footprint to the average for their location or demographic</li>
+<li>Implement a feature to track energy consumption and suggest ways to reduce it</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+<li>Carbonfootprint.com</li>
+<li>Carbonfund.org</li>
+<li>Coolclimate.org</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+
+```javascript
+// Example code for calculating carbon footprint using Node.js and Express
+app.post('/calculate', (req, res) => {
+    const {user_id, transportation, activities} = req.body;
+    let carbon_footprint = 0;
+    transportation.forEach(transport => {
+        carbon_footprint += transport.emissions;
+    });
+    activities.forEach(activity => {
+        carbon_footprint += activity.emissions;
+    });
+    //save carbon footprint to database
+    CarbonFootprint.create({user_id, carbon_footprint})
+        .then(footprint => res.json(footprint))
+        .catch(err => res.status(400).json(err))
+});
+```
+
+This code snippet is an example of how to use the POST method to calculate the carbon footprint based on transportation and activities data, and saving the carbon footprint in the database.

@@ -1,0 +1,51 @@
+---
+title: URL Shortener API
+tags: backend, api, nodejs, database
+description: Build a URL shortening service with analytics, custom aliases, and expiration dates
+expertise: easy
+thumbId: aEKwSdX5pJU
+---
+
+Create a URL shortener API that converts long URLs into short, shareable links with tracking capabilities and optional custom aliases.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create endpoint to shorten URLs</li>
+  <li>Generate unique short codes for URLs</li>
+  <li>Store mapping between short codes and original URLs</li>
+  <li>Create redirect endpoint that resolves short URLs</li>
+  <li>Add click tracking and analytics</li>
+  <li>Implement custom alias support</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add expiration dates for shortened URLs</li>
+  <li>Implement QR code generation</li>
+  <li>Create analytics dashboard endpoint</li>
+  <li>Add password protection for links</li>
+  <li>Implement bulk URL shortening</li>
+  <li>Add geographic click tracking</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Bitly</li>
+  <li>TinyURL</li>
+  <li>Short.io</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```javascript
+const shortid = require('shortid');
+
+app.post('/shorten', async (req, res) => {
+  const { url, customAlias } = req.body;
+  const shortCode = customAlias || shortid.generate();
+  await db.urls.create({ shortCode, originalUrl: url, clicks: 0 });
+  res.json({ shortUrl: `${baseUrl}/${shortCode}` });
+});
+
+app.get('/:shortCode', async (req, res) => {
+  const url = await db.urls.findOne({ shortCode: req.params.shortCode });
+  await db.urls.update({ clicks: url.clicks + 1 });
+  res.redirect(url.originalUrl);
+});
+```

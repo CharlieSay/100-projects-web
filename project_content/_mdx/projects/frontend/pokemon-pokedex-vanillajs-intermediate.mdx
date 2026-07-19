@@ -1,0 +1,68 @@
+---
+title: Pokemon Pokedex shower (Intermediate)
+tags: javascript, react, redux
+description: a simple Pokémon Pokedex application using React and Redux
+expertise: intermediate
+thumbId: dPKv2iI5ChU
+---
+
+In this project, we will be building a Pokemon Pokedex application using React and Redux, and accessing data from the PokeAPI at https://pokeapi.co/. The application will allow users to browse and search for Pokemon, view their details, and save their favorites.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Design and implement a Pokemon Pokedex application using React, Redux, and
+    the PokeAPI
+  </li>
+  <li>
+    Create a system for browsing and searching for Pokemon, viewing their
+    details, and saving favorites
+  </li>
+  <li>Test and debug the application using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement pagination for the Pokemon list</li>
+  <li>Allow for custom pagination limits</li>
+  <li>
+    Add additional customization options, such as changing the appearance or
+    adding sound effects
+  </li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Pokemon API</li>
+  <li>Pokeapi.co</li>
+  <li>Pokedex</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic React application
+with Redux and a Pokeapi client:
+
+```javascript
+import React from 'react'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import reducer from './reducer'
+import PokeapiClient from './PokeapiClient'
+
+// Create the Redux store with the thunk middleware
+const store = createStore(reducer, applyMiddleware(thunk))
+
+// Set up the Pokeapi client
+const client = new PokeapiClient()
+
+// Create the root component for the application
+function App() {
+  return (
+    <Provider store={store}>
+      {/* Add your application components here */}
+    </Provider>
+  )
+}
+
+export default App
+```
+
+This code sets up a basic React application with a Redux store and the thunk middleware for handling async actions. It also includes a Pokeapi client for accessing data from the PokeAPI. You can then add your application components and implement the desired functionality.

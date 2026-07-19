@@ -1,0 +1,51 @@
+---
+title: Memory Card Game
+tags: javascript, html, css, game, frontend
+description: Build an interactive memory card matching game with flip animations and score tracking
+expertise: easy
+thumbId: GlavtG-umzE
+---
+
+A memory card game challenges players to find matching pairs of cards by flipping them over. In this project, you'll create an interactive memory card game with smooth animations, score tracking, and multiple difficulty levels.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Create a grid of cards that can be flipped to reveal images or symbols</li>
+  <li>Implement matching logic to detect when two cards match</li>
+  <li>Add a timer and move counter to track player performance</li>
+  <li>Include visual feedback for matches and mismatches</li>
+  <li>Add a reset button to start a new game</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Implement multiple difficulty levels (4x4, 6x6, 8x8 grids)</li>
+  <li>Add a leaderboard to save high scores using localStorage</li>
+  <li>Create different card themes (animals, emojis, colors, etc.)</li>
+  <li>Add sound effects for card flips and matches</li>
+  <li>Implement a hint system that reveals a pair temporarily</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Memory games on mobile app stores</li>
+  <li>Brain training applications</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up the basic card structure:
+
+```javascript
+const cards = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'];
+let flippedCards = [];
+let matchedPairs = 0;
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function createCard(value) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.value = value;
+  card.addEventListener('click', flipCard);
+  return card;
+}
+```

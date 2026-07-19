@@ -1,0 +1,64 @@
+---
+title: Container Orchestration Setup
+tags: devops, docker, kubernetes, containers, orchestration
+description: Set up container orchestration using Kubernetes or Docker Swarm to manage and scale containerized applications
+expertise: hard
+thumbId: 9AxFJaNySB8
+---
+
+Create a container orchestration setup that manages multiple containers, handles scaling, load balancing, service discovery, and automated deployments.
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>Set up Kubernetes cluster or Docker Swarm</li>
+  <li>Create deployment configurations (YAML manifests)</li>
+  <li>Implement service discovery and load balancing</li>
+  <li>Configure auto-scaling based on metrics</li>
+  <li>Set up health checks and restart policies</li>
+  <li>Implement rolling updates and rollbacks</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>Add persistent storage volumes</li>
+  <li>Implement secrets and config management</li>
+  <li>Create monitoring and logging integration</li>
+  <li>Add ingress controllers for external access</li>
+  <li>Implement resource limits and quotas</li>
+  <li>Set up multi-environment deployments (dev/staging/prod)</li>
+</ul>
+<h2>Inspiration (Any companies/libraries similar)</h2>
+<ul>
+  <li>Kubernetes</li>
+  <li>Docker Swarm</li>
+  <li>Amazon ECS</li>
+</ul>
+<h2>Hint/Code snippet to start</h2>
+```yaml
+# Kubernetes deployment example
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app
+        image: myapp:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+```

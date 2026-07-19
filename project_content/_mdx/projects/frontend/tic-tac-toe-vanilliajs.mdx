@@ -1,0 +1,91 @@
+---
+title: Tic Tac Toe
+tags: javascript, html, ganmes
+description: a simple Tic Tac Toe game using HTML, CSS, and JavaScript
+expertise: easy
+thumbId: -yhBOqHOr0c
+---
+
+Tic Tac Toe is a classic game that has been enjoyed by people of all ages for generations. Now it's time to create your own version of this classic game using vanilla JavaScript!
+
+<h1>Project Checklist</h1>
+<ul>
+  <li>
+    Design and implement a web-based Tic Tac Toe game using HTML, CSS, and
+    JavaScript
+  </li>
+  <li>Implement a system for tracking game state and determining a winner</li>
+  <li>Test and debug the game using sample data</li>
+</ul>
+<h2>Bonus Project Checklist Items</h2>
+<ul>
+  <li>
+    Implement additional features such as a two-player mode or a computer
+    opponent with different difficulty levels
+  </li>
+  <li>
+    Add additional customization options, such as changing the appearance or
+    adding sound effects
+  </li>
+  <li>
+    Integrate the game with a game development library or API, such as Phaser or
+    p5.js
+  </li>
+</ul>
+
+<h2>Hint/Code snippet to start</h2>
+To get started, you can use the following code snippet to set up a basic Tic Tac
+Toe game using JavaScript:
+
+```html
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <table id="game-board">
+      <tr>
+        <td id="cell-0"></td>
+        <td id="cell-1"></td>
+        <td id="cell-2"></td>
+      </tr>
+      <tr>
+        <td id="cell-3"></td>
+        <td id="cell-4"></td>
+        <td id="cell-5"></td>
+      </tr>
+      <tr>
+        <td id="cell-6"></td>
+        <td id="cell-7"></td>
+        <td id="cell-8"></td>
+      </tr>
+    </table>
+  </body>
+  <style>
+    /* Add some basic styling for the game board */
+  </style>
+  <script>
+    // Create a game state object to track the current player and game board
+    const gameState = {
+      currentPlayer: 'X',
+      board: ['', '', '', '', '', '', '', '', ''],
+    }
+
+    // Add an event listener to each cell to handle clicks
+    const cells = document.querySelectorAll('td')
+    cells.forEach((cell, index) => {
+      cell.addEventListener('click', () => {
+        // Update the game state and cell text
+        gameState.board[index] = gameState.currentPlayer
+        cell.textContent = gameState.currentPlayer
+
+        // Toggle the current player
+        gameState.currentPlayer = gameState.currentPlayer === 'X' ? 'O' : 'X'
+      })
+    })
+  </script>
+</html>
+```
+
+This code will create a basic game board with cells that can be clicked to place an X or an O. You can then add additional logic to track the game state and determine a winner.

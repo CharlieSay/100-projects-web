@@ -1,0 +1,22 @@
+---
+title: Initial Rest API
+tags: java, micro-service, backend
+description: Create a simple Rest API within a MVC Framework of your choice.
+expertise: easy
+thumbId: QUHuwyNgSA0
+---
+
+Create a simple Rest endpoint that allows GET, PUT, UPDATE, DELETE
+
+Heres your starting point :
+
+```java
+@Controller
+public class RootController {
+
+  @GetMapping("/hello")
+  public String greeting() {
+    return "FooBar!";
+  }
+}
+```
